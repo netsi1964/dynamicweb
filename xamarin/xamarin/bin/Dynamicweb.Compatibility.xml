@@ -1,0 +1,4302 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Dynamicweb.Compatibility
+</name>
+</assembly>
+<members>
+<member name="M:Dynamicweb.Weblog.DbObject.GetStoredObjects">
+	<summary>
+ Retrieves StoredObjects object which contains most used (during current request) database objects.
+ </summary>
+	<returns>StoredObjects object.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Weblog.DbObject.GetCustomSelectStatement">
+	<summary>
+ Returns custom SQL select statement for data retrieving associated with database object.
+ </summary>
+	<returns>Custom SQL select statement.</returns>
+	<remarks>Override this function in a child class to specify what information will be selected from the database.</remarks>
+</member><member name="M:Dynamicweb.Weblog.DbObject.ColumnExists(System.Data.DataTable,System.String)">
+	<summary>
+ Determines whether columnName exists in data table.
+ </summary>
+	<param name="schemaTable">Schema of the target table.</param>
+	<param name="columnName">Search column.</param>
+	<returns>Value indicating whether column specified by name exists in data table.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Weblog.ArticleCollection.CalculateCounts(System.Boolean,System.Boolean)">
+	<summary>
+ Calculates articles counts for this instance.
+ </summary>
+	<param name="includeDrafts">Calculate drafts count.</param>
+	<param name="includePostponed">Calculate postponed articles count.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Weblog.Article.GetLatestArticles(System.Int32)">
+	<summary>
+ Get list of new articles.
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ WeblogArticleID - id of the article.
+ WeblogArticleDate - date of creation.
+ WeblogArticleHeadline - title
+ WeblogArticleDescription
+ WeblogBlogName - source blog name
+ </code>
+	</returns>
+</member><member name="M:Dynamicweb.Weblog.Article.GetLatestArticles(System.Int32,System.String[])">
+	<summary>
+ Get list of new articles for specified blog(s).
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ WeblogArticleID - id of the article.
+ WeblogArticleDate - date of creation.
+ WeblogArticleHeadline - title
+ WeblogArticleDescription
+ WeblogBlogName - source blog name
+ </code>
+	</returns>
+</member><member name="F:Dynamicweb.StatisticsV3.Consts.CryptoKey">
+	<summary>
+ Stores cryptographic key.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.UserLink.SortFields.Name">
+	<summary>
+ To sort by Name field = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.UserLink.SortFields.LinkDate">
+	<summary>
+ To sort by LinkDate field = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.UserLink.SortFields.LinkID">
+	<summary>
+ To sort by LinkID field = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.UserLink.SortFields.UserID">
+	<summary>
+ To sort by UserID field = 3
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.UserLink.SortFields">
+	<summary>
+ Stores fields to sort by.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.UserLink">UserLink</see> class. Downloads current ID object from the data base.
+ </summary>
+	<param name="id">Current category ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.#ctor">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.UserLink">UserLink</see> class. Downloads current ID object from the data base.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.UserLink">UserLink</see> class. 
+ Fills current object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.DataRow object, stores current object data.</param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.UserLink.UserLinkDate">
+	<summary>
+ Stores and retrieves date when recipient click link.
+ </summary>
+	<value>Click date.</value>
+	<returns>When recipient click link.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.UserLink.UserLinkLinkID">
+	<summary>
+ Stores and retrieves the current link ID.
+ </summary>
+	<value>ID</value>
+	<returns>The current link ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.UserLink.UserLinkUserID">
+	<summary>
+ Stores and retrieves the current user ID.
+ </summary>
+	<value>ID.</value>
+	<returns>The current user ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.UserLink.UserName">
+	<summary>
+ Stores and retrieves recipient name.
+ </summary>
+	<value>Name of the recipient.</value>
+	<returns>Current recipient name.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.GetUserLinkList(System.Int32,Dynamicweb.NewsLetterV3.UserLink.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32)">
+	<summary>
+ Returns a list of all recipients that clicked specified link.
+ </summary>
+	<param name="linkid">Link identificator.</param>
+	<param name="sort">Name of the field to sort by.</param>
+	<param name="direction">Direction of sort.</param>
+	<param name="ids">Recipient identificators.</param>
+	<param name="startItem">Number of the item to result start from.</param>
+	<param name="endItem">Number of item to result end from.</param>
+	<returns>List of UserLink.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.UserLink.CreateUserLinkRecord(System.Int32,System.Int32)">
+	<summary>
+ Appendes UserLink table with new record string.
+ </summary>
+	<param name="linkId">Link ID.</param>
+	<param name="userId">User ID.</param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.UserLink">
+	<summary>
+ Class contains functions 
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.TempRecipient.Recipient">
+	<summary>
+ Returns the current recipient loaded from temporary table.
+ </summary>
+	<value><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</value>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.TempRecipient.TempRecipientRecipientID">
+	<summary>
+ Stores and retrieves the temporary recipient ID.
+ </summary>
+	<value>ID</value>
+	<returns>Current recipient ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.TempRecipient.TempRecipientSessionID">
+	<summary>
+ Stores and retrieves the current session ID. 
+ </summary>
+	<value>Session ID.</value>
+	<returns>Session ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.TempRecipient.TempRecipientDate">
+	<summary>
+ Stores and retrieves the date of editing.
+ </summary>
+	<value>Editing date.</value>
+	<returns>Editing date.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.TempRecipient.TempRecipientIP">
+	<summary>
+ Stores and retrieves the temporary recipient IP-address.
+ </summary>
+	<value>IP address.</value>
+	<returns>Current recipient IP address.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.TempRecipient.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.TempRecipient.#ctor(System.Int32,System.String)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.TempRecipient">TempRecipient</see> class.
+ </summary>
+	<param name="recipientId"></param>
+	<param name="sessionId"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.TempRecipient.Save(Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ Saves the temporary recipient.
+ </summary>
+	<param name="recipient"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.TempRecipient.Delete(System.Int32,System.String)">
+	<summary>
+ Deletes the temporary recipient from the table.
+ </summary>
+	<param name="recipientId"></param>
+	<param name="sessionId"></param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.TempRecipient">
+	<summary>
+ Class contains functions for temporary recipient handling. 
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Subscription.CategoryID">
+	<summary>
+ Stores the current caterory ID.
+ </summary>
+	<value>Cutegory ID.</value>
+	<returns>Category ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Subscription.RecipientID">
+	<summary>
+ Stores and retrieves the current user ID.
+ </summary>
+	<value>User ID.</value>
+	<returns>The current user ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Subscription.MailFormat">
+	<summary>
+ Stores and retrieves the current e-mail format. 
+ </summary>
+	<value>E-mail format.</value>
+	<returns>The current e-mail format</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.Equals(System.Object)">
+	<summary>
+ Compares subscriptions between. 
+ </summary>
+	<param name="obj"></param>
+	<returns>Boolean statement.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader"></param>
+	<remarks>Used when to create new object.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks>Used when to save data to the data base.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.#ctor(System.Int32,Dynamicweb.Modules.Common.Constants.MailFormat)">
+	<summary>
+ Constructor.
+ </summary>
+	<param name="categoryID">The current category ID.</param>
+	<param name="mailFormat"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.GetSubscriptionList(System.Int32)">
+	<summary>
+ Returns a list of the current recipient subscriptions.
+ </summary>
+	<param name="recipientID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.SaveList(Dynamicweb.NewsLetterV3.SubscriptionCollection,System.Int32)">
+	<summary>
+ Saves a list of the current recipient subscriptions.
+ </summary>
+	<param name="subscriptions"></param>
+	<param name="recipientId"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.SaveList(System.Int32,System.String,Dynamicweb.NewsLetterV3.SubscriptionCollection,Dynamicweb.NewsLetterV3.SubscriptionCollection)">
+	<summary>
+ Saves a list of the current recipient subscriptions.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP address of user that modifies current recipient.</param>
+	<param name="oldSubscriptions">Old subscriptions that stored in data base.</param>
+	<param name="newSubscriptions">New subscriptions that have to be assigned current user.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Subscription.GetAllRecipientsIDsSQL">
+	<summary>
+ Returns all recipient's IDs SQL.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Subscription">
+	<summary>
+ Class used to handle subscription.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.StatisticNewsletter._sortFields">
+	<summary>
+ Stores a string array with tables names.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat.Subject">
+	<summary>
+ Sort by subject filed = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat.SendData">
+	<summary>
+ Sort by SendData filed = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat.OpenDate">
+	<summary>
+ Sort by OpenDate field = 2
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat">
+	<summary>
+ Stores sort order field.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.StatisticNewsletter.Links">
+	<summary>
+ Stores and retrieves a list of links.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.StatisticNewsletter.IsOpened">
+	<summary>
+ Determines whether the current NewsLetter is opened.
+ </summary>
+	<value>Boolean statement.</value>
+	<returns><c>True</c> or <c>False</c></returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.StatisticNewsletter.Opened">
+	<summary>
+ Stores and retrieves the current NewsLetter open date.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.StatisticNewsletter.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetter.StatisticNewsletter">StatisticNewsLetter</see> class.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.StatisticNewsletter.GetCountNewsletter(System.Int32)">
+	<summary>
+ Returns a count of the current recipient newsletter.
+ </summary>
+	<param name="recipientID"></param>
+	<returns>Count of the newsletter.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.StatisticNewsletter.GetNewsLetterListAndLinks(System.Int32,Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Returns a StatisticNewsletterCollection object. 
+ </summary>
+	<param name="sortField"></param>
+	<param name="startItem"></param>
+	<param name="endItem"></param>
+	<param name="directionStr"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.StatisticNewsletter.GetNewsLetterListWithoutLinks(System.Int32,Dynamicweb.NewsLetterV3.StatisticNewsletter.SortFieldsStat,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Returns a StatisticNewsletterCollection object.
+ </summary>
+	<param name="sortField"></param>
+	<param name="startItem"></param>
+	<param name="endItem"></param>
+	<param name="directionStr"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.StatisticNewsletter.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object fields.
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.StatisticNewsletter">
+	<summary>
+ Class contains function for statistics handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields.ID">
+	<summary>
+ Sort by ID field = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields.Name">
+	<summary>
+ Sort by Name field = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields.Opened">
+	<summary>
+ Sort by Opened field = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields.OpenDate">
+	<summary>
+ Sort by open date = 3
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields">
+	<summary>
+ Stores a sort field order.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.LetterID">
+	<summary>
+ Stores and retrieves the current newsletter ID.
+ </summary>
+	<value>Newsletter ID.</value>
+	<returns>Newsletter ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.RecipientID">
+	<summary>
+ Stores and retrieves the recipient ID.
+ </summary>
+	<value>Recipient ID.</value>
+	<returns>Recipient ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.RecipientName">
+	<summary>
+ Stores and retrieves the current recipient name.
+ </summary>
+	<value>The name of recipient.</value>
+	<returns>The current recipient name.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.MailFormat">
+	<summary>
+ Stores and retrieves the current newsletter format.
+ </summary>
+	<value>Newsletter format.</value>
+	<returns>Newsletter format.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.OpenDate">
+	<summary>
+ Stores and retrieves the date current letter was opened.
+ </summary>
+	<value>The date of opening.</value>
+	<returns>The date of opening.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.RecipientNewsLetter.IsOpen">
+	<summary>
+ Determines whether the current letter was opened or not.
+ </summary>
+	<value>Boolean statement.</value>
+	<returns><c>True</c> or <c>False</c></returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.RecipientNewsLetter">RecipientNewsLetter</see> class.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.#ctor">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.RecipientNewsLetter">RecipientNewsLetter</see> class.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.#ctor(System.Int32,System.Int32)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.RecipientNewsLetter">RecipientNewsLetter</see> class.
+ </summary>
+	<param name="newsletterId"></param>
+	<param name="recipientId"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.GetSubscribersCount(System.String,Dynamicweb.Modules.Common.Constants.MailFormat)">
+	<summary>
+ Returns an amount of subscribers satisfying current search requests.
+ </summary>
+	<param name="newsletterID"></param>
+	<param name="format"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.GetSubscribersCountReadedNewsletter(System.String)">
+	<summary>
+ Returns an amount of subscribers satisfying current search requests.
+ </summary>
+	<param name="newsletterID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.GetSubscribersList(Dynamicweb.NewsLetterV3.RecipientNewsLetter.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Returns a collection of the <see cref="T:Dynamicweb.Admin.NewsLetterV3.RecipientNewsLetter">Suscribers</see> recivied specified newsletter.
+ </summary>
+	<param name="newsletterId">List of newsletters.</param>
+	<param name="sort">Sort parameter.</param>
+	<param name="direction">Direction of the sort.</param>
+	<param name="search">Search filter.</param>
+	<param name="startItem">Number of item to start from.</param>
+	<param name="endItem">Number of the last item.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.RecipientNewsLetter.GetPagedDataReaderForNewsletterRecipient(System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+	<summary>
+ Returns the current data reader of limited strings amount of newsletter recipients.
+ </summary>
+	<param name="keyfield">Key field.</param>
+	<param name="frecord">First record ID.</param>
+	<param name="lrecord">Last record ID.</param>
+	<param name="sort"></param>
+	<param name="direction">Sort direction.</param>
+	<param name="filter">Optional.</param>
+	<param name="dbname">Optional. The current data base name.</param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.RecipientNewsLetter">
+	<summary>
+ Class contains function for certain recipient newsletter handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Recipient.SortFields.ID">
+	<summary>
+ Sort by ID field = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Recipient.SortFields.Name">
+	<summary>
+ Sort by Name field = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Recipient.SortFields.Email">
+	<summary>
+ Sort by E-mail field = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Recipient.SortFields.Active">
+	<summary>
+ Sort by Active field =3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Recipient.SortFields.CreationDate">
+	<summary>
+ Srort by Creation Date field = 4
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Recipient.SortFields">
+	<summary>
+ Stores sort order field.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.CustomFields">
+	<summary>
+ Stores and retrieves a list of <see cref="T:Dynamicweb.Modules.Common.CustomFields">CustomFields</see> objects.
+ </summary>
+	<value>List(Of CustomField)</value>
+	<returns>List(Of CustomField)</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserName">
+	<summary>
+ Stores and retrieves the current user name.
+ </summary>
+	<value>The current user name.</value>
+	<returns>Access user name.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserUserName">
+	<summary>
+ Stores the current user user-name.
+ </summary>
+	<value>The current user user-name.</value>
+	<remarks>This value can not be changed (the e-mail address is assigned as user-name for newly created subscriber)</remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserPassword">
+	<summary>
+ Stores and retrieves the current user password.
+ </summary>
+	<value>User password.</value>
+	<returns>The current user password.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserEmail">
+	<summary>
+ Stores and retrieves the current user e-mail.
+ </summary>
+	<value>User e-mail.</value>
+	<returns>The current user e-mail.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserMobile">
+	<summary>
+ Stores and retrieves the current user mobile.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.RecipientType">
+	<summary>
+ Stores and retrieves the current recipient type.
+ </summary>
+	<value>Recipient type.</value>
+	<returns>The current recipient type.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.AccessUserActive">
+	<summary>
+ Determines whether the current user is active or not.
+ </summary>
+	<value>Boolean statement.</value>
+	<returns><c>True</c> or <c>False</c></returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.CreationDate">
+	<summary>
+ Store and retrieves the current recipient creation date.
+ </summary>
+	<value>Date</value>
+	<returns>The recipient creation date.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.Subscriptions">
+	<summary>
+ Stores and retrieves recipient subscription list.
+ </summary>
+	<value>SubscriptionCollection</value>
+	<returns>SubscriptionCollection</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Recipient.Groups">
+	<summary>
+ List of recipient's groups in a string form
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.#ctor">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> class. 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> class. 
+ Fills the current object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> class.
+ Load the current object from the data base according its ID.
+ </summary>
+	<param name="id"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.#ctor(System.String,System.String,System.Boolean)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> class.
+ Load the current object from the data base according its password and e-mail.
+ </summary>
+	<param name="email">E-mail address.</param>
+	<param name="password"></param>
+	<param name="bUsePassword">Determines whether to use password or not.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetGroups">
+	<summary>
+ Returns an Extranet group list for current recipient.
+ </summary>
+	<returns>an Extranet group list.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Save">
+	<summary>
+ Saves the current recipient.
+ </summary>
+	<remarks>Insert a new row into AccessUser table</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Save(System.Boolean)">
+	<summary>
+ Saves the current recipient.
+ </summary>
+	<remarks>Insert a new row into AccessUser table</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Save(System.Int32,System.String,System.Boolean)">
+	<summary>
+ Saves user recipient from backend with adding info to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="fromImport">True if save is coming from import recipient.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Save(System.String)">
+	<summary>
+ Saves user recipient from frontend with adding info to log.
+ </summary>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.SaveGroup(System.Int32,System.String)">
+	<summary>
+ Saves the recipient group with adding info to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientCount(System.String)">
+	<summary>
+ Returns count of the recipients.
+ </summary>
+	<param name="search">Search string.</param>
+	<returns>Recipients count.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientCount(System.String,System.String,Dynamicweb.NewsLetterV3.Consts.RecipientActive)">
+	<summary>
+ Returns an amount of subscribers satisfying the current search requests.
+ </summary>
+	<param name="search">Search string.</param>
+	<param name="categories">List of categories to search.</param>
+	<param name="isActive">Determines whether to search within active, inactive or both.</param>
+	<returns>Amount of recipients.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientList(Dynamicweb.NewsLetterV3.Recipient.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32,System.String,Dynamicweb.NewsLetterV3.Consts.RecipientActive)">
+	<summary>
+ Returns a list of recipients.
+ </summary>
+	<param name="sort">Sort order.</param>
+	<param name="direction"></param>
+	<param name="search"></param>
+	<param name="startItem"></param>
+	<param name="endItem"></param>
+	<param name="categories">List of categories.</param>
+	<param name="isActive">Whether the current recipient is active or not.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientList(Dynamicweb.NewsLetterV3.Recipient.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32)">
+	<summary>
+  Returns a list of recipients.
+ </summary>
+	<param name="sort">Sort order.</param>
+	<param name="direction"></param>
+	<param name="ids">String with IDs.</param>
+	<param name="startItem"></param>
+	<param name="endItem"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientList(System.String)">
+	<summary>
+ Returns a collections of the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> for the current categories wiht <i>Active</i> feature set to true.
+ </summary>
+	<param name="strCategories">List of categories.</param>
+	<returns><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object collection.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetUsersByGroups(System.Collections.Generic.List{System.Int32},System.Collections.Generic.Dictionary{System.String,Dynamicweb.NewsLetterV3.Recipient}@,Dynamicweb.NewsLetterV3.Consts.CategoryType,System.Boolean,System.Int32)">
+	<summary>
+ Fills the current recipient dictionary with <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects, for the current group.
+ </summary>
+	<param name="groups">The list of the groups.</param>
+	<param name="recipients">the current recipients dictionary to add to.</param>
+	<remarks>Only active recipients will be added to the current dictionary.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Unsubscribe(System.Int32)">
+	<summary>
+ Unsubscribes a recipient from the current category.
+ </summary>
+	<param name="categoryID">The current category ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Unsubscribe">
+	<summary>
+ Unsubscribes a recipient from all categories.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Unsubscribe(System.Int32,System.String,System.Int32)">
+	<summary>
+ Unsubscribes a recipient from current category with adding info to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="categoryID">Category ID</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Unsubscribe(System.Int32,System.String)">
+	<summary>
+ Unsubscribes a recipient from all categories with adding info to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientsWithEmail(System.String)">
+	<summary>
+ Returns the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection for certain categories.
+ </summary>
+	<param name="strCategories">List of categories.</param>
+	<returns><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection.</returns>
+	<remarks>Is requered for e-mails checking and creating newsletters.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientsWithMobile(System.String)">
+	<summary>
+ Returns the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection for certain categories.
+ </summary>
+	<param name="strCategories">List of categories.</param>
+	<returns><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection.</returns>
+	<remarks>Is requered for creating sms newsletters.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetUnsubscribedRecipients">
+	<summary>
+ Returns the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection without any subscribtion.
+ </summary>
+	<returns>Collections of key-value pairs. Where the key is - email of recipient, and the value is <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientsForEmailValidationResult(Dynamicweb.NewsLetterV3.Recipient.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Returns the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> objects collection with invalid e-mails.
+ </summary>
+	<param name="sort">Sort parameter.</param>
+	<param name="direction">Direction of the sort.</param>
+	<param name="search">Search filter.</param>
+	<param name="startItem">Number of item to start from.</param>
+	<param name="endItem">Number of the last item.</param>
+	<param name="strRecipientIDs"></param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientCountForEmailValidationResult(System.String,System.String)">
+	<summary>
+ Returns a count of records for e-mail validation.
+ </summary>
+	<param name="search">Search filter.</param>
+	<param name="strRecipientIDs">List of the recipients IDs.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.FillCustomFields(System.String)">
+	<summary>
+ Fills a list of custom fields according input IDs.
+ </summary>
+	<param name="ids">Lists of IDs.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.FillCustomFields">
+	<summary>
+ Fills a list of custom fields.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetRecipientIdsBySearch(System.String,System.String,Dynamicweb.NewsLetterV3.Consts.RecipientActive)">
+	<summary>
+ Returns a list of recipients IDs.
+ </summary>
+	<param name="search">Search string.</param>
+	<param name="categories">The list of recipiets IDs.</param>
+	<param name="isActive">Type of recipients.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Delete(System.Int32)">
+	<summary>
+ Deletes the current object from data base.
+ </summary>
+	<param name="id">Recipient ID</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.Delete(System.Int32,System.String)">
+	<summary>
+ Deletes current object from data base wiht adding info to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.Recipient.GetPagedDataReaderForRecipient(System.String,System.String,System.Int32,System.Int32,Dynamicweb.NewsLetterV3.Recipient.SortFields,System.String,System.String,System.String)">
+	<summary>
+ Returns the current data reader of limited strings amount of recipients.
+ </summary>
+	<param name="tablename">The current table name.</param>
+	<param name="keyfield">Key field.</param>
+	<param name="frecord">First record ID.</param>
+	<param name="lrecord">Last record ID.</param>
+	<param name="sort"></param>
+	<param name="direction">Sort direction.</param>
+	<param name="filter">Optional.</param>
+	<param name="dbname">Optional. The current data base name.</param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Recipient">
+	<summary>
+ Class contains function for certain recipient handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RandomPassword.Generate">
+	<summary>
+ Generates a random password.
+ </summary>
+	<returns>
+ Randomly generated password.
+ </returns>
+	<remarks>
+ The length of the generated password will be determined at
+ random. It will be no shorter than the minimum default and
+ no longer than maximum default.
+ </remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.RandomPassword.Generate(System.Int32)">
+	<summary>
+ Generates a random password of the exact length.
+ </summary>
+	<param name="length">
+ Exact password length.
+ </param>
+	<returns>
+ Randomly generated password.
+ </returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.RandomPassword.Generate(System.Int32,System.Int32)">
+	<summary>
+ Generates a random password.
+ </summary>
+	<param name="minLength">
+ Minimum password length.
+ </param>
+	<param name="maxLength">
+ Maximum password length.
+ </param>
+	<returns>
+ Randomly generated password.
+ </returns>
+	<remarks>
+ The length of the generated password will be determined at
+ random and it will fall with the range determined by the
+ function parameters.
+</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.RandomPassword">
+	<summary>
+ This class can generate random passwords, which do not include ambiguous 
+ characters, such as I, l, and 1.
+ </summary>
+	<remarks> The generated password will be made of
+ 7-bit ASCII symbols. Every four characters will include one lower case
+ character, one upper case character, one number, and one special symbol
+ (such as '%') in a random order. The password will always start with an
+ alpha-numeric character; it will not start with a special symbol (we do
+ this because some back-end systems do not like certain special
+ characters in the first position).
+ </remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressLog.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressLog.AddMessageToLog(System.String)">
+	<summary>
+ Adds new message to the log.
+ </summary>
+	<param name="strMessage"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressLog.GetLog(System.Boolean)">
+	<summary>
+ Returns the log string.
+ </summary>
+	<param name="useDelimiter"></param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.ProgressLog">
+	<summary>
+ Class contains functions for progress log handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressBase.BeginProcess">
+	<summary>
+ Stats the process.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressBase.CancelProcess">
+	<summary>
+ Cancels the process.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.Elapsed">
+	<summary>
+ Stores time that has past from the start.
+ </summary>
+	<value>String representation of the time.</value>
+	<returns>String representation of the time.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.Errors">
+	<summary>
+ Stores an amount of errors tasks at the time.
+ </summary>
+	<value>Amount of tasks.</value>
+	<returns>Amount of tasks.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.Executed">
+	<summary>
+ Stores an amount of executed tasks at the time.
+ </summary>
+	<value>Amount of tasks.</value>
+	<returns>Amount of tasks.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressBase.GetLog(System.Boolean)">
+	<summary>
+ Gets a string representation of the log.
+ </summary>
+	<param name="useDelimiter">Determines whether to use substring separator or not.</param>
+	<returns>Log string.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.PercentComplete">
+	<summary>
+ Stores percentage of completion at the time.
+ </summary>
+	<value>Double</value>
+	<returns>Double</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.ProgressBase.Process">
+	<summary>
+ Process implementer.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.Status">
+	<summary>
+ Stores a status of the process progress at the time.
+ </summary>
+	<value>Statuses.</value>
+</member><member name="P:Dynamicweb.NewsLetterV3.ProgressBase.Total">
+	<summary>
+ Stores a total amount fo tasks to process.
+ </summary>
+	<value>Total amount of  tasks.</value>
+	<returns>Total amount of  tasks.</returns>
+</member><member name="T:Dynamicweb.NewsLetterV3.ProgressBase">
+	<summary>
+ Class contains base function for progress handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.Created">
+	<example>
+		<code title="Example" description="" lang="CS">  [Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Newsletter.Created)]
+    public class NewsletterCreatedObserver : Dynamicweb.Extensibility.NotificationSubscriber
+    {
+        public override void OnNotify(string notification, object[] args)
+        {
+            if (args == null || args.Length == 0)
+                return;
+ 
+            object obj = args[0];
+ 
+            if (!(obj is Dynamicweb.NewsLetterV3.NewsLetter))
+                return;
+ 
+            Dynamicweb.NewsLetterV3.NewsLetter newsLetter = (Dynamicweb.NewsLetterV3.NewsLetter)obj;
+ 
+            Dynamicweb.NewsLetterV3.NewsLetter newsLetterCopy = newsLetter.Copy();
+            newsLetterCopy.Subject = string.Format("{0} - copy", newsLetterCopy.Subject);
+            newsLetterCopy.Save();
+        }
+    }</code>
+	</example>
+	<summary>Stores a name of the event which is occurred when newsletter is created.</summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.CreatedArgs.Newsletter">
+	<summary>
+ Gets the newsletter.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.CreatedArgs.#ctor(Dynamicweb.NewsLetterV3.NewsLetter)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.CreatedArgs"/> class.
+ </summary>
+	<param name="newsletter">The newsletter.</param>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.Sent">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Newsletter.Sent)]
+   public class NewsletterSentObserver : Dynamicweb.Extensibility.NotificationSubscriber
+   {
+       public override void OnNotify(string notification, object[] args)
+       {
+           if (args == null || args.Length == 0)
+               return;
+ 
+           object obj = args[0];
+ 
+           if (!(obj is Dynamicweb.NewsLetterV3.DistributionNewsLetter))
+               return;
+ 
+           Dynamicweb.NewsLetterV3.DistributionNewsLetter newsLetter = (Dynamicweb.NewsLetterV3.DistributionNewsLetter)obj;
+ 
+           //Todo: insert code here
+       }
+   }</code>
+	</example>
+	<summary>Stores a name of the event which is occurred when newsletter is sent.</summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.SentArgs.Newsletter">
+	<summary>
+ Gets the newsletter.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.SentArgs.#ctor(Dynamicweb.NewsLetterV3.DistributionNewsLetter)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter.SentArgs"/> class.
+ </summary>
+	<param name="newsletter">The newsletter.</param>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Newsletter">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Newsletter.Sent)]
+   public class NewsletterSentObserver : Dynamicweb.Extensibility.NotificationSubscriber
+   {
+       public override void OnNotify(string notification, object[] args)
+       {
+           if (args == null || args.Length == 0)
+               return;
+ 
+           object obj = args[0];
+ 
+           if (!(obj is Dynamicweb.NewsLetterV3.DistributionNewsLetter))
+               return;
+ 
+           Dynamicweb.NewsLetterV3.DistributionNewsLetter newsLetter = (Dynamicweb.NewsLetterV3.DistributionNewsLetter)obj;
+ 
+           //Todo: insert code here
+       }
+   }</code>
+	</example>
+	<summary>Stores events occurred while newsletter handling.</summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.Created">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Recipient.Created)]
+  public class RecipientCreatedObserver : Dynamicweb.Extensibility.NotificationSubscriber
+  {
+      public override void OnNotify(string notification, object[] args)
+      {
+          if (args == null || args.Length == 0)
+              return;
+ 
+          object obj = args[0];
+ 
+          if (!(obj is Dynamicweb.NewsLetterV3.Recipient))
+              return;
+ 
+          Dynamicweb.NewsLetterV3.Recipient recipient = (Dynamicweb.NewsLetterV3.Recipient)obj;
+ 
+          //Todo: insert code here
+      }
+  }</code>
+	</example>
+	<summary>Stores a name of the event which is occurred when recipient is created.</summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.CreatedArgs.Recipient">
+	<summary>
+ Gets the recipient.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.CreatedArgs.#ctor(Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.CreatedArgs"/> class.
+ </summary>
+	<param name="recipient">The recipient.</param>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.Updated">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Recipient.Updated)]
+   public class RecipientUpdatedObserver : Dynamicweb.Extensibility.NotificationSubscriber
+   {
+       public override void OnNotify(string notification, object[] args)
+       {
+           if (args == null || args.Length == 0)
+               return;
+ 
+           object obj = args[0];
+ 
+           if (!(obj is Dynamicweb.NewsLetterV3.Recipient))
+               return;
+ 
+           Dynamicweb.NewsLetterV3.Recipient recipient = (Dynamicweb.NewsLetterV3.Recipient)obj;
+ 
+           //Todo: insert code here
+       }
+   }</code>
+	</example>
+	<summary>Stores a name of the event which is occurred when recipient is updated.</summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.UpdatedArgs.Recipient">
+	<summary>
+ Gets the recipient.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.UpdatedArgs.#ctor(Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.UpdatedArgs"/> class.
+ </summary>
+	<param name="recipient">The recipient.</param>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.Deleted">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Recipient.Deleted)]
+    public class RecipientDeletedObserver : Dynamicweb.Extensibility.NotificationSubscriber
+    {
+        public override void OnNotify(string notification, object[] args)
+        {
+            if (args == null || args.Length == 0)
+                return;
+ 
+            object obj = args[0];
+ 
+            if (!(obj is Dynamicweb.NewsLetterV3.Recipient))
+                return;
+ 
+            Dynamicweb.NewsLetterV3.Recipient recipient = (Dynamicweb.NewsLetterV3.Recipient)obj;
+ 
+            //Todo: insert code here
+        }
+    }</code>
+	</example>
+	<summary>Stores a name of the event which is occurred when recipient is deleted.</summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.DeletedArgs.Recipient">
+	<summary>
+ Gets the recipient.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.DeletedArgs.#ctor(Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ Initializes a new instance of the <see cref="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient.DeletedArgs"/> class.
+ </summary>
+	<param name="recipient">The recipient.</param>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsLetterV3.Recipient">
+	<summary>Stores events occurred while recipient handling.</summary>
+	<remarks></remarks>
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Recipient.Created)]
+  public class RecipientCreatedObserver : Dynamicweb.Extensibility.NotificationSubscriber
+  {
+      public override void OnNotify(string notification, object[] args)
+      {
+          if (args == null || args.Length == 0)
+              return;
+ 
+          object obj = args[0];
+ 
+          if (!(obj is Dynamicweb.NewsLetterV3.Recipient))
+              return;
+ 
+          Dynamicweb.NewsLetterV3.Recipient recipient = (Dynamicweb.NewsLetterV3.Recipient)obj;
+ 
+          //Todo: insert code here
+      }
+  }</code>
+	</example>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsLetterV3">
+	<example>
+		<code title="Example" description="" lang="CS">[Dynamicweb.Extensibility.Subscribe(Dynamicweb.Notifications.NewsLetterV3.Newsletter.Sent)]
+   public class NewsletterSentObserver : Dynamicweb.Extensibility.NotificationSubscriber
+   {
+       public override void OnNotify(string notification, object[] args)
+       {
+           if (args == null || args.Length == 0)
+               return;
+ 
+           object obj = args[0];
+ 
+           if (!(obj is Dynamicweb.NewsLetterV3.DistributionNewsLetter))
+               return;
+ 
+           Dynamicweb.NewsLetterV3.DistributionNewsLetter newsLetter = (Dynamicweb.NewsLetterV3.DistributionNewsLetter)obj;
+ 
+           //Todo: insert code here
+       }
+   }</code>
+	</example>
+	<summary>Class contains classes for events handling.</summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTemplate.#ctor(System.Int32)">
+	<summary>
+ Constructor.
+ </summary>
+	<param name="id"></param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsletterTemplate.Content">
+	<summary>
+ Returns the current <see cref="T:CustomModule.NewsLetterV3.NewletterTemlate">Template</see> content.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTemplate.GetContent(System.Int32)">
+	<summary>
+ Gets content of the current ID template.
+ </summary>
+	<param name="id"></param>
+	<returns>The current content.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsletterTemplate">
+	<summary>
+ Class represents an newsletter template object.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.TagUserID">
+	<summary>
+ Stores the "User ID" tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.TagNewsLetterID">
+	<summary>
+ Stores the "Newsletter ID" tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.TagOpenerKey">
+	<summary>
+ Stores the "Opener key" tag. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.TagUnsubscribeKey">
+	<summary>
+ Stores the "Unsubscribe key" tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.TagFollowedKey">
+	<summary>
+ Stores "Followed key" tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.LinkSubscribe">
+	<summary>
+ Stores the subscribe link tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.LinkUnsubscribe">
+	<summary>
+ Stores the unsubscribe link tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.Image">
+	<summary>
+ Stores image tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.HrefPattern">
+	<summary>
+ Stores the "href" pattern tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.HrefReplacementString">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.APattern">
+	<summary>
+ Stores pattern for "A" tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.CustomTagsPattern">
+	<summary>
+ Stores the "Custom field" pattern.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.InternalLinkPattern">
+	<summary>
+ Stores an internal link pattern tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.Header">
+	<summary>
+ Stores an Html header tag. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.HeaderPreview">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.Footer">
+	<summary>
+ Stores an Html end tags.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsletterTag.DoctypePattern">
+	<summary>
+ Stores an Html DOCTYPE tag pattern.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTag.GetHeader(Dynamicweb.NewsLetterV3.NewsLetter,System.Boolean)">
+	<summary>
+ Gets the &lt;header&gt; section for the given newsletter.
+ </summary>
+	<param name="nl">Newsletter to process.</param>
+	<param name="isBrowserMode">Value indicating whether contents should be rendered in a Browser.</param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsletterTag.Tags">
+	<summary>
+ Gets all tags for Newsletter module (custom tags also).
+ </summary>
+	<value>String.</value>
+	<returns>Tags as string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTag.GetHTMLBodyForPreview(System.String,Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.NewsLetter,System.Boolean)">
+	<summary>
+ Creates a body for HTML newsletter format within preveiw mode.
+ </summary>
+	<param name="body">Body text.</param>
+	<param name="recip"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<param name="nl"><see cref="T:Dynamicweb.Admin.NewsLetterV3.NewsLetter">NewsLetter</see> object.</param>
+	<param name="isBrowserMode">Value indicating whether contents should be rendered in a Browser.</param>
+	<returns>Processed string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTag.GetTEXTBody(System.String,Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.NewsLetter,System.Boolean)">
+	<summary>
+ Creates a body for TEXT newsletter format.
+ </summary>
+	<param name="body">Body text.</param>
+	<param name="recip"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<param name="nl"><see cref="T:Dynamicweb.Admin.NewsLetterV3.NewsLetter">NewsLetter</see> object.</param>
+	<returns>Processed string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTag.GetHTMLBody(System.String,Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.NewsLetter)">
+	<summary>
+ Creates a body for HTML newsletter format within preveiw mode.
+ </summary>
+	<param name="body">Body text.</param>
+	<param name="recip"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<param name="nl"><see cref="T:Dynamicweb.Admin.NewsLetterV3.NewsLetter">NewsLetter</see> object.</param>
+	<returns>Processed string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterTag.GetParsedHTMLBody(System.String,Dynamicweb.NewsLetterV3.NewsLetter)">
+	<summary>
+ Parsed current HTML newsletter format body.
+ </summary>
+	<param name="body">Body text.</param>
+	<param name="nl"><see cref="T:Dynamicweb.Admin.NewsLetterV3.NewsLetter">NewsLetter</see> object.</param>
+	<returns>Parsed string.</returns>
+	<remarks>While processing all links asigned a value, statistics images are added, 
+ and certain style table is added too.</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsletterTag">
+	<summary>
+ Class contains functions for newsletter tags handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterPage.GetPageView(System.String)">
+	<summary>
+ Gets PageView object that for specified url.
+ </summary>
+	<param name="strPageUrl">Page url as string</param>
+	<returns>PageView object.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterPage.StripFormTag(System.String)">
+	<summary>
+ Removes all form tags from html body.
+ </summary>
+	<param name="body">Html body as string.</param>
+	<returns>String without form tags.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterPage.SetGlobalTemplateTags(System.String,Dynamicweb.Frontend.PageView)">
+	<summary>
+ Sets global template tags on a specified HTML output using specified pageview.
+ </summary>
+	<param name="html">HTML to process.</param>
+	<param name="pv">An instance of pageview to use.</param>
+	<returns>An HTML output with global tags set.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterLog.WriteAddRecipient(System.Int32,System.String,Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ When recipient is added, writes information about it to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="recip">Object recipient to be modified.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterLog.WriteRemoveRecipient(System.Int32,System.String,Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ When recipient is removed, writes information about it to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="recip">Object recipient to be modified.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterLog.WriteAddSubscription(System.Int32,System.String,Dynamicweb.NewsLetterV3.Subscription)">
+	<summary>
+ When subscription is added, writes information about it to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="s">Object subscription to be modified.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterLog.WriteRemoveSubscription(System.Int32,System.String,Dynamicweb.NewsLetterV3.Subscription)">
+	<summary>
+ When subscription is removed, writes information about it to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="s">Object subscription to be modified.</param>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterLog.WriteUpdateSubscription(System.Int32,System.String,Dynamicweb.NewsLetterV3.Subscription)">
+	<summary>
+ When subscription is updated, writes information about it to log.
+ </summary>
+	<param name="intAdminID">ID of user that modifies current recipient.</param>
+	<param name="strIP">IP of user that modifies current recipient.</param>
+	<param name="s">Object subscription to be modified.</param>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsletterLog">
+	<summary>
+ Class contains functions for Newsletter Log handling. 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterItem.SaveCategory(System.Int32)">
+	<summary>
+ Saves the current Category item.
+ </summary>
+	<param name="accessUserID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterItem.SaveCategory(System.Int32,Dynamicweb.NewsLetterV3.Consts.CategoryType)">
+	<summary>
+ Saves the current Category item.
+ </summary>
+	<param name="accessUserID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterItem.SaveRecipient(System.Int32)">
+	<summary>
+ Saves the current Recipient item.
+ </summary>
+	<param name="accessUserID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsletterItem.DeleteCategory(System.Int32)">
+	<summary>
+ Deletes category from the list of newsletter items
+ </summary>
+	<param name="accessUserID">category ID</param>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsletterItem">
+	<summary>
+ Class contains functions for module settings handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetter.SortFields.ID">
+	<summary>
+ To sort by ID field = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetter.SortFields.Subject">
+	<summary>
+ To sort by Subject field = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetter.SortFields.CreateDate">
+	<summary>
+ To sort by CrietionDate field = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.NewsLetter.SortFields.SendDate">
+	<summary>
+ To sort by SentDate field = 3
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsLetter.SortFields">
+	<summary>
+ Stores fields to sort by.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.#ctor">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.NewsLetter">NewsLetter</see> class.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.NewsLetter">NewsLetter</see> class.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.NewsLetter">NewsLetter</see> class.
+ </summary>
+	<param name="id">The current newsletter ID.</param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.StyleSheet">
+	<summary>
+ Stores and retrieves the current stylesheet ID.
+ </summary>
+	<value>ID.</value>
+	<returns>The current stylesheet ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.TemplateID">
+	<summary>
+ Stores and retrieves the current template ID.
+ </summary>
+	<value>ID of template.</value>
+	<returns>The ID of the current template.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Encoding">
+	<summary>
+ Stores and retrieves the current newsletter encoding.
+ </summary>
+	<value>Encoding value.</value>
+	<returns>The newsletter encoding.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Status">
+	<summary>
+ Stores and retrieves current newsletter status.
+ </summary>
+	<value><see cref="T:CustomModule.NewsletterV3.Consts.NewsLetterStutus">NewsLetterStatus</see> object.</value>
+	<returns>The status of the current newletter.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Subject">
+	<summary>
+ Stores the subject of the current newsletter.
+ </summary>
+	<value>Subject string.</value>
+	<returns>String representation of the subject.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.SenderName">
+	<summary>
+ Stores and retrieves the name of the current newsletter sender.
+ </summary>
+	<value>Sender name.</value>
+	<returns>The current newsletter sender name.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.SenderEmail">
+	<summary>
+ Stores and retrieves the e-mail address of the current newsletter sender.
+ </summary>
+	<value>E-mail address.</value>
+	<returns>The e-mail address of the current newsletter sender.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.ReplyTo">
+	<summary>
+ Stores and retrieves "Reply to" string.
+ </summary>
+	<value>String.</value>
+	<returns>"Reply to" string.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.SendDate">
+	<summary>
+ Stores and retrieves the current newsletter send date.
+ </summary>
+	<value><i>DateTime</i> object.</value>
+	<returns>The newsletter send date.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.CreateDate">
+	<summary>
+ Stores and retrieves the current newsletter creation date.
+ </summary>
+	<value>DateTime object.</value>
+	<returns>The date of creation.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.TextBody">
+	<summary>
+ Stores and retrieves the current newsletter body text.
+ </summary>
+	<value>Text of the newsletter's body.</value>
+	<returns>Text of the newsletter's body.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Type">
+	<summary>
+ Stores and retrieves the current newsletter type.
+ </summary>
+	<value>Type of newsletter.</value>
+	<returns>The current newsletter type.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.HTMLBody">
+	<summary>
+ Stores and retrieves the HTML body string.
+ </summary>
+	<value>HTML body string.</value>
+	<returns>HTML body string.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.HTMLBodyParsed">
+	<summary>
+ Stores and retrieves the paresed HTML body string.
+ </summary>
+	<value>The paresed HTML body string.</value>
+	<returns>The paresed HTML body string.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.MailFormat">
+	<summary>
+ Stores and retrieves the current newsletter mail format.
+ </summary>
+	<value><see cref="T:CustomModule.NewsLetterV3.Consts.MailFormat">MailFormat</see> object.</value>
+	<returns>The current newsletter mail format.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.CancelLinkText">
+	<summary>
+ Stores a text for the unsubscription link.
+ </summary>
+	<value>Text for the link.</value>
+	<returns>Text for the unsubscription link.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.SubscriptionLink">
+	<summary>
+ Stores and retrieves string with suscription link.
+ </summary>
+	<value>Subscription link string.</value>
+	<returns>Subscription link string.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.SubscriptionLinkText">
+	<summary>
+ Stores and retrieves text for the current subscription link.
+ </summary>
+	<value>Text of the subscription link.</value>
+	<returns>Text of the subscription link.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Server">
+	<summary>
+ Stores and retrieves the server name.
+ </summary>
+	<value>Name of the server.</value>
+	<returns>Name of the server.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Attachments">
+	<summary>
+ Stores and retrieves a list of attachments.
+ </summary>
+	<value>List of attachments.</value>
+	<returns>A list of the current newsletter attachments.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.LoadCategories">
+	<summary>
+ Loads the current categories from the data base.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.Categories">
+	<summary>
+ Stores and retrieves a list of categories.
+ </summary>
+	<value>A list of categories.</value>
+	<returns>A list of categories.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.LoadNewsCategories">
+	<summary>
+ Loads the current news categories from the data base.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.NewsCategories">
+	<summary>
+ Stores and retrieves a list of associated news categories.
+ </summary>
+	<value>A list of news categories.</value>
+	<returns>A list of news categories.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.Save">
+	<summary>
+ Saves the current newsletter.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.Save(System.Boolean,System.Boolean,System.Boolean)">
+	<summary>
+ Saves the current newsletter.
+ </summary>
+	<param name="updateCategories">Whether to update categories.</param>
+	<param name="updateAttachments">Whether to update attachments.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.Copy">
+	<summary>
+ Make a copy of the current newsletter. 
+ </summary>
+	<returns>The current copy.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetEmail(Dynamicweb.NewsLetterV3.Recipient,System.Boolean)">
+	<summary>
+ Creates an <see cref="T:Dynamicweb.Admin.NewsLetterV3.Email">Email</see> object  using the current  <see cref="T:Dynamicweb.Admin.NewsLetterV3.NewsLetter">NewsLetter</see> object.
+ </summary>
+	<param name="recip"><see cref="T:Dynamicweb.NewsLetter.Recipient">Recipient</see>.</param>
+	<param name="isPreviewMode">Determines whether it is a Preview mode or not.</param>
+	<returns><see cref="T:Dynamicweb.Admin.NewsLetterV3.Email">Email</see>.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetHTMLBody(Dynamicweb.NewsLetterV3.Recipient,System.Boolean,System.Boolean)">
+	<summary>
+ Creates a body for HTML format newsletter.
+ </summary>
+	<param name="recip"><see cref="T:Dynamicweb.NewsLetter.Recipient">Recipient</see>.</param>
+	<param name="isPreviewMode">Determines whether it is a Preview mode or not.</param>
+	<param name="isBrowserMode">Value indicating whether contents should be rendered in a Browser.</param>
+	<returns>Processed string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetTextBody(Dynamicweb.NewsLetterV3.Recipient,System.Boolean)">
+	<summary>
+ Creates a body for TEXT format newsletter.
+ </summary>
+	<param name="recip"><see cref="T:Dynamicweb.NewsLetter.Recipient">Recipient</see>.</param>
+	<returns>Processed string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetNewsLetterList(Dynamicweb.NewsLetterV3.NewsLetter.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.String)">
+	<summary>
+ Returns a list of newsletters.
+ </summary>
+	<param name="sort">Field to sort by.</param>
+	<param name="direction">Sort direction.</param>
+	<param name="search">Search string.</param>
+	<param name="status">The list of folder IDs where to perform search.</param>
+	<returns>The list of newsletters.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetNewsLetterList(Dynamicweb.NewsLetterV3.NewsLetter.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus)">
+	<summary>
+ Returns a list of newsleters within carrent folder.
+ </summary>
+	<param name="sort">Field to sort by.</param>
+	<param name="direction">Sort direction.</param>
+	<param name="search">Search string.</param>
+	<param name="status"></param>
+	<returns>The list of Newsletters</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetNewsLetterList(Dynamicweb.NewsLetterV3.NewsLetter.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32,System.String,System.Int32)">
+	<summary>
+ Returns a list of newsleters.
+ </summary>
+	<param name="sort">Field to sort by.</param>
+	<param name="direction">Sort direction.</param>
+	<param name="search">Search string.</param>
+	<param name="startItem">Number of the item to result start from.</param>
+	<param name="endItem">Number of item to result end from.</param>
+	<param name="status">The list of folder IDs where to perform search.</param>
+	<returns>The list of Newsletters</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetNewsLetterListForStatistic(System.Int32,System.DateTime,System.DateTime,System.Boolean)">
+	<summary>
+ Returns a list of newsleters.
+ </summary>
+	<param name="count">Newsletter count.</param>
+	<param name="dateFrom">Date string</param>
+	<param name="dateTo">Date string</param>
+	<param name="showAll">Display all newsletters</param>
+	<returns>The list of Newsletters</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetNewsLetterList(Dynamicweb.NewsLetterV3.NewsLetter.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32,Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus,System.Int32)">
+	<summary>
+ Returns a list of newsleters within carrent folder.
+ </summary>
+	<param name="sort">Field to sort by.</param>
+	<param name="direction">Sort direction.</param>
+	<param name="search">Search string.</param>
+	<param name="startItem">Number of the item to result start from.</param>
+	<param name="endItem">Number of item to result end from.</param>
+	<param name="status"></param>
+	<returns>The list of newsletters.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetRowCount(System.String)">
+	<summary>
+ Returns Newsletters count.
+ </summary>
+	<param name="search">Search string.</param>
+	<returns>Newsletters count.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.GetRowCount(System.String,System.String,System.Int32)">
+	<summary>
+ Returns Newsletter's count.
+ </summary>
+	<param name="search">Search string.</param>
+	<param name="status">The list of folder IDs where to perform search.</param>
+	<remarks>All lists are contains substrings separated by comma.</remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.NewsLetter.From">
+	<summary>
+ Returns the "From" string for the current newsletter.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.NewsLetter.FormatFromString(System.String,System.String)">
+	<summary>
+ Creates a "Form" string in proper format.
+ </summary>
+	<param name="name">Name of sender.</param>
+	<param name="email">Sender e-mail.</param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.NewsLetter">
+	<summary>
+ Class contains fuanction for NewsLetter handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.GetRecordsPerPage">
+	<summary>
+ Returns an amount of records per page.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.GetDropFolderPath">
+	<summary>
+ Returns the path to "DropFolder".
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.SetRecordsPerPage(System.Int32)">
+	<summary>
+ Sets an amount of records per page.
+ </summary>
+	<param name="recordsPerPage">Amount records per page.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.SetDropFolderPath(System.String)">
+	<summary>
+ Sets path to the DropFolder. 
+ </summary>
+	<param name="dropFolderPath">Path to the DropFolder.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.GetRecipientsRootID">
+	<summary>
+ Returns the current recipient root ID.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.GetCategoriesRootID">
+	<summary>
+ Returs the current category root ID.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.ExtranetID">
+	<summary>
+ Returns the current extranet ID.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ModuleSettings.AllowedFileTypes">
+	<summary>
+ Stores and retrives allowed file types.
+ </summary>
+	<value>Allowed file types.</value>
+	<returns>Allowed file types.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ModuleSettings.NotAllowedFileTypes">
+	<summary>
+ Stores and retrieves not allowed file type.
+ </summary>
+	<value>Not allowed file types.</value>
+	<returns>Not allowed file types.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ModuleSettings.AttachmentFileTypesAllow">
+	<summary>
+ Determines whether the current attachment file type is allowed. 
+ </summary>
+	<value>Integer representation of the boolean statement.</value>
+	<returns>1 - true, 0 - false.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ModuleSettings.AllExtranetUsersID">
+	<summary>
+ Returns the all extranet user IDs.
+ </summary>
+	<value>Extranet user ID.</value>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.ModuleSettings.AllUsersID">
+	<summary>
+ Returns ID of all users.
+ </summary>
+	<value>Users ID.</value>
+	<returns>All users ID.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ModuleSettings.IsFileTypeAllowed(System.String)">
+	<summary>
+ Determines whether the current extantion of the file is allowed. 
+ </summary>
+	<param name="extension">The current file extention.</param>
+	<returns>Boolean statement.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.ModuleSettings">
+	<summary>
+ Class contains functions for module settings handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Link.SortFields.Url">
+	<summary>
+ To sort by URL field = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Link.SortFields.Clicks">
+	<summary>
+ To sort by Clicks field = 1
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Link.SortFields">
+	<summary>
+ Stores fields to sort by.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.Url">
+	<summary>
+ Stores and retrieves link the current recipient should follow to.
+ </summary>
+	<value>The url link.</value>
+	<returns>The link to follow.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.NewsLetterID">
+	<summary>
+ Stores and retrievs the Newsletter ID.
+ </summary>
+	<value>ID.</value>
+	<returns>The newsletter ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.Clicks">
+	<summary>
+ Stores and retrieves a count of clicks on the current link.
+ </summary>
+	<value>A count of the clicks.</value>
+	<returns>Count of clicks on the current link.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.LastClicked">
+	<summary>
+ Stores and retrieves the time of the last click on the link.
+ </summary>
+	<value>Time of the last click.</value>
+	<returns>Time of the last click on the link.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.FirstClicked">
+	<summary>
+ Stores and retrieves time of the first click on the link.
+ </summary>
+	<value>Time of the first click.</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Link.ShortName">
+	<summary>
+ Stores and retrieves the link short name if it is avaliable otherwise the URL.
+ </summary>
+	<value>Short name of the link.</value>
+	<returns>The link short name if it is avaliable otherwise the URL.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.#ctor(System.Int32,System.String)">
+	<summary>
+ Constructor for the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Link">Link</see> class.
+ </summary>
+	<param name="newsLetterId">The current newsletter ID.</param>
+	<param name="url">The current link ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for  the <see cref="T:Dynamicweb.Admin.NewsLetterV3.Link">Link</see> class.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.GetLinkList(System.Int32,Dynamicweb.NewsLetterV3.Link.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection)">
+	<summary>
+ Gets a list of the links for the current newsletter.
+ </summary>
+	<param name="newsLetterID"></param>
+	<returns>Link's list.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.GetLinkList(System.Int32)">
+	<summary>
+ Gets a list of the links for current newsletter.
+ </summary>
+	<param name="newsLetterID"></param>
+	<returns>Link's list.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Link.GetRecipientsIDByLinkID(System.Int32)">
+	<summary>
+ Gets recipients by link id.
+ </summary>
+	<param name="linkID">Link id</param>
+	<returns>Recipients id string</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Link">
+	<summary>
+ Class contains function for handle links within newsletter.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.InProgress">
+	<summary>
+ In progress status = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.Completed">
+	<summary>
+ Completed status = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.Fatal_Error">
+	<summary>
+ Fatal error status = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.Aborted">
+	<summary>
+ Aborted status = 4
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.NoLicense">
+	<summary>
+ NoLicense status = 5
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.IProgress.Statuses.DropFolderIsNotConfigured">
+	<summary>
+ Drop folder is not configured = 6
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.IProgress.Statuses">
+	<summary>
+ Store a status of the process's progress.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.Status">
+	<summary>
+ Stores a status of the process's progress at the time.
+ </summary>
+	<value>Statuses.</value>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.Total">
+	<summary>
+ Stores a total amount fo tasks to process.
+ </summary>
+	<value>Total amount of  tasks.</value>
+	<returns>Total amount of  tasks.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.Executed">
+	<summary>
+ Stores an amount of executed tasks at the time.
+ </summary>
+	<value>Amount of tasks.</value>
+	<returns>Amount of tasks.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.Errors">
+	<summary>
+ Stores an amount of errors tasks at the time.
+ </summary>
+	<value>Amount of tasks.</value>
+	<returns>Amount of tasks.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.Elapsed">
+	<summary>
+ Stores time that has past from the start. 
+ </summary>
+	<value>String representation of the time.</value>
+	<returns>String representation of the time.</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.IProgress.PercentComplete">
+	<summary>
+ Stores percentage of completion.
+ </summary>
+	<value>Double</value>
+	<returns>Precentage of complition.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.IProgress.BeginProcess">
+	<summary>
+ Starts process.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.IProgress.CancelProcess">
+	<summary>
+ Cancels of process.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.IProgress.GetLog(System.Boolean)">
+	<summary>
+ Gets a string representation of the log.
+ </summary>
+	<param name="useDelimiter">Determines whether to use substring separator or not.</param>
+	<returns>Log string.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.IProgress.Refresh">
+	<summary>
+ Refresh.
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.IProgress">
+	<summary>
+ Handles process's progress.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.ImportSettingsCollection.#ctor">
+	<summary>
+ Initializes a new instance of an object.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.FrontendCategory.IsSelected">
+	<summary>
+ Determines whether the current cutegory is selected.
+ </summary>
+	<value>Boolean statement.</value>
+	<returns><c>True</c> or <c>False</c>.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.FrontendCategory.MailFormat">
+	<summary>
+ Stores and retrieves the current e-mail format.
+ </summary>
+	<value>E-mail format.</value>
+	<returns>The current e-mail format.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.FrontendCategory.MergeFrontendCategories(Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.CategoryCollection)">
+	<summary>
+ Merges a list of all categories and recipients subscriptions. If match is occurred then  the <i>IsSelected</i> property sets to <c>True</c>
+ and sets <i>MailFormat</i> property.
+ </summary>
+	<param name="recipient"></param>
+	<param name="categories"></param>
+	<returns>Merges list.</returns>
+	<remarks>
+ Use when you need to view a list of categories and determine what category the current user is subscribe for.
+ </remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.FrontendCategory.Commit(Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.FrontendCategoryCollection)">
+	<summary>
+ Creates a list of subscriptions for the current recipient. 
+ </summary>
+	<param name="recipient"><see cref="T:CustomModule.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<param name="fontendCategories">The list of categories.</param>
+	<remarks>
+	</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.FrontendCategory.Commit(Dynamicweb.NewsLetterV3.Recipient,Dynamicweb.NewsLetterV3.FrontendCategoryCollection,System.Boolean)">
+	<summary>
+ Creates a list of subscriptions for the current recipient. 
+ </summary>
+	<param name="recipient"><see cref="T:CustomModule.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<param name="fontendCategories">The list of categories.</param>
+	<remarks>
+	</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.FrontendCategory">
+	<summary>
+ Class contains function for list of categories and list of recipient association handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailValidationProgress.#ctor(Dynamicweb.NewsLetterV3.RecipientCollection,System.String,System.String,aspNetMX.MXValidateLevel)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.EmailValidationProgress">EmailValidationProgress</see>.
+ </summary>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailValidationProgress.BeginProcess">
+	<summary>
+ Starts the process.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailValidationProgress.GetWrongEmailEmailList">
+	<summary>
+ Returns collection of recipients which has invalid e-mail addresses.
+ </summary>
+	<returns>Collection of recipients.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailValidationProgress.Process">
+	<summary>
+ Handle the process.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.EmailValidationProgress">
+	<summary>
+ Class contains function for E-mail validation progress hanling.
+ </summary>
+	<remarks></remarks>
+</member><member name="E:Dynamicweb.NewsLetterV3.EmailDistributionProgress.EmailProcessed">
+	<summary>
+ E-mail processed event.
+ </summary>
+	<param name="job"><see cref="T:CustomModule.NewsLetterV3.EmailDistributionProgress">EmailDistributionProgress</see> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailDistributionProgress.#ctor(System.String,System.Boolean)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.EmailDistributionProgress">EmailDistributionProgress</see> class.
+ </summary>
+	<param name="letters">List of letters IDs which have to be sent separated by comma.</param>
+	<remarks>Checks for DropFolder, if there is no such directory an exception <i>DirectoryNotFoundException</i>.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailDistributionProgress.StartNonThreadProcess">
+	<summary>
+ Starts the process.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailDistributionProgress.CancelProcess">
+	<summary>
+ Cancels the process.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.EmailDistributionProgress.Process">
+	<summary>
+ Creates and sends curent e-mail. If the current e-mail could not be sent using LiveEmail distribution, it will be saved in DropFolder. 
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.EmailDistributionProgress">
+	<summary>
+ Class contains function for E-mail distribution progress handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.DistributionNewsLetter.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.DistributionNewsLetter">DistributionNewsLetter</see> class. 
+ </summary>
+	<param name="id">The current newsletter ID.</param>
+	<remarks>Loads all recipients.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.DistributionNewsLetter.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.DistributionNewsLetter">DistributionNewsLetter</see> class.
+ Fills the current object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.DataRow object, stores the current object data.</param>
+	<remarks>Loads all recipients.</remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.DistributionNewsLetter.Recipients">
+	<summary>
+ Returns a list of the recipients who will receive the current newsletter.
+ </summary>
+	<value>List of recipients.</value>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.DistributionNewsLetter.SaveRecipientNewsLetter(System.Int32,Dynamicweb.Modules.Common.Constants.MailFormat)">
+	<summary>
+ Associates the current recipient with newsletter.
+ </summary>
+	<param name="recipID"></param>
+	<param name="mailFormat">Format of the newsletter crrent recipient has received.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.DistributionNewsLetter.ToNewsItem">
+	<summary>
+ Creates a news item, based on current newsletter properties
+ </summary>
+	<returns>news item</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.DistributionNewsLetter.PublishAsNews(System.Int32)">
+	<summary>
+ Publish newsletter as news item
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.DistributionNewsLetter">
+	<summary>
+ Class contains function for newsletter distribution handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Category.SortFields.Name">
+	<summary>
+ Sorted by Name field.
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Category.SortFields">
+	<summary>
+ Stores a sort field order.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Category">Category</see> class. Downloads the current ID object from the data base.
+ </summary>
+	<param name="id">The current category ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.#ctor">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Category">Category</see> class. Downloads the current ID object from the data base.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Category">Category</see> class. 
+ Fills the current object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.DataRow object, stores the current object data.</param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Category.Name">
+	<summary>
+ Stores and retrieves the current category name.
+ </summary>
+	<value>Name of the category.</value>
+	<returns>The current category name.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Category.IsActive">
+	<summary>
+ If category placed to the deleted items folder, it is marked as not active
+ </summary>
+	<returns>Active / not active flag</returns>
+</member><member name="P:Dynamicweb.NewsLetterV3.Category.Description">
+	<summary>
+ Stores and retrieves the current category description.
+ </summary>
+	<value>Category description.</value>
+	<returns>Category description.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.Load(System.Int32)">
+	<summary>
+ Loads data from the current ID row.
+ </summary>
+	<param name="id">ID of the current row.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.Save">
+	<summary>
+ Saves the current object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.Delete(System.Int32)">
+	<summary>
+ Deletes the category with specified ID.
+ </summary>
+	<param name="id">The current category ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetCategoryList(Dynamicweb.NewsLetterV3.Category.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String)">
+	<summary>
+ Returns a list of all categories satisfying the current request.
+ </summary>
+	<param name="sort">Name of the field to sort by.</param>
+	<param name="direction">Direction of sort.</param>
+	<param name="search">Search string.</param>
+	<returns>List of categories.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetCategoryList(System.Int32,System.Boolean)">
+	<summary>
+ Returns a list of all categories satisfying the current newsletter object.
+ </summary>
+	<param name="nsID">Newsletter ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetCategoryList(System.String,Dynamicweb.NewsLetterV3.Category.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection)">
+	<summary>
+ Returns a list of all categories satisfying the current request.
+ </summary>
+	<param name="sort">Name of the field to sort by.</param>
+	<param name="direction">Direction of sort.</param>
+	<returns>List of categories.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetCategoryList(Dynamicweb.NewsLetterV3.Category.SortFields,Dynamicweb.Modules.Common.Constants.SortDirection,System.String,System.Int32,System.Int32)">
+	<summary>
+ Returns a list of all categories satisfying the current request.
+ </summary>
+	<param name="sort">Name of the field to sort by.</param>
+	<param name="direction">Direction of sort.</param>
+	<param name="search">Search string.</param>
+	<param name="startItem">Number of the item to start from.</param>
+	<param name="endItem">Number of the last item within the current result.</param>
+	<returns>The list of categories.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetRowCount(System.String)">
+	<summary>
+ Returns an amount of categories within the search list.
+ </summary>
+	<param name="search">The search string.</param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Category.Recipients">
+	<summary>
+ Returns the current category recipient list.
+ </summary>
+	<value>Recipient list.</value>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Category.RecipientsCount">
+	<summary>
+ Returns the current category recipient count.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.GetAllCategoriesIds">
+	<summary>
+ Returns a list of all categories's ID.
+ </summary>
+	<returns>List of IDs.</returns>
+	<remarks>List is represented as a numeric strings divided by comma.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Category.IsCategoryExist(System.String)">
+	<summary>
+ Gets a value indicating whether the category whith specified name is already exist in system.
+ </summary>
+	<param name="categoryName">Category name.</param>
+</member><member name="T:Dynamicweb.NewsLetterV3.Category">
+	<summary>
+ Class contains function for category handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.Path">
+	<summary>
+ Stores and retrieves path to the file.
+ </summary>
+	<value>String with path.</value>
+	<returns>Path to the file.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.PathEncoded">
+	<summary>
+ URL-encodes a path and returns the encoded path. 
+ </summary>
+	<value>Encoded path</value>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.NewsLetterID">
+	<summary>
+ Stores and retrieves the current newsletter ID.
+ </summary>
+	<value>ID of the current newsletter.</value>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.#ctor(System.String)">
+	<summary>
+ Constructor for  <see cref="T:Dynamicweb.Admin.NewsLetterV3.Attachment">Attachment</see> class.
+ </summary>
+	<param name="path">Path to attached file.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.#ctor(System.Int32)">
+	<summary>
+ Constructor for  <see cref="T:Dynamicweb.Admin.NewsLetterV3.Attachment">Attachment</see> class. Downlods the current ID object from data base.
+ </summary>
+	<param name="id">The current <see cref="T:Dynamicweb.Admin.NewsLetterV3.Attachment">Attachment</see> object ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor. Fills object with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object, stores the current object data.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.#ctor">
+	<summary>
+ Empty constructor
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.GetAttachmentList(System.Int32)">
+	<summary>
+ Returns the current newsletter attachments list.
+ </summary>
+	<param name="newsLetterID">Newsletter ID.</param>
+	<returns>List of attachments.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.SaveList(Dynamicweb.NewsLetterV3.AttachmentCollection)">
+	<summary>
+ Saves list of attachments to the data base.
+ </summary>
+	<param name="attachments">List of attachment.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.Equals(System.Object)">
+	<summary>
+ Compares the current  <see cref="T:Dynamicweb.Admin.NewsLetterV3.Attachment">Attachment</see> object with another object.
+ </summary>
+	<param name="obj">Object to compare.</param>
+	<returns>True - if thay equal, False - if thay not.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.Length">
+	<summary>
+ Returns the current file size.
+ </summary>
+	<value>File size in bytes.</value>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.Size">
+	<summary>
+ Returns string representation of the file size.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Attachment.FormatFileSize(System.Int64)">
+	<summary>
+ Converts file size in to string representation.
+ </summary>
+	<param name="size">The current file size.</param>
+	<returns>Returns string representation of the file size.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Attachment.Name">
+	<summary>
+ Returns the current file name.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Attachment">
+	<summary>
+ Class contains functions for e-mail attachment handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.NewsCategories">
+	<summary>
+ Stores and retrieves a list of "News" categories ID. 
+ </summary>
+	<value>"News" module categories ID.</value>
+	<returns>A list of "News" categories ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.NewsCategoryIds">
+	<summary>
+ Returns a string with categories IDs of the "News" module.
+ </summary>
+	<value>Categories IDs</value>
+	<returns>A string with categories IDs separated by comma.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.NewsIntegration">NewsIntegration</see> class.
+ </summary>
+	<param name="id"></param>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.NewsItems">
+	<summary>
+ Returns a list of news items.
+ </summary>
+	<value>A list of news items.</value>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.AutoCreateBody">
+	<summary>
+ Creates a body of the current rule newsletter.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.ModuleLink(System.Object)">
+	<summary>
+ Retunrns a link on the page contains the current news item.
+ </summary>
+	<param name="item">The item of the news.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.Save">
+	<summary>
+ Saves the current integration rule.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.Delete(System.Int32)">
+	<summary>
+ Deletes the current ID NewsIntegration rule.
+ </summary>
+	<param name="id">NewsIntegration rule ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.Load(System.Int32)">
+	<summary>
+ Loads data from the current ID row.
+ </summary>
+	<param name="id">NewsIntegration rule ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.NewsIntegration.GetListForCategory(Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ETaskType,System.Int32)">
+	<summary>
+ Returns a list of "News' module categories. 
+ </summary>
+	<param name="type">The type of the rule, e.g. "By time".</param>
+	<param name="newscatId"></param>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Integration.NewsIntegration">
+	<summary>
+ Class contains functions for "News" module integration handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ETaskType.AtOnce">
+	<summary>
+ "AtOnce" task = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ETaskType.ByTime">
+	<summary>
+ "ByTime" task = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ETaskType.ByEvent">
+	<summary>
+ "ByEvent" task = 2
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ETaskType">
+	<summary>
+ Stores an integration rule tasks.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.SortFields.Name">
+	<summary>
+ Soret by Name field.
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.SortFields">
+	<summary>
+ Stores a sort field order.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.Body">
+	<summary>
+ Stores and retrieves a body text of the rule newsletter.
+ </summary>
+	<value>Newsletter text.</value>
+	<returns>A body text of the rule newsletter.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleType">
+	<summary>
+ Stores and retrieves the current rule type.
+ </summary>
+	<value>The type of the rule.</value>
+	<returns>The current rule type.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RulePeriod">
+	<summary>
+ Stores and retrieves the current rule performance period.
+ </summary>
+	<value>Number of days.</value>
+	<returns>The current rule performance period.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleStartTime">
+	<summary>
+ Stores and retrieves the current rule start time.
+ </summary>
+	<value>DateTime object.</value>
+	<returns>The current rule start time.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleLastTime">
+	<summary>
+ Stores and retrieves the current rule end time.
+ </summary>
+	<value>DateTime object.</value>
+	<returns>The current rule end time.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleDateAtOnceFrom">
+	<summary>
+ Stores and retrieves the "From" date of the "At once" distribution type rule.
+ </summary>
+	<value>DateTime object.</value>
+	<returns>The "From" date.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleDateAtOnceTo">
+	<summary>
+ Stores and retrieves the "To" date of the "At once" distribution type rule.
+ </summary>
+	<value><i>DateTime</i> object.</value>
+	<returns>The "To" date.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleSenderName">
+	<summary>
+ Stores and retrieves a name of the sender of the current rule.
+ </summary>
+	<value>String for the "Sender name" field.</value>
+	<returns>The name of the sender.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleSenderEmail">
+	<summary>
+ Stores and retrieves an email of the sender of the current rule.
+ </summary>
+	<value>String for the "Sender email" field.</value>
+	<returns>The email of the sender.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleSubject">
+	<summary>
+ Stores and retrieves subject of the current rule.
+ </summary>
+	<value>String for the "Subject" field.</value>
+	<returns>The Subject.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleEncoding">
+	<summary>
+ Stores and retrieves encoding of the current rule.
+ </summary>
+	<value>String representation of the encoding.</value>
+	<returns>The encoding of the current rule.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleStylesheetID">
+	<summary>
+ Stores and retrieves ID of the rule stylesheet.
+ </summary>
+	<value>Stylesheet ID.</value>
+	<returns>ID of the rule stylesheet.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleTemplate">
+	<summary>
+ Stores and retrieves the name of the rule template.
+ </summary>
+	<value>Name of the template.</value>
+	<returns>The name of the rule template.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleModuleLink">
+	<summary>
+ Stores and retrieves the link to the page at frontend contains module to integrate with.
+ </summary>
+	<value>Link</value>
+	<returns>The link to the page contains the current module.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleNewsletterLink">
+	<summary>
+ Stores and retrieves the link to the page at frontend contains "NewsletterV3" module.
+ </summary>
+	<value>Link</value>
+	<returns>The link to the page at frontend contains "NewsletterV3" module.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleCategories">
+	<summary>
+ Stores and retrieves a string of the current rule categories IDs.
+ </summary>
+	<value>A string of IDs separated by comma.</value>
+	<returns>A string of the current rule categories IDs.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.RuleModule">
+	<summary>
+ Stores and retrieves the ID of the module to integrate with.
+ </summary>
+	<value>Integer ID</value>
+	<returns>The ID of the module to integrate with.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.ExcludeItems">
+	<summary>
+ Returns a string of integrated module items IDs that were already insert 
+ in to body of the current rule newsletter.
+ </summary>
+	<value>Strings of items IDs.</value>
+	<remarks>Used to prevent double input of items in to the newsletter body.</remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.Template">
+	<summary>
+ Stores and retrieves an object of Template.
+ </summary>
+	<value><i>Rendering.Template</i> object.</value>
+	<returns>An object of Template.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.#ctor(System.Int32)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.IntegrationRule">IntegrationRule</see> class.
+ </summary>
+	<param name="id"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.#ctor(System.Data.IDataReader)">
+	<summary>
+ Constructor for <see cref="T:CustomModule.NewsLetterV3.IntegrationRule">IntegrationRule</see> class.
+ </summary>
+	<param name="reader"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.Fill(System.Data.IDataReader)">
+	<summary>
+ Fills the current object variables with data from System.Data.IDataReader object.
+ </summary>
+	<param name="reader">System.Data.IDataReader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.FillRow(System.Data.DataRow)">
+	<summary>
+ Fills System.Data.DataRow object with data of the current object.
+ </summary>
+	<param name="row">System.Data.DataRow object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.CreateNewsLetter">
+	<summary>
+ Creates the current rule newsletter.
+ </summary>
+	<returns><see cref="T:CustomModule.NewsLetterV3.NewsLetter">NewsLetter</see> object.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.Update">
+	<summary>
+ Updates the current rule.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.CreateBodyFromItem``1(``0)">
+	<summary>
+ Fills the current newsletter template with certain item. 
+ </summary>
+	<typeparam name="T">Template object.</typeparam>
+	<param name="item">The current item.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.CreateBodyFromList``1(System.Collections.Generic.List{``0})">
+	<summary>
+ Creates a body of the current rule newsletter from input list of items.
+ </summary>
+	<typeparam name="T">Template object.</typeparam>
+	<param name="items">A list of items.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.GetRowCount(System.String)">
+	<summary>
+ Returns an amount of rules within the search list.
+ </summary>
+	<param name="search">The search string.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.GetRuleList">
+	<summary>
+ Returns a list of the integration rules.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.GetRuleList(Dynamicweb.NewsLetterV3.Integration.IntegrationRule.SortFields,Dynamicweb.NewsLetterV3.Consts.SortDirection,System.String,System.Int32,System.Int32)">
+	<summary>
+ Returns a list of all rules satisfying the current request.
+ </summary>
+	<param name="sort">Name of the field to sort by.</param>
+	<param name="direction">Direction of sort.</param>
+	<param name="search">Search string.</param>
+	<param name="startItem">Number of the item to start from.</param>
+	<param name="endItem">Number of the last item within the current result.</param>
+	<returns>The list of rules.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.GetPeriodExpiredRulesList">
+	<summary>
+ Returns a list of rules with epired periods.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Integration.IntegrationRule.IsPeriodExpired">
+	<summary>
+ Determines whether the current rule period is expired.
+ </summary>
+	<returns>Boolean statement.<c>True</c> - if it is expired. <c>False</c> - if not.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Integration.IntegrationRule">
+	<summary>
+ Class contains functions for Integration Rule handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Frontend.RecipientDispatcher.Recipient">
+	<summary>
+ Returns the current recipient.
+ </summary>
+	<value><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</value>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.RecipientDispatcher.#ctor(Dynamicweb.Frontend.PageView,System.Int32,Dynamicweb.Properties)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Frontend.RecipientDispatcher">RecipientDispatcher</see> class.
+ </summary>
+	<param name="pageview">Dynamicweb.Frontend.PageView object.</param>
+	<param name="properties">Dynamicweb.Properties object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.RecipientDispatcher.SaveRecipient(Dynamicweb.NewsLetterV3.Recipient)">
+	<summary>
+ Saves the current recipient profile. 
+ </summary>
+	<param name="recipient"><see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.RecipientDispatcher.ConfirmChanges">
+	<summary>
+ Saves changes from the temporary table to the permanent one. 
+ </summary>
+	<remarks>
+ Input data provides by  Dynamicweb.Base.Request object.
+ </remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.RecipientDispatcher">
+	<summary>
+ Class contains functions used to work with the current recipient at frontend.
+ </summary>
+	<remarks>
+ Data provides by <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> class or <see cref="T:Dynamicweb.Admin.NewsLetterV3.TempRecipient">TempRecipient</see> class. Depends on settings.
+ <i>Optional</i>:This class writes log if there is any changes of recipient is occurred and sends letter to the administrator with notification. 
+ </remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Output.GetContent">
+	<summary>
+ Returns certain content according to the current action.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.Output">
+	<summary>
+ Class that handls output.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin.#ctor(Dynamicweb.Frontend.PageView,System.Int32,Dynamicweb.Properties)">
+	<summary>
+ Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.FrontendLogin">FrontendLogin</see> class.
+ </summary>
+	<param name="pageview">Dynamicweb.Frontend.PageView</param>
+	<param name="properties">Dynamicweb.Properties</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin.Logoff">
+	<summary>
+ The current user frontend logoff.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin.ChkLogin">
+	<summary>
+ Checks users e-mail and password. If they are valide then automaticaly authorization.
+ </summary>
+	<remarks>Used data from Dynamicweb.Base.Request</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin.ForgotPassword">
+	<summary>
+ Handles the forgot password form.
+ </summary>
+	<remarks>If there is an å-mail of user within data base, then e-mail letter with password will be send.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin.Login">
+	<summary>
+ Returns the current user authorization form.
+ </summary>
+	<remarks>If user is already authorized then he will be redirect to the user editing page.</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.FrontendLogin">
+	<summary>
+ Class contains function for frontend user authorization handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.ExtranetLogin.ChkLogin(System.String,System.String,System.Boolean)">
+	<summary>
+ The current user authorization.
+ </summary>
+	<param name="email">Curent user e-mail.</param>
+	<param name="password">User's password.</param>
+	<param name="bUsePassword">Determines whether to use password when authorizing.</param>
+	<returns>Boolean statement.</returns>
+	<remarks>
+ Authorization runs using standart <i>Dynamicweb.Security</i> class.
+ </remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.ExtranetLogin.Logoff">
+	<summary>
+ The current user extranet Logoff.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.ExtranetLogin">
+	<summary>
+ Class used for user authorization.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Frontend.EditRecipient.IsValidScope">
+	<summary>
+ Gets value indicating whether current module instance is allowed to perform an execution.
+ </summary>
+	<value>Boolean</value>
+	<remarks>The return value is based on "PID" query-string parameter.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.EditRecipient.#ctor(Dynamicweb.Frontend.PageView,System.Int32,Dynamicweb.Properties)">
+	<summary>
+Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Frontend.EditRecipient">EditRecipient</see> class.
+ </summary>
+	<param name="pageview"><i>Dynamicweb.Frontend.PageView</i> object.</param>
+	<param name="properties"><i>Dynamicweb.Properties</i> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.EditRecipient.Edit(Dynamicweb.Rendering.Template,Dynamicweb.NewsLetterV3.Frontend.Common.Action)">
+	<summary>
+ Edits the current recipient.
+ </summary>
+	<param name="action">The current frontend action.</param>
+	<returns>String representation of HMTL-code.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.EditRecipient">
+	<summary>
+ Class contains function for recipient editing handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.Login">
+	<summary>
+ Login action = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.RecipientEdit">
+	<summary>
+ Recipient edit action = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.ForgotPassword">
+	<summary>
+ Forgot password action = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.ChkLogin">
+	<summary>
+ Check login action = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.Logoff">
+	<summary>
+ Logoff action = 4
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.RegisterRecipient">
+	<summary>
+ Register recipient action = 5
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.Confirm">
+	<summary>
+ Confirm action = 7
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.ForgotPasswordForm">
+	<summary>
+ Forgot password form action = 8
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Frontend.Common.Action.Archive">
+	<summary>
+ Archive action = 9
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.Common.Action">
+	<summary>
+ Stores a list of avaliable frontend actions.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Frontend.Common.Authorized">
+	<summary>
+ Determines whether the current user is authorized.
+ </summary>
+	<value>Boolran statement.</value>
+	<returns>True - is authorized, False - an opposite.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Frontend.Common.UserID">
+	<summary>
+ Returns the current user ID.
+ </summary>
+	<value>Integer ID of the user.</value>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Common.TemplatePath(System.String)">
+	<summary>
+ Returns full path to the current template.
+ </summary>
+	<param name="filePath">Relative path which is ruterned by FileManager.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Common.DisplayLoop(Dynamicweb.Rendering.Template@,System.String,System.Boolean)">
+	<summary>
+ Display or hide Loop within the current template.
+ </summary>
+	<param name="tmpl">The current template.</param>
+	<param name="name">The current template block name.</param>
+	<param name="bVisible">True - to display, False - do not.</param>
+	<remarks>Using Dynamicweb.Rendering.Template.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Common.SendMail(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Sends an E-mail.
+ </summary>
+	<param name="mailToName">Name of the recipient.</param>
+	<param name="mailToEmail">Address of the recipient.</param>
+	<param name="mailSubject">the current e-mail subject.</param>
+	<param name="mailFromName">Sender name.</param>
+	<param name="mailFromEmail">Sender address.</param>
+	<param name="mailBody">Body text of the current newsletter.</param>
+	<returns>True - if e-mail was sent, False - if it is not.</returns>
+	<remarks>IF SMTP server is not avaliable then newssletter will be saved in <i>Drop folder</i>.</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.Common">
+	<summary>
+ Calss contains common shared-methods used for frontend handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.ArchiveDetails.#ctor(Dynamicweb.Frontend.PageView,Dynamicweb.Properties)">
+	<summary>
+Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Frontend.ArchiveDetails">ArchiveDetails</see> class.
+ </summary>
+	<param name="pageview"><i>Dynamicweb.Frontend.PageView</i> object.</param>
+	<param name="properties"><i>Dynamicweb.Properties</i> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.ArchiveDetails.GetArchiveDetails">
+	<summary>
+ Returns archive details in HTML format.
+ </summary>
+	<returns>Return string contains HTML formatted text.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.ArchiveDetails">
+	<summary>
+ Class contains function for newsletter archive detailed information.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Archive.#ctor(Dynamicweb.Frontend.PageView,System.Int32,Dynamicweb.Properties)">
+	<summary>
+Constructor for <see cref="T:Dynamicweb.Admin.NewsLetterV3.Frontend.Archive">Archive</see> class.
+ </summary>
+	<param name="pageview"><i>Dynamicweb.Frontend.PageView</i> object.</param>
+	<param name="properties"><i>Dynamicweb.Properties</i> object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Frontend.Archive.GetArchive">
+	<summary>
+ Returns archive list in HTML format.
+ </summary>
+	<returns>Return string contains HTML formatted text.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Frontend.Archive">
+	<summary>
+ Class contains function for newsletter archive summary information.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Consts.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NoLicenseMessage">
+	<summary>
+ Stores message that will be occured if license for the aspNetMX component is missed.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.DropFolderIsNotConfigured">
+	<summary>
+ Stores message that will be occured if Drop Folder is not set.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.DBName">
+	<summary>
+ Stores the access data base name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.BoundOfLetterCountForUseLiveEmail">
+	<summary>
+ Stores the bound of newsletters count when use "Live Email" distribution.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ObsoletedUnconfirmedSubscriptionChangesAge">
+	<summary>
+ Stores an obsoleted live period of unconfirmed subscription changes in days. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.DefaultNewsletterEncoding">
+	<summary>
+ Stores string representation of the default newsletter encoding.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SortDirections">
+	<summary>
+ Stores the sort directions string reprasentation.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ValidateEmailSessionName">
+	<summary>
+ Stores ValidateEmail session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SendEmailSessionName">
+	<summary>
+ Stores SendEmail session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ImportRecipientSessionName">
+	<summary>
+ Stores ImportRecipient session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientsFilterSessionName">
+	<summary>
+ Stores RecipientsFilter session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CategorySelectionSessionName">
+	<summary>
+ Stores CategorySelection session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CategorySelectionChangedSessionName">
+	<summary>
+ Stores CategorySelectionChanged session name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.TemplateFolder">
+	<summary>
+ Stores relative path to the template folder.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.AttachmentsFolder">
+	<summary>
+ Stores relative path to the attachment folder.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterTags">
+	<summary>
+ Stores a newsletter tags.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CommaSeparator">
+	<summary>
+ Stores a separator charecter represents by comma.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.InitialNewsletterTemplate">
+	<summary>
+ Stores an initial temlate tags for newsletter.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.InitialSmsTemplate">
+	<summary>
+ Stores an initial temlate tags for sms.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.FilemanagerRootFolder">
+	<summary>
+ Stores a path to the file manager root folder.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ImageFilePrefix">
+	<summary>
+ Stores an image file prefix.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.MemoRows">
+	<summary>
+ Stores amount of rows for text area control.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CryptoKey">
+	<summary>
+ Stores cryptographic key.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NoDataFound">
+	<summary>
+ Stores a "No data found" string.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SetFrameHeightFunction">
+	<summary>
+ Stores a name of the "SetFrameHieght" function.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.EmptyLog">
+	<summary>
+ Stores a string for "Empty log" message.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LengthShortLinkName">
+	<summary>
+ Stores a length of short link name.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.DropFolderWasNotSet">
+	<summary>
+ Stores a message string for case when DropFolder is not set.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.MaxDate">
+	<summary>
+ Stores the maximum date value.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.AttachmentFileTypeSeparator">
+	<summary>
+ Stores an attachment file type separator.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.DefaultNewsTemplate">
+	<summary>
+ Stores the name of the default news template.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.Host">
+	<summary>
+ Returns the current HOST as http://hostname/.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.LoggerPage">
+	<summary>
+ Returns the logger page address.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.CssFolder">
+	<summary>
+ Returns path to the <i>Stylesheets</i> folder. 
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.AdimnID">
+	<summary>
+ Returns ID of the current admin.
+ </summary>
+</member><member name="P:Dynamicweb.NewsLetterV3.Consts.IP">
+	<summary>
+ Returns the current User Host IP Address.
+ </summary>
+	<value>IP address.</value>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus.Draft">
+	<summary>
+ Draft status = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus.Queue">
+	<summary>
+ Queue status = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus.Sent">
+	<summary>
+ Sent status = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus.Deleted">
+	<summary>
+ Delete status = 4
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.NewsLetterStatus">
+	<summary>
+ Stores a newsletter statuses
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterType.Manual">
+	<summary>
+ Manual type = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterType.News">
+	<summary>
+ News type = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterType.Page">
+	<summary>
+ Page type =3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterType.SMS">
+	<summary>
+ Sms type = 4
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.NewsLetterType">
+	<summary>
+ Stores a newsletter types
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterItemType.News">
+	<summary>
+ News = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterItemType.NewsCategory">
+	<summary>
+ News category = 2
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.NewsLetterItemType">
+	<summary>
+ Stores a newsletter types
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterAction.OpenLetter">
+	<summary>
+ Opening of the letter action = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterAction.FollowedLink">
+	<summary>
+ Following the inner letter link action = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsLetterAction.Unsubscribe">
+	<summary>
+ Unsubscribe action = 3
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.NewsLetterAction">
+	<summary>
+ Stores current newsletter action.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SortDirection.ASC">
+	<summary>
+ Sort by ascendant = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SortDirection.DESC">
+	<summary>
+ Sort by descendant = 1 
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.SortDirection">
+	<summary>
+ Stores a sort directions.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientType.UserGroup">
+	<summary>
+ User Group type = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientType.AdminUser">
+	<summary>
+ Admin user type = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientType.DwUser">
+	<summary>
+ DW user type = 5
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientType.ExtranetGroup">
+	<summary>
+ Extranet Group type = 11
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientType.User">
+	<summary>
+ User Group type = 15
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.RecipientType">
+	<summary>
+ Stores a types of recipients.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogAction.AddRecipient">
+	<summary>
+ Add recipient action = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogAction.AddSubscription">
+	<summary>
+ Add subscription action = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogAction.RemoveRecipient">
+	<summary>
+ Remove recipient action = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogAction.RemoveSubscription">
+	<summary>
+ Remove subscription action = 4
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogAction.UpdateSubscription">
+	<summary>
+ Update subscription action = 5
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.LogAction">
+	<summary>
+ Stores the log actions.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientActive.Active">
+	<summary>
+ Active recipient = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientActive.NotActive">
+	<summary>
+ Not active recipient = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.RecipientActive.Both">
+	<summary>
+ Both = 2
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.RecipientActive">
+	<summary>
+ Stores the recipient status.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ModuleIntegration.None">
+	<summary>
+ No one = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ModuleIntegration.NewsV2">
+	<summary>
+ The  NewsV2 module = 1
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.ModuleIntegration">
+	<summary>
+ Stores the module name to integrate.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.AttachmentFileTypesAllow.Allowed">
+	<summary>
+ Allowed = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.AttachmentFileTypesAllow.NotAllowed">
+	<summary>
+ Not allowed = 1
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.AttachmentFileTypesAllow">
+	<summary>
+ Determines whether the current attached file is allowed.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ObjectType.Recipient">
+	<summary>
+ Recipient = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ObjectType.Category">
+	<summary>
+ Category = 1
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.ObjectType">
+	<summary>
+ Determines whether the current item is Category or Recipient.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CategoryType.Email">
+	<summary>
+ Recipient = 0
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.CategoryType.SMS">
+	<summary>
+ Category = 1
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.CategoryType">
+	<summary>
+ Determines whether the current category work with email or SMS.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Consts.ValidatorMessage.#ctor">
+	<summary>
+ Constructor.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ValidatorMessage.Numeric">
+	<summary>
+ Stores a string for numeric field validator.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ValidatorMessage.Dt">
+	<summary>
+ Stores a string for date field validator.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.ValidatorMessage.Int">
+	<summary>
+ Stores a string for integer field validator.
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.ValidatorMessage">
+	<summary>
+ Class contains validator message.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.CategoryUserType">
+	<summary>
+ Stores the category user type.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.CategoriesRootName">
+	<summary>
+ Stores the categories root name.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.RecipientsRootName">
+	<summary>
+ Stores the recipient root name.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.RootUserType">
+	<summary>
+ Stores the root user type.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.ExtranetType">
+	<summary>
+ Stores the extranet type. 
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.ExtranetName">
+	<summary>
+ Stores the extranet name.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.ExtranetError">
+	<summary>
+ Stores a string for extranet error.
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.AllExtranetUsers">
+	<summary>
+ Stores a string - "All extranet users". 
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.System.AllUsers">
+	<summary>
+ Stores a string - "All users." 
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.System">
+	<summary>
+ Class contains system messages.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.Tree.ImageRecipients">
+	<summary>
+ Stores a path to the icon of recipients item at the tree.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.Tree.ImageInactiveRecipients">
+	<summary>
+ Stores a path to the inactive recipient icon at the tree.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.Tree.ImageEmailCategory">
+	<summary>
+ Stores a path to the email caterory icon at the tree.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.Tree.ImageSmsCategory">
+	<summary>
+ Stores a path to the sms caterory icon at the tree.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.Tree.ImageNewsRule">
+	<summary>
+ Stores a path to the icon of new's rule item at the tree.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.Tree">
+	<summary>
+ Class used for Tree handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.EmailValidator.DnsTimeOut">
+	<summary>
+ Stores a DNS time out value.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.EmailValidator.MailBoxDomains">
+	<summary>
+ Stores a string of mail box domains, "msn.com" for example.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.EmailValidator">
+	<summary>
+ Class contains constants for e-mail validation.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Draft">
+	<summary>
+ Drafts folder = 1
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Outbox">
+	<summary>
+ Outbox folder = 2
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Sent">
+	<summary>
+ Sent folder = 3
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Deleted">
+	<summary>
+ Deleted folder = 4
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Lists">
+	<summary>
+ Lists folder = 5
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.AllRecipients">
+	<summary>
+ All recipients folder = 6
+ </summary>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder.Integration">
+	<summary>
+ Integration rules folder = 7
+ </summary>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.NewsletterFolder">
+	<summary>
+ Stores the newsletter folders 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SmsNewsLetter.SenderName">
+	<summary>
+ Stores sender name
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.SmsNewsLetter.SenderEmail">
+	<summary>
+ Stores sender email
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.TryToSaveToDropFolder">
+	<summary>
+ Stores a "Try to save to drop folder" string. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.LogMailSent">
+	<summary>
+ Stores a log string for successfully sent e-mail case.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.LogMailWasNotSend">
+	<summary>
+ Stores a log string for case when email send failed. 
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.LogMailSave">
+	<summary>
+ Stores a log string for case when email was saved in DropFolder.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.ALotOfEmailsAndDropFolderDoesNotSet">
+	<summary>
+ Stores a message string for case when muximum amount of e-mails for the "Live E-mail distribution" is occurred.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.LogDelimiter">
+	<summary>
+ Stores a log delimeter tag.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.SmsSent">
+	<summary>
+ Stores a log string for successfully sms sent case.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.NewsLetterV3.Consts.LogMessages.SmsWasNotSend">
+	<summary>
+ Stores a log string for case when sms send failed. 
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts.LogMessages">
+	<summary>
+ Class contains constants for log handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Consts">
+	<summary>
+ Class contains constant fields.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.Notify(System.String,Dynamicweb.Extensibility.NotificationArgs)">
+	<summary>
+ Throws notification about the current event to the derived class.
+ </summary>
+	<param name="notification"></param>
+	<param name="args"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.TranslateValidators(System.Web.UI.Page)">
+	<summary>
+ Translates the current validators.
+ </summary>
+	<param name="page">Web Forms page.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.GetEncodingsList">
+	<summary>
+ Returns the list of encodings.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.Lists.GetSortStr(System.Int32,System.String[])">
+	<summary>
+ Return the current sort field.
+ </summary>
+	<param name="sort">Sort direction.</param>
+	<param name="sortFields">Sort string collection.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.Lists.GetDirectionStr(Dynamicweb.NewsLetterV3.Consts.SortDirection)">
+	<summary>
+ Returns a sort direction string.
+ </summary>
+	<param name="direction"><see cref="T:CustomModule.NewsletterV3.Consts.SortDirection">SortDirection</see></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.Lists.GetRowCount(System.String,System.String)">
+	<summary>
+ Returns a count of the strings satisfying the current filter.
+ </summary>
+	<param name="tablename">Current table name.</param>
+	<param name="filter"></param>
+	<returns>Count of the strings.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Common.Lists">
+	<summary>
+ Class contains function for Lists handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.NewsLetterV3.Common.EmailDistribution.DropFolder">
+	<summary>
+ Returns path to the DropFolder.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.EmailDistribution.Send(Dynamicweb.Modules.Common.Email)">
+	<summary>
+ Sends current e-mail.
+ </summary>
+	<param name="eml"></param>
+	<returns>True if the e-mail was sent. False - otherwise.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.EmailDistribution.SendTestMessage(Dynamicweb.Modules.Common.Email)">
+	<summary>
+ Sends a test e-mail without puting it in to DropFolder if failed.
+ </summary>
+	<param name="eml"></param>
+</member><member name="T:Dynamicweb.NewsLetterV3.Common.EmailDistribution">
+	<summary>
+ Class contains functions for e-mail distribution handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.GetPagedSqlDataReader(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Returns the current data reader of limited strings amount.
+ </summary>
+	<param name="query">SQL string.</param>
+	<param name="keyfield">Key field.</param>
+	<param name="frecord">First record.</param>
+	<param name="lrecord">Last record.</param>
+	<param name="sort"></param>
+	<param name="direction">Sort direction.</param>
+	<param name="dbname">Optional. The current data base.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.ConvertPathToValidFormat(System.String)">
+	<summary>
+ Returns the path converted to the valid format.
+ </summary>
+	<param name="path">Path to convert.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.CheckChainIdsString(System.String)">
+	<summary>
+ Checks if the input string is compared with the <i>Template</i>.
+ </summary>
+	<param name="strCategories"></param>
+	<returns>If the stirng is compared with <i>Template</i> then returns current string. If not - returns <i>empty</i> string.</returns>
+	<remarks><i>Template</i> - sequence of IDs separated by comma.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.GetTestRecipient">
+	<summary>
+ Returns current <see cref="T:Dynamicweb.Admin.NewsLetterV3.Recipient">Recipient</see> object for preview and test e-mail sending.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.EncodeDwTags(System.String)">
+	<summary>
+ Encodes the current Dynamicweb content tags.  
+ </summary>
+	<param name="content">String to encode.</param>
+	<returns>Encoded content.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.SaveNewsLetterV3Item(System.Int32)">
+	<summary>
+ Saves the current item.
+ </summary>
+	<param name="accessUserID"></param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.GetHashedKey(System.Int32,System.Int32,Dynamicweb.NewsLetterV3.Consts.NewsLetterAction)">
+	<summary>
+ Encrypts a string according <i>NewsLetterID</i> and <i>RecipientID</i>.
+ </summary>
+	<param name="intNewsLetterID">Current newsletter ID.</param>
+	<param name="intUserID">Current recipient ID.</param>
+	<param name="action"></param>
+	<returns>Encrypted string.</returns>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.IsUniqueMail(System.Int32,System.String)">
+	<summary>
+ Determines whether the current e-mail is unique.
+ </summary>
+	<param name="userId">The current recipient ID.</param>
+	<param name="mail">The current e-mail to check.</param>
+	<returns>True - if it is unique, False - if not.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.StringUnion(System.String,System.String)">
+	<summary>
+ Merges tow input lists.
+ </summary>
+	<param name="str1">First list represented as string.</param>
+	<param name="str2">Second list represented as string.</param>
+	<returns>String representation of the list.</returns>
+	<remarks>All lists are represented as strings with numbers separated by comma.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.StringIntersect(System.String,System.String)">
+	<summary>
+ Returns an intersection of tow input lists.
+ </summary>
+	<param name="str1">First list represented as string.</param>
+	<param name="str2">Second list represented as string.</param>
+	<remarks>All lists are represented as strings with numbers separated by comma.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.StringXor(System.String,System.String)">
+	<summary>
+ Returns a list of elements from the first list which are not occured within the second one.
+ </summary>
+	<param name="str1">First list represented as string.</param>
+	<param name="str2">Second list represented as string.</param>
+	<remarks>All lists are represented as strings of numbers separated by comma.</remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.StringLength(System.String)">
+	<summary>
+ Returns a count of elements from the list.
+ </summary>
+	<param name="str">The list represented as string.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.NewsLetterV3.Common.UrlRooted(System.String)">
+	<summary>
+ Adds the slash ("/") to the begining of the given URL if it starts with "Default.aspx" and does not start with the slash.
+ </summary>
+	<param name="url">URL to check.</param>
+	<returns>Rooted URL.</returns>
+	<remarks>This modification ensures that the correct URL will be passed which excludes issues with customized URLs and infinite redirection.</remarks>
+</member><member name="T:Dynamicweb.NewsLetterV3.Common">
+	<summary>
+ Class contains common functions used within the current module.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Dynamicweb.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Dynamicweb.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:Dynamicweb.ForumV2.User.Active">
+	<summary>
+ Gets or sets value indicating whether this user is active.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.User.EmailEncoded">
+	<summary>
+ Retrieves an encoded user's e-mail address.
+ </summary>
+	<value>String</value>
+	<returns>An encoded user's e-mail address.</returns>
+	<remarks>
+ Encoding is done by replacing '@' and '.' signs with their HTML equivalents.
+ If e-mail address is not valid then original value is returned.
+ </remarks>
+</member><member name="P:Dynamicweb.ForumV2.User.NameEncoded">
+	<summary>
+ Retrieves an encoded user's name.
+ </summary>
+	<value>String</value>
+	<returns>An encoded user's name.</returns>
+	<remarks>
+ Encoding is done by replacing '@' and '.' signs with their HTML equivalents.
+ If user's name is not represented in a e-mail form or
+ such name is not valid e-mail address then original value is returned.
+ </remarks>
+</member><member name="P:Dynamicweb.ForumV2.User.UserNameEncoded">
+	<summary>
+ Retrieves an encoded user's user-name.
+ </summary>
+	<value>String</value>
+	<returns>An encoded user's user-name.</returns>
+	<remarks>
+ Encoding is done by replacing '@' and '.' signs with their HTML equivalents.
+ If user's user-name is not represented in a e-mail form or
+ such user-name is not valid e-mail address then original value is returned.
+ </remarks>
+</member><member name="M:Dynamicweb.ForumV2.User.GetEmail(System.Int32)">
+	<summary>
+ Retrieves user's email address by it's ID.
+ </summary>
+	<param name="userID">The ID of the desired user</param>
+	<returns>User's email</returns>
+</member><member name="M:Dynamicweb.ForumV2.Thread.GetLatestThreads(System.Int32)">
+	<summary>
+ Get list of new threads.
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ ForumV2ThreadID - id of the thread.
+ ForumV2ThreadUserID
+ ForumV2ThreadCategoryID
+ ForumV2ThreadHeadline
+ ForumV2ThreadDescription
+ ForumV2ThreadDate
+ </code>
+	</returns>
+</member><member name="M:Dynamicweb.ForumV2.Thread.GetLatestThreads(System.Int32,System.String[])">
+	<summary>
+ Get list of new threads for specified category(s).
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ ForumV2ThreadID - id of the thread.
+ ForumV2ThreadUserID
+ ForumV2ThreadCategoryID
+ ForumV2ThreadHeadline
+ ForumV2ThreadDescription
+ ForumV2ThreadDate
+ </code>
+	</returns>
+</member><member name="P:Dynamicweb.ForumV2.FileCollection.AutoID">
+	<summary>
+ Store and retrieves the auto-incremented ID.
+ </summary>
+	<value>Auto-incremented ID.</value>
+	<returns>Auto-incremented ID.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.FileCollection.ThreadID">
+	<summary>
+ Store and retrieves the thread ID for current instance.
+ </summary>
+	<value>Thread ID.</value>
+	<returns>The thread ID for current instance.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.FileCollection.PostID">
+	<summary>
+ Store and retrieves the post ID for current instance.
+ </summary>
+	<value>Post ID.</value>
+	<returns>The post ID for current instance.</returns>
+</member><member name="P:Dynamicweb.ForumV2.FileCollection.BaseDirectory">
+	<summary>
+ Store and retrieves base directory for current instance.
+ </summary>
+	<value>Base directory.</value>
+	<returns>Base directory for current instance.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.FileCollection.PhisicalBaseDirectory">
+	<summary>
+ Store the phisical path to base direcoty for current instance.
+ </summary>
+	<value>The phisical path to base direcoty.</value>
+	<returns>The phisical path to base direcoty.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.#ctor">
+	<summary>
+ Creates new instance of FileCollection object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.#ctor(System.Int32)">
+	<summary>
+ Creates new instance of FileCollection object.
+ </summary>
+	<param name="threadID">Thread ID for current instance.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.#ctor(System.Int32,System.Int32)">
+	<summary>
+ Creates new instance of FileCollection object.
+ </summary>
+	<param name="threadID">Thread ID for current instance.</param>
+	<param name="postID">Post ID for current instance.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Fill(System.Collections.Generic.List{Dynamicweb.ForumV2.File})">
+	<summary>
+ Fills current instance with File objects.
+ </summary>
+	<param name="files">Files list to be added to collection.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Add(System.Web.HttpPostedFile)">
+	<summary>
+ Adds new File object to collection.
+ </summary>
+	<param name="postedFile">HttpPostedFile object for new element.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Save">
+	<summary>
+ Saves all files in collection.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Delete">
+	<summary>
+ Deletes all files.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.DeleteUnrelated">
+	<summary>
+ Deletes all unrelated files.
+ </summary>
+	<remarks>This method deletes all files which are not present in the database but exist in a file system</remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Remove(System.Int32)">
+	<summary>
+ Removes File object from collection.
+ </summary>
+	<param name="innerID">Inner ID of file to be removed.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Sort">
+	<summary>
+ Sorts the collection by "FileLink" property.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.ItemFound(Dynamicweb.ForumV2.File)">
+	<summary>
+ Determines whether passed File object satisfies search conditions.
+ </summary>
+	<param name="item">File object.</param>
+	<returns>Value indicating whether passed File object satisfies search conditions.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.GetFileNames">
+	<summary>
+ Retrieves file names (without directory names) array.
+ </summary>
+	<returns>File names (without directory names) array.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.FileCollection.Compare(Dynamicweb.ForumV2.File,Dynamicweb.ForumV2.File)">
+	<summary>
+ Used when sorting collection elements.
+ </summary>
+	<param name="item1">First item to compare.</param>
+	<param name="item2">Second item to compare.</param>
+	<remarks>The comparison attribute is "FileLink" property</remarks>
+</member><member name="T:Dynamicweb.ForumV2.FileCollection">
+	<summary>
+ Class contains function for files collection handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Dynamicweb.ForumV2.File.FileNameFormat">
+	<summary>
+ Store file name format string.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.File.PhisicalBaseDirectory">
+	<summary>
+ Store the phisical path to base direcoty for current file.
+ </summary>
+	<value>The phisical path to base direcoty.</value>
+	<returns>The phisical path to base direcoty.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.File.InnerID">
+	<summary>
+ Store and retrieves the inner ID for current file.
+ </summary>
+	<value>Inner ID.</value>
+	<returns>The inner ID for current file.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.File.#ctor">
+	<summary>
+ Creates new instance of File object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.File.#ctor(System.Int32,System.Web.HttpPostedFile,System.String)">
+	<summary>
+ Creates new instance of File object.
+ </summary>
+	<param name="innerID">Inner ID for current file</param>
+	<param name="postedFile">HttpPostedFile object for current file</param>
+	<param name="baseDir">Base directory for current file</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.File.Save">
+	<summary>
+ Saves current object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.File.Delete">
+	<summary>
+ Deletes current object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.File.GetUniqueFilePath">
+	<summary>
+ Retrieves unique file path for current file.
+ </summary>
+	<returns>Unique file path for current file.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.ForumV2.File">
+	<summary>
+ Class contains function for file handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbObject.GetCustomSelectStatement">
+	<summary>
+ Returns custom SQL select statement for data retrieving associated with database object.
+ </summary>
+	<returns>Custom SQL select statement.</returns>
+	<remarks>Override this function in a child class to specify what information will be selected from the database.</remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbObject.ColumnExists(System.Data.DataTable,System.String)">
+	<summary>
+ Determines whether columnName exists in data table.
+ </summary>
+	<param name="schemaTable">Schema of the target table.</param>
+	<param name="columnName">Search column.</param>
+	<returns>Value indicating whether column specified by name exists in data table.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbObject.GetStoredObjects">
+	<summary>
+ Retrieves StoredObjects object which contains most used (during current request) database objects.
+ </summary>
+	<returns>StoredObjects object.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.DbFile.ThreadID">
+	<summary>
+ Store and retrieves the thread ID for current file.
+ </summary>
+	<value>Thread ID.</value>
+	<returns>The thread ID for current file.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.DbFile.PostID">
+	<summary>
+ Store and retrieves the post ID for current file.
+ </summary>
+	<value>Post ID.</value>
+	<returns>The post ID for current file.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.DbFile.FileName">
+	<summary>
+ Store and retrieves the actual file name for current file.
+ </summary>
+	<value>File name.</value>
+	<returns>The actual file name for current file.</returns>
+	<remarks></remarks>
+</member><member name="P:Dynamicweb.ForumV2.DbFile.FileLink">
+	<summary>
+ Store and retrieves the link name for current file.
+ </summary>
+	<value>Link name.</value>
+	<returns>The link file name for current file.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.#ctor">
+	<summary>
+ Creates new instance of DbFile object.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.#ctor(System.Int32)">
+	<summary>
+ Creates new instance of DbFile object.
+ </summary>
+	<param name="id">File ID.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.Fill(System.Data.IDataReader)">
+	<summary>
+ Fill object properties according to database information.
+ </summary>
+	<param name="reader">Data reader object.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.FillRow(System.Data.DataRow)">
+	<summary>
+ Fill table row with object properties values.
+ </summary>
+	<param name="row">Table row.</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.IntToString(System.Int32)">
+	<summary>
+ Converts integer number to its' string representation.
+ </summary>
+	<param name="number">Value to convert.</param>
+	<returns>The converted value.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.GetFiles(System.Int32)">
+	<summary>
+ Returns FileCollection object.
+ </summary>
+	<param name="threadID">The files thread ID.</param>
+	<returns>FileCollection object.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.GetFiles(System.Int32,System.Int32)">
+	<summary>
+ Returns FileCollection object.
+ </summary>
+	<param name="threadID">The files thread ID.</param>
+	<param name="postID">The files post ID.</param>
+	<returns>FileCollection object.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.DbFile.GetFiles(System.Int32,System.Int32,System.Int32[],System.Boolean)">
+	<summary>
+ Returns FileCollection object.
+ </summary>
+	<param name="threadID">The files thread ID.</param>
+	<param name="postID">The files post ID.</param>
+	<param name="ids">Database records to be processed.</param>
+	<param name="selectNotExistingIDS">Value indicating whether collection will contain objects with IDs except in "ids" parameter or not.</param>
+	<returns>FileCollection object.</returns>
+	<remarks></remarks>
+</member><member name="T:Dynamicweb.ForumV2.DbFile">
+	<summary>
+ Class contains function for data base file handling.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.Common.CombinePath(System.String,System.String,System.Boolean)">
+	<summary>
+ Combines two paths.
+ </summary>
+	<param name="path1">The first path component.</param>
+	<param name="path2">The second path component.</param>
+	<param name="isVirtual">Value indicating whether resulting path is virtual.</param>
+	<returns>The combined path.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.Common.FormatSize(System.Double)">
+	<summary>
+ Preforms size formatting.
+ </summary>
+	<param name="size">Size value to be formatted.</param>
+	<returns>The formatted value. For example '200 KB' or '1.5 MB'.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.Common.GetMaxRequestLength">
+	<summary>
+ Retrieves the maximum web request length (according to web.config settings).
+ </summary>
+	<returns>The maximum web request length.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.Common.AddToEditorConfig(System.String@,System.String)">
+	<summary>
+ Adds new config variable to FCKEditor config.
+ </summary>
+	<param name="editorOutput">The FCKEditor HTML output (usually generated by Gui.Editor routine).</param>
+	<param name="newConfigProperty">New config variable. For example 'HtmlEncodeOutput=true'</param>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.ForumV2.Common.EncodeEmail(System.String)">
+	<summary>
+ Encodes e-mail address for spam protection.
+ </summary>
+	<param name="email">E-mail address to be encoded.</param>
+	<returns>An encoded e-mail address.</returns>
+	<remarks>
+ Encoding is done by replacing '@' and '.' signs with their HTML equivalents.
+ If e-mail address is not valid then original value is returned.
+ </remarks>
+</member><member name="M:Dynamicweb.Employee.Employee.GetLatestEmployees(System.Int32)">
+	<summary>
+ Get list of new employees and departments.
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ AccessUserID - id of the employee/department.
+ AccessUserType - type, 11 - department.
+ AccessUserName
+ AccessUserJobTitle
+ AccessUserEmail
+ AccessUserValidFrom
+ </code>
+	</returns>
+</member><member name="M:Dynamicweb.Employee.Employee.GetLatestEmployees(System.Int32,System.String[])">
+	<summary>
+ Get list of new employees in selected departments.
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ AccessUserID - id of the employee/department.
+ AccessUserType - type, 11 - department.
+ AccessUserName
+ AccessUserJobTitle
+ AccessUserEmail
+ AccessUserValidFrom
+ </code>
+	</returns>
+</member><member name="M:Dynamicweb.Employee.Employee.GetEmail(System.Int32)">
+	<summary>
+ Retrieves Employee's email address by it's ID.
+ </summary>
+	<param name="employeeID">The ID of the desired employee</param>
+	<returns>Employee's email</returns>
+</member><member name="M:Dynamicweb.Employee.Department.GetAllDepartmentNames">
+	<summary>
+ Get list of all departments.
+ </summary>
+	<returns>
+ DataReader with following columns:
+ <code>
+ AccessUserID - id of the department.
+ AccessUserName - name of the department.
+ </code>
+	</returns>
+</member><member name="P:Dynamicweb.Employee.CustomFields.LeftMargin">
+	<summary>
+ Gets or sets the leftmargin in pixels of each row 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Employee.Common.IsUniqueMail(System.Int32,System.String)">
+	<summary>
+ Determines whether the current e-mail is unique.
+ </summary>
+	<param name="userId">The current user ID.</param>
+	<param name="mail">The current e-mail to check.</param>
+	<returns>True - if it is unique, False - if not.</returns>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Employee.Common.GetExtranetRootID">
+	<summary>
+ Retrieves the 'Extranet' group ID.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Dynamicweb.Employee.Common.UpdateInvisibleDepartments">
+	<summary>
+ Updates root departments' IDs in case if they became "invisible" for the system.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

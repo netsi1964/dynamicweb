@@ -1,0 +1,3834 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>aspNetMX</name>
+    </assembly>
+    <members>
+        <member name="T:aspNetMX.MXCache">
+            <summary>
+            Stores cache of MX records.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXCache.GetServers(System.String)">
+            <summary>
+            Gets MX records for a given mail domain.
+            </summary>
+            <param name="domainName">Mail domain name.</param>
+            <returns>Servers list.</returns>
+        </member>
+        <member name="M:aspNetMX.MXCache.GetValidServer(System.String)">
+            <summary>
+            Gets the valid SMTP server for the given domainName.
+            </summary>
+            <param name="domainName">Domain name to look SMTP servers for.</param>
+            <returns>Valid SMTP server name.</returns>
+        </member>
+        <member name="T:aspNetMX.MXServers">
+            <summary>
+            Holds the collection of MX servers for a given domain.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//lookup the mx records for microsoft.com
+            			MXServers servers = mx.GetMXServers( "microsoft.com");
+            
+            			//get an array of the records from the MXServers object
+            			MXRecord[] records = servers.Records;
+            
+            			//write out the Preference and Exchange
+            			for( int i=0;i&lt;records.Length;i++)
+            			{
+            				Console.WriteLine( records[i].Preference.ToString() + " : " + records[i].Exchange );
+            			}
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'lookup the mx records for microsoft.com
+                    Dim servers As MXServers = mx.GetMXServers("microsoft.com")
+            
+                    'get an array of the records from the MXServers object
+                    Dim records As MXRecord() = servers.Records
+            
+                    'write out the Preference and Exchange
+                    Dim i As Integer
+                    For i = 0 To records.Length - 1
+                        Console.WriteLine((records(i).Preference.ToString() + " : " + records(i).Exchange))
+                    Next i
+            
+                    Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>	
+        </member>
+        <member name="M:aspNetMX.MXServers.GetFirst">
+            <summary>
+            Gets the top-priority server from the list.
+            </summary>
+            <returns>Top-priority server name.</returns>
+        </member>
+        <member name="M:aspNetMX.MXServers.Add(System.String,System.Int32)">
+            <summary>
+            Adds server name record with priority.
+            </summary>
+            <param name="serverName">Name of the server to add.</param>
+            <param name="index">Server index.</param>
+        </member>
+        <member name="M:aspNetMX.MXServers.GetFirstValid">
+            <summary>
+            Gets the first valid server.
+            </summary>
+            <returns>First valid SMTP server, or <c>null</c> if none found.</returns>
+        </member>
+        <member name="P:aspNetMX.MXServers.DomainName">
+            <summary>
+            The domain name of the MX Servers.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXServers.Servers">
+            <summary>
+            A sorted list of the MX servers, starting with most available to least available, as set by the MX record preference.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//lookup the mx records for microsoft.com
+            			MXServers servers = mx.GetMXServers( "microsoft.com");
+            
+            			//get sorted list, priorized
+            			SortedList sl = servers.Servers;
+            
+            			for( int i=0;i&lt;sl.Count;i++)
+            			{
+            				Console.WriteLine( sl.GetByIndex(i ) );
+            			}
+            			Console.ReadLine();
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'lookup the mx records for microsoft.com
+                    Dim servers As MXServers = mx.GetMXServers("microsoft.com")
+            
+                    'get sorted list, priorized
+                    Dim sl As SortedList = servers.Servers
+            
+            
+                    Dim i As Integer
+                    For i = 0 To sl.Count - 1
+                        Console.WriteLine(sl.GetByIndex(i))
+                    Next i
+                    Console.ReadLine()
+            
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXServers.Records">
+            <summary>
+            An array of MX records.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//lookup the mx records for microsoft.com
+            			MXServers servers = mx.GetMXServers( "microsoft.com");
+            
+            			//get an array of the records from the MXServers object
+            			MXRecord[] records = servers.Records;
+            
+            			//write out the Preference and Exchange
+            			for( int i=0;i&lt;records.Length;i++)
+            			{
+            				Console.WriteLine( records[i].Preference.ToString() + " : " + records[i].Exchange );
+            			}
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'lookup the mx records for microsoft.com
+                    Dim servers As MXServers = mx.GetMXServers("microsoft.com")
+            
+                    'get an array of the records from the MXServers object
+                    Dim records As MXRecord() = servers.Records
+            
+                    'write out the Preference and Exchange
+                    Dim i As Integer
+                    For i = 0 To records.Length - 1
+                        Console.WriteLine((records(i).Preference.ToString() + " : " + records(i).Exchange))
+                    Next i
+            
+                    Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="T:aspNetMX.DNSQuery">
+            <summary>
+            Represents query to a DNS server.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.DNSQuery.DNSHost">
+            <summary>
+            DNS server host.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.DNSQuery.Buffer">
+            <summary>
+            Internal buffer
+            </summary>
+        </member>
+        <member name="F:aspNetMX.DNSQuery.sock">
+            <summary>
+            Connection socket
+            </summary>
+        </member>
+        <member name="F:aspNetMX.DNSQuery.BufferPos">
+            <summary>
+            Buffer position
+            </summary>
+        </member>
+        <member name="F:aspNetMX.DNSQuery.results">
+            <summary>
+            Results
+            </summary>
+        </member>
+        <member name="M:aspNetMX.DNSQuery.#ctor">
+            <summary>
+            Creates new <see cref="T:aspNetMX.DNSQuery"/>
+            </summary>
+        </member>
+        <member name="M:aspNetMX.DNSQuery.Finalize">
+            <summary>
+            Destructs <see cref="T:aspNetMX.DNSQuery"/>
+            </summary>
+        </member>
+        <member name="M:aspNetMX.DNSQuery.CompressName(System.String,System.Byte[]@)">
+            <summary>
+            Compresses string.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.DNSQuery.PrimaryDNSServer">
+            <summary>
+            Gets or sets the DNS server host.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.DNSQuery.Count">
+            <summary>
+            Gets the results count.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.DNSQuery.Item(System.Int32)">
+            <summary>
+            Wraps results collection indexer.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.DNSQueryType">
+            <summary>
+            DNS Query type
+            </summary>
+        </member>
+        <member name="T:aspNetMX.DNSQueryWrapper">
+            <summary>
+            Wraps the <see cref="T:aspNetMX.DNSQuery"/> class to convert its interface
+            to <see cref="T:aspNetMX.MXServers"/>-compatible.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.MXRecord">
+            <summary>
+            A class that holds a MX Record of a Preference and Exchange.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//lookup the mx records for microsoft.com
+            			MXServers servers = mx.GetMXServers( "microsoft.com");
+            
+            			//get an array of the records from the MXServers object
+            			MXRecord[] records = servers.Records;
+            
+            			//write out the Preference and Exchange
+            			for( int i=0;i&lt;records.Length;i++)
+            			{
+            				Console.WriteLine( records[i].Preference.ToString() + " : " + records[i].Exchange );
+            			}
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'lookup the mx records for microsoft.com
+                    Dim servers As MXServers = mx.GetMXServers("microsoft.com")
+            
+                    'get an array of the records from the MXServers object
+                    Dim records As MXRecord() = servers.Records
+            
+                    'write out the Preference and Exchange
+                    Dim i As Integer
+                    For i = 0 To records.Length - 1
+                        Console.WriteLine((records(i).Preference.ToString() + " : " + records(i).Exchange))
+                    Next i
+            
+                    Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXRecord.ToString">
+            <summary>
+            Returns an instance of MXRecord, in the format Preference:Exchange
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:aspNetMX.MXRecord.Preference">
+            <summary>
+            The MX Record preference number (the lower the number, the higher the server's availablity).
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXRecord.Exchange">
+            <summary>
+            The Mail Exchange, or Dns server name of the mail server.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.SMTPServer">
+            <summary>
+            Represents an SMTP server.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.SMTPServer.CheckSMTPServer(System.String)">
+            <summary>
+            Checks the SMTP server availability. By checking the host availability
+            and success of port 25 connection.
+            </summary>
+            <param name="hostName">SMTP server host name.</param>
+            <returns><c>True</c> if server is available, <c>False</c> otherwise.</returns>
+        </member>
+        <member name="T:aspNetMX.Cache">
+            <summary>
+            Represents cache of objects.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.Cache.m_hash">
+            <summary>
+            Holds the objects.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.Cache.m_timeout">
+            <summary>
+            Timeout interval.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Cache.#ctor(System.TimeSpan)">
+            <summary>
+            Creates new <see cref="T:aspNetMX.Cache"/> object.
+            </summary>
+            <param name="timeout">Cache timeout.</param>
+        </member>
+        <member name="M:aspNetMX.Cache.#ctor">
+            <summary>
+            Creates 15min timeout cache.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Cache.Add(System.Object,System.Object)">
+            <summary>
+            Adds new entry to the cache.
+            </summary>
+            <param name="key">Key of the entry.</param>
+            <param name="value">Entry value.</param>
+        </member>
+        <member name="M:aspNetMX.Cache.IsTimedOut(System.Object)">
+            <summary>
+            Checks if the entry has expired.
+            </summary>
+            <param name="key">Entry key.</param>
+            <returns><c>True</c> if the entry has expired, <c>False</c> otherwise.</returns>
+        </member>
+        <member name="M:aspNetMX.Cache.Update(System.Object,System.Object)">
+            <summary>
+            Updates the entry.
+            </summary>
+            <param name="key">Entry key.</param>
+            <param name="value">New entry value.</param>
+        </member>
+        <member name="P:aspNetMX.Cache.Timeout">
+            <summary>
+            Gets and sets the timeout interval.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Cache.Item(System.Object)">
+            <summary>
+            Gets the object by the key.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.Cache.CacheEntry">
+            <summary>
+            Holds the cache entry.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Cache.CacheEntry.#ctor(aspNetMX.Cache,System.Object)">
+            <summary>
+            Creates new <see cref="T:aspNetMX.Cache.CacheEntry"/> object.
+            </summary>
+            <param name="cache">Cache that holds the entry.</param>
+            <param name="obj">Object that is hold by the entry.</param>
+        </member>
+        <member name="M:aspNetMX.Cache.CacheEntry.Update(System.Object)">
+            <summary>
+            Updates the entry.
+            </summary>
+            <param name="obj">New entry value.</param>
+        </member>
+        <member name="P:aspNetMX.Cache.CacheEntry.Object">
+            <summary>
+            Gets the cache entry object.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Cache.CacheEntry.IsTimedOut">
+            <summary>
+            Checks if the object is timed out.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.IPConfigHelper">
+            <summary>
+            Helper class for obtaining local machine IP configuration
+            </summary>
+        </member>
+        <member name="M:aspNetMX.IPConfigHelper.GetDNSServer">
+            <summary>
+            Gets DNS server name for local machine.
+            </summary>
+            <returns>DNS server name.</returns>
+        </member>
+        <member name="T:aspNetMX.Web.UI.WebControls.EmailTextBox">
+            <summary>
+            EmailTextBox is a web control consisting of a TextBox that uses the EmailValidator control to validate the value of the TextBox.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailTextBox.#ctor">
+            <summary>Creates an instance of the EmailTextBox web control</summary>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailTextBox.CreateChildControls">
+            <summary>
+            Creates the child EmailValidator control to be used to validate this EmailTextBox instance.
+            </summary>		
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailTextBox.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the EmailTextBox Html
+            </summary>
+            <param name="writer">HtmlTextWriter used to write the resulting Html</param>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.Display">
+            <summary>
+              Indicates how the validator is displayed.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.EmailValidator">
+            <summary>
+            The EmailValidator control used to validate the TextBox
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.EnableClientScript">
+            <summary>
+              Indicates whether to perform validation on the client in up-level browsers.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.ErrorMessage">
+            <summary>
+              Sets the ErrorMessage of the validator, if Text is empty, this message is displayed.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.ErrorText">
+            <summary>
+             Sets the Text of the validator which contains the error message to display next to the TextBox
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.LogToTrace">
+            <summary>
+             Writes the log of the server-side aspNetMX network session to the Trace context.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.UseaspNetMX">
+            <summary>
+              It determines whether aspNetMX control is used for server-side validation. If it is not used, ValidationExpression is used instead to match the address on the client and server side.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.ValidationExpression">
+            <summary>
+              Sets the regular expression to match the email address on the client side, but also on the server side when aspNetMX is not used.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailTextBox.ValidateLevel">
+            <summary>
+              It sets the validation level for aspNetMX to use. Check out documentation on aspNetMX to find out what each level is used for.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.Web.UI.WebControls.EmailValidator">
+            <summary>
+            EmailValidator is a control for validating e-mail addresses. It uses aspNetMX control for server-side validation.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailValidator.#ctor">
+            <summary>
+            Creates an instance of the EmailValidator control used to validate email addresses.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailValidator.AddAttributesToRender(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Adds attributes to the control
+            </summary>
+            <param name="writer">Writer used for rendering the Html</param>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailValidator.OnPreRender(System.EventArgs)">
+            <summary>
+            Used for rendering the client side javascript for email validation.
+            </summary>
+            <param name="e">Event arg.</param>
+        </member>
+        <member name="M:aspNetMX.Web.UI.WebControls.EmailValidator.EvaluateIsValid">
+            <summary>
+            Validates to the email address to the level specified by the ValidateLevel property.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailValidator.UseaspNetMX">
+            <summary>
+              It determines whether aspNetMX control is used for server-side validation. If it is not used, ValidationExpression is used instead to match the address on the client and server side.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailValidator.ValidateLevel">
+            <summary>
+              It sets the validation level for aspNetMX to use. Check out documentation on aspNetMX to find out what each level is used for.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailValidator.ValidationPattern">
+            <summary>
+              Sets the regular expression to match the email address on the client side, but also on the server side when aspNetMX is not used.
+            </summary>
+            <remarks>
+            By default, this value is the same as
+            aspNeMX.MXValidate.DefaultValidationPattern.
+            </remarks>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailValidator.LogToTrace">
+            <summary>
+             Writes the log of the server-side aspNetMX network session to the Trace context.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.Web.UI.WebControls.EmailValidator.MXValidate">
+            <summary>
+            The aspNetMX.MXValidate level of validation to perform.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.MXConstants">
+            <summary>
+            Summary description for Internals.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.LogEventHandler">
+            <summary>
+            Receives a entry to the MXValidate log.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.ValidateEmailEventHandler">
+            <summary>
+            Receives a validated email address's results.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.ErrorEventHandler">
+            <summary>
+            Error Handler used for the ErrorEvent.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.MXValidateLevel">
+            <summary>
+            An enumeration of the different levels to be tested against, when validating an email address.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.MXValidateLevel.NotValid">
+            <summary>
+            The lowest level of validation. Determines an email address is not valid.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.MXValidateLevel.Syntax">
+            <summary>
+            The most basic of email validation, a syntax check, using a regular expression, defined by 
+            MXValidate.Pattern
+            </summary>
+        </member>
+        <member name="F:aspNetMX.MXValidateLevel.MXRecords">
+            <summary>
+            A level of validation for checking to see if a MX record for the domain actually exists.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.MXValidateLevel.SMTP">
+            <summary>
+            A level of validation for checking to see if mail servers exist for a specific domain.
+            </summary>
+        </member>
+        <member name="F:aspNetMX.MXValidateLevel.Mailbox">
+            <summary>
+            The highest level of validation, determines if a mail server will accept email for an email address.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.SmtpState">
+            <summary>
+            The current state of the SMTP Server session, as identified by various SMTP
+            commands
+            </summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.Unknown">
+            <summary>The SMTP session has entered an unknown state.</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.Init">
+            <summary>The initiation of the SMTP session.</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.Helo">
+            <summary>The HELO command</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.Ehlo">
+            <summary>The EHLO command</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.MailFrom">
+            <summary>The MAIL FROM command</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.RcptTo">
+            <summary>The RCPT TO command</summary>
+        </member>
+        <member name="F:aspNetMX.SmtpState.Quit">
+            <summary>Quitting the SMTP Session</summary>
+        </member>
+        <member name="T:aspNetMX.MXLogEventArgs">
+            <summary>
+            The event args for logging MXValidate.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXLogEventArgs.#ctor">
+            <summary>
+            Creates an instance of the MXLogEventArgs
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXLogEventArgs.#ctor(System.String)">
+            <summary>
+            Creates an event arg with the LogEntry.
+            </summary>
+            <param name="logEntry">The entry to log.</param>
+        </member>
+        <member name="P:aspNetMX.MXLogEventArgs.LogEntry">
+            <summary>
+            The log entry, either written to the In-Memory log, or log file.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.MXValidateEmailEventArgs">
+            <summary>
+            The event args that are fired every time an email is validated.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidateEmailEventArgs.#ctor">
+            <summary>
+            Creates an instance of the MXValidateRowCompoleteArgs object.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidateEmailEventArgs.#ctor(System.Boolean,System.String,aspNetMX.MXValidateLevel,System.Net.IPAddress)">
+            <summary>
+            Creates an event arg and sets all available properties.
+            </summary>
+            <param name="cancel">Cancel the validation</param>
+            <param name="emailAddress">email address to validate.</param>
+            <param name="level">Last successful level of validation.</param>
+            <param name="smtpServer">IPAddress of the SMTP Server validation was attempted.</param>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.Cancel">
+            <summary>
+            Cancels mass quanity email validation.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.RowIndex">
+            <summary>
+            The row index of the email address being validated during mass email validation.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.DataRow">
+            <summary>
+            The DataRow of the DataSet/DataTable/DataReader being validated.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.EmailAddress">
+            <summary>
+            The email address related to this event.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.Level">
+            <summary>
+            The last successful level of validation.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidateEmailEventArgs.SmtpServer">
+            <summary>
+            If an email was validated to the Mailbox Level, this is the IPAddress of the SMTP Server that returned the true or false validation.
+            </summary>
+        </member>
+        <member name="T:aspNetMX.ErrorEventArgs">
+            <summary>
+            ErrorEvent Args used for raised exceptions.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.ErrorEventArgs.#ctor">
+            <summary>
+            Creats an instance of the Error Event Arguments.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.ErrorEventArgs.Exception">
+            <summary>
+            Exception raised during the event
+            </summary>
+        </member>
+        <member name="P:aspNetMX.ErrorEventArgs.Cancel">
+            <summary>
+            If True, cancels raising the exception.
+            </summary>
+            <remarks>Cancelling an exception can cause the program to become unstable. Be sure to fully test your scenario before moving into production</remarks>
+        </member>
+        <member name="T:aspNetMX.SmtpServerResponseEventHandler">
+            <summary>The delegate used for handling the SmtpServerResponse event.</summary>
+            <param name="sender">An EmailMessage object</param>
+            <param name="e">The SmtpServerResponseEventArgs</param>
+        </member>
+        <member name="T:aspNetMX.SmtpServerResponseEventArgs">
+            <summary>An event argument used for handling SMTP server replies.</summary>
+        </member>
+        <member name="M:aspNetMX.SmtpServerResponseEventArgs.#ctor">
+            <summary>Creates an instance of the SmtpServerResponse Event Arguments.</summary>
+        </member>
+        <member name="M:aspNetMX.SmtpServerResponseEventArgs.#ctor(System.String,aspNetMX.SmtpState)">
+            <summary>Creates an instance of the SmtpServerResponse Event Arguments.</summary>
+            <param name="response">Last full response from the SMTP server.</param>
+            <param name="smtpState">State of the SMTP session.</param>
+        </member>
+        <member name="P:aspNetMX.SmtpServerResponseEventArgs.ActualReplyCode">
+            <summary>
+            The actual reply code sent from the Smtp server.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.SmtpServerResponseEventArgs.ExpectedReplyCode">
+            <summary>
+            The expected reply code from the Smtp server.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.SmtpServerResponseEventArgs.Response">
+            <summary>The last full response from the SMTP server.</summary>
+            <remarks>
+            This is the complete response from the SMTP server before it is handled, or
+            checked for protocol exceptions, by aspNetEmail.
+            </remarks>
+        </member>
+        <member name="P:aspNetMX.SmtpServerResponseEventArgs.SmtpState">
+            <summary>The state of the SMTP session</summary>
+            <remarks>This is the state of the last command issued against the SMTP server.</remarks>
+        </member>
+        <member name="T:aspNetMX.MXValidateException">
+            <summary>
+            An exception thrown during an invalid operations.
+            </summary>
+            <remarks>
+            The most common exception comes from Dns server timeouts, or unable to contact 
+            the Dns server. Other exceptions include 
+            --not being able to access an email address file when
+            calling the ValidateEmailFile( string FilePath ) and ValidateEmailFileToLevel( string FilePath, MXValidateLevel Level )
+            methods.
+            --not finding the correct email column when validation DataReaders, DataTables, or DataSets of email addresses.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidateException.#ctor">
+            <summary>
+            Creates an instance of the MXValidateException class.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidateException.#ctor(System.String)">
+            <summary>
+            Creates an instance of the MXValidateException exception.
+            </summary>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="M:aspNetMX.MXValidateException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates an instance of the MXValidateException class.
+            </summary>
+            <param name="errorMessage">The error message that caused the exception.</param>
+            <param name="innerException">Any inner exception that raised the MXValidateException.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates an instance of the MXValidateException exception.
+            </summary>
+            <param name="serializationInfo">The SerializationInfo that holds the serialized object data about the exception being thrown. </param>
+            <param name="streamingContext">The StreamingContext that contains contextual information about the source or destination. </param>
+        </member>
+        <member name="T:aspNetMX.DnsException">
+            <summary>
+            An exception that occurs during MX record lookup.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.DnsException.#ctor">
+            <summary>
+            Creates an instance of the DnsException class.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.DnsException.#ctor(System.String)">
+            <summary>
+            Creates an instance of the DnsException class.
+            </summary>
+            <param name="errorMessage">Error message that creates this exception.</param>
+        </member>
+        <member name="M:aspNetMX.DnsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates an instance of the DnsException class.
+            </summary>
+            <param name="errorMessage">The error message that caused the exception.</param>
+            <param name="innerException">Any inner exception that raised the DnsException.</param>
+        </member>
+        <member name="M:aspNetMX.DnsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates an instance of the DnsException class.
+            </summary>
+            <param name="serializationInfo">The SerializationInfo that holds the serialized object data about the exception being thrown. </param>
+            <param name="streamingContext">The StreamingContext that contains contextual information about the source or destination. </param>
+        </member>
+        <member name="T:aspNetMX.MXValidate">
+            <summary>
+            Validates Email Addresses.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.OnLogEvent(aspNetMX.MXLogEventArgs)">
+            <summary>
+            Raises the LogEvent event.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.FireLogEvent(aspNetMX.MXLogEventArgs)">
+            <summary>
+            This method has been depreciated, but is supported for backward compatibility. Use OnLogEvent instead of FireLogEvent.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.OnValidateEmailComplete(aspNetMX.MXValidateEmailEventArgs)">
+            <summary>
+            Raises the ValidateEmailCompleteEvent event.
+            </summary>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.FireValidateEmailCompleteEvent(aspNetMX.MXValidateEmailEventArgs)">
+            <summary>
+            This method has been depreciated, but is supported for backward compatibility. Use OnValidateComplete instead.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.OnError(aspNetMX.ErrorEventArgs)">
+            <summary>
+            Raises the Error event.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.OnSmtpServerResponse(aspNetMX.SmtpServerResponseEventArgs)">
+            <summary>
+            Raises the SmtpServerResponse event.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.#ctor">
+            <summary>
+            Creates an instance of the MXValidate object.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.Finalize">
+            <summary>
+            Disposes of any unused socket resources.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.AddDnsServers(System.String)">
+            <summary>
+            A comma or semi-colon seperated string of DNS servers that will be added to AdditionalDnsServers
+            </summary>
+            <param name="DnsServers">A string of Dns servers.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.AddBadEmails(System.String)">
+            <summary>
+            Adds email addresses to the BadEmailAddresses ArrayList.
+            </summary>
+            <param name="EmailAddresses">A comma or semi-colon seperated list of email addresses.</param>
+            <remarks>
+            An easy method for adding numerous email addresses to the BadEmailAddresses ArrayList.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//add bad email addresses
+            			string bad = "test@test.com;a@a.com;asdf@asdf.com";
+            			mx.AddBadEmails( bad );
+            
+            
+            			//set the email address
+            			string EmailAddress = "test@test.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            
+            			if( level == MXValidateLevel.MXRecords)
+            			{
+            				Console.WriteLine( "Email address valid.");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Email Address not valid.");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'add bad email addresses
+                    Dim bad As String = "test@test.com;a@a.com;asdf@asdf.com"
+                    mx.AddBadEmails(bad)
+            
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@test.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.MXRecords Then
+                        Console.WriteLine("Email address valid.")
+                    Else
+                        Console.WriteLine("Email Address not valid.")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.AddBadDomains(System.String)">
+            <summary>
+            A method to accept and add domain names to the BadDomains Arraylist.  The domain names can be in the
+            form of a comma or semi-colon seperated list, or a single domain name.
+            </summary>
+            <param name="domainNames">A single domain name, or a comma/semi-colon seperated list of domain names.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.AddKnownDomains(System.String)">
+            <summary>
+            A method to accept and add domain names to the KnownDomains Arraylist.  The domain names can be in the
+            form of a comma or semi-colon seperated list.
+            </summary>
+            <param name="Domains">A comma or semi-colon seperated list of domain names.</param>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//known domains
+            			string domains = "hotmail.com;aol.com;yahoo.com;usa.net;bigfoot.com;earthlink.net";
+            			mx.AddKnownDomains( domains );
+            
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.MXRecords );
+            
+            			if( level == MXValidateLevel.MXRecords)
+            			{
+            				Console.WriteLine( "MXRecords exist.");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "MX Records do not exist.");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'known domains
+                    Dim domains As String = "hotmail.com;aol.com;yahoo.com;usa.net;bigfoot.com;earthlink.net"
+                    mx.AddKnownDomains(domains)
+            
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.MXRecords)
+            
+                    If level = MXValidateLevel.MXRecords Then
+                        Console.WriteLine("MXRecords exist.")
+                    Else
+                        Console.WriteLine("MX Records do not exist.")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+                    
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.AddMailboxDomains(System.String)">
+            <summary>
+            Accepts a comma or semi-colon seperate list of domain names to be split and added to the MailboxDomains ArrayList.
+            <seealso cref="P:aspNetMX.MXValidate.MailboxDomains"/>
+            </summary>
+            <param name="Domains">A comma or semi-colon seperated list of domain names.</param>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//mailbox domains
+            			string mailboxdomains = "aol.com;yahoo.com;bigfoot.com;msn.com";
+            			mx.AddMailboxDomains( mailboxdomains );
+            
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.MXRecords );
+            
+            			if( level == MXValidateLevel.MXRecords)
+            			{
+            				Console.WriteLine( "MXRecords exist.");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "MX Records do not exist.");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'mailbox domains
+                    Dim mailboxdomains As String = "aol.com;yahoo.com;bigfoot.com;msn.com"
+                    mx.AddMailboxDomains(mailboxdomains)
+            
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.MXRecords)
+            
+                    If level = MXValidateLevel.MXRecords Then
+                        Console.WriteLine("MXRecords exist.")
+                    Else
+                        Console.WriteLine("MX Records do not exist.")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+                    
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ClearBadEmails">
+            <summary>
+            Clears any email addresses stored in the BadEmailAddresses ArrayList
+            <seealso cref="P:aspNetMX.MXValidate.BadEmailAddresses"/>
+            <seealso cref="M:aspNetMX.MXValidate.AddBadEmails(System.String)"/>
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ClearKnownDomains">
+            <summary>
+            Clears any domains stored in the KnownDomains ArrayList
+            <seealso cref="P:aspNetMX.MXValidate.KnownDomains"/>
+            <seealso cref="M:aspNetMX.MXValidate.AddKnownDomains(System.String)"/>
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ClearMailboxDomains">
+            <summary>
+            Clears any domains added to the MailboxDomains ArrayList
+            <seealso cref="P:aspNetMX.MXValidate.MailboxDomains"/>
+            <seealso cref="M:aspNetMX.MXValidate.AddMailboxDomains(System.String)"/>
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.Dispose">
+            <summary>
+            Cleans up any unused socket resources.
+            </summary>
+        </member>
+        <member name="M:aspNetMX.MXValidate.DomainName(System.String)">
+            <summary>
+            Extracts the domain name from the email address.
+            </summary>
+            <param name="EmailAddress">The email address to validate.</param>
+            <returns>The domain name of the email address.</returns>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//write out the domain name
+            			Console.WriteLine( "The domain for the email address is " + mx.DomainName( EmailAddress ) );
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'write out the domain name
+                    Console.WriteLine("The domain for the email address is " + mx.DomainName(EmailAddress))
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.EmailSyntax(System.String)">
+            <summary>
+            Validates the email, to verify it is in the correct syntax.
+            </summary>
+            <param name="EmailAddress">Email address to syntax check.</param>
+            <returns>True if successful, false if it fails.</returns>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//check to see if the email address has valid syntax
+            			Console.WriteLine( "The email address has valid syntax: " + mx.EmailSyntax( EmailAddress ) );
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//check to see if the email address has valid syntax
+            			Console.WriteLine( "The email address has valid syntax: " + mx.EmailSyntax( EmailAddress ) );
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ExpirationDate">
+            <summary>
+            If aspNetMX is in evaluation mode, returns the expiration date. If aspNetMX is not in evaluation mode,
+            a message stating 'This is a fully functional version of aspNetMX.' is returned.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.GetLog">
+            <summary>
+            Returns the in-memory log of the validation session. To log the session, set LogInMemory=true.
+            </summary>
+            <returns>In-memory log</returns>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.GetMXServers(System.String)">
+            <summary>
+            Returns the MX Servers for a given domain name.
+            <seealso cref="P:aspNetMX.MXValidate.CacheMX"/>
+            </summary>
+            <param name="DomainName">A valid Dns domain name.</param>
+            <returns>MXServers object of MX Record information.</returns>
+            <remarks>
+            To increase performance set CacheMX = true. To force a Dns
+            query lookup for every MX Record, set CacheMX = false.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            		//create a class level 
+            		MXValidate mx = new MXValidate();
+            
+            		
+            		static void Main(string[] args)
+            		{
+            
+            			string domainName = "microsoft.com";
+            
+            			MXValidate mx = new MXValidate();
+            			MXServers servers = mx.GetMXServers( domainName );
+            			MXRecord[] records = servers.Records;
+            
+            			foreach( MXRecord record in records)
+            			{
+            				//MXRecord.ToString() is an overloaded method that returns Priority:MailExchanger
+            				Console.WriteLine( record.ToString() );
+            			}
+            
+            			Console.ReadLine();
+            
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                'create a class level 
+                Private mx As New MXValidate()
+            
+                Sub Main()
+                    Dim domainName As String = "microsoft.com"
+            
+                    Dim mx As New MXValidate()
+                    Dim servers As MXServers = mx.GetMXServers(domainName)
+                    Dim records As MXRecord() = servers.Records
+            
+                    Dim record As MXRecord
+                    For Each record In records
+                        'MXRecord.ToString() is an overloaded method that returns Priority:MailExchanger
+                        Console.WriteLine(record.ToString())
+                    Next record
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.IsBadEmailAddress(System.String)">
+            <summary>
+            Checks the BadEmailAddresses ArrayList for an instance of EmailAddress.
+            <seealso cref="P:aspNetMX.MXValidate.BadEmailAddresses"/>
+            </summary>
+            <param name="EmailAddress">The EmailAddress to compare.</param>
+            <returns>True if EmailAddress was found. False if EmailAddress was not found.</returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.IsKnownDomain(System.String)">
+            <summary>
+            Determins if the email address domain name is found in the ArrayList of of KnownDomains.
+            <seealso cref="P:aspNetMX.MXValidate.KnownDomains"/>
+            </summary>
+            <param name="DomainName">A domain name.</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.IsBadDomain(System.String)">
+            <summary>
+            Checks to see if the domainName is found in the list of BadDomains.
+            </summary>
+            <param name="domainName">domain name to check</param>
+            <returns>True if the domain name was found, false if not.</returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.IsPositiveMailboxDomain(System.String)">
+            <summary>
+            Determines if email address domain name is found in the ArrayList of MailboxDomains. 
+            <seealso cref="P:aspNetMX.MXValidate.MailboxDomains"/>
+            </summary>
+            <param name="DomainName">A domain name.</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.Validate(System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates an email address to a specific level.
+            </summary>
+            <param name="EmailAddress">The email address to validate.</param>
+            <param name="Level">The level to validate.</param>
+            <returns>The last successful level of validation, up to, and including the level specified by Level.</returns>
+            <remarks>
+            To increase performance set CacheMX = true. To force a Dns
+            query lookup for every MX Record, set CacheMX = false.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            			
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+                       
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+                       Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            			
+                       Console.ReadLine();
+            			
+            		}
+            
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            		
+                    'log the session
+                    mx.LogInMemory = True
+            		
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            		
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            		
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+            		Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+                    
+            		Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateCSVString(System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a string of email addresses seperated by a comma or a semi-colon.
+            </summary>
+            <param name="csvEmails">Comma separated value list of emails</param>
+            <param name="level">MXValidate level to validate too.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.String[],aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates an array of email addresses.
+            </summary>
+            <param name="EmailAddresses">A string array of email addresses.</param>
+            <param name="Level">The level to validate.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Collections.IList,aspNetMX.MXValidateLevel)">
+            <summary>
+            A list of email addresses to validate.
+            </summary>
+            <param name="EmailAddressList">An object that implements IList.</param>
+            <param name="Level">The level of validation.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Data.IDataReader,System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a DataReader of email addresses to a specific level.
+            </summary>
+            <param name="dr">The DataReader of email addresses.</param>
+            <param name="EmailAddressColumnName">The name of the column containing the email addresses.</param>
+            <param name="Level">The MXValidateLevel to validate the email address too.</param>
+            <remarks>
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Data.DataSet,System.String,System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a DataSet of email addresses to a specific level.
+            </summary>
+            <param name="ds">The DataSet of email addresses.</param>
+            <param name="DataTableName">The name of the DataTable containing the email addresses.</param>
+            <param name="EmailAddressColumnName">The name of the column containing the email addresses.</param>
+            <param name="Level">The MXValidateLevel to validate to.</param>
+            <remarks>
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Data.DataSet,System.Int32,System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a DataSet of email addresses to a specific level.
+            </summary>
+            <param name="ds">The DataSet of email addresses.</param>
+            <param name="DataTableIndex">The DataTable index containing the email addresses.</param>
+            <param name="EmailAddressColumnName">The name of the column containing the email addresses.</param>
+            <param name="Level">The MXValidateLevel to validate to.</param>
+            <remarks>
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Data.DataSet,System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a DataSet of email addresses to a specific level.
+            </summary>
+            <param name="ds">The DataSet of email addresses.</param>
+            <param name="EmailAddressColumnName">The name of the column containing the email addresses.</param>
+            <param name="Level">The MXValidateLevel to validate to.</param>
+            <remarks>This method assumes the first DataTable found in the DataSet contains the email addresses.
+            
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateQty(System.Data.DataTable,System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a DataTable of email addresses to a specific level.
+            </summary>
+            <param name="dt">The DataTable of email addresses.</param>
+            <param name="EmailAddressColumnName">The name of the column containing the email addresses.</param>
+            <param name="Level">The MXValidateLevel to validate to.</param>
+            <remarks>
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Data;
+            using System.Data.OleDb;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		static private string sConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=EmailAddresses.mdb;Persist Security Info=False";
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//wire up the event handlers
+            			mx.LogEvent += new  LogEventHandler( Validate_OnLogEvent );
+            			mx.ValidateRowCompleteEvent += new ValidateRowCompleteEventHandler( Validate_OnValidateRowCompletEvent );
+            			
+            			//get the datatable of email addresses
+            			DataTable dt = GetDataTable();
+            
+            			mx.ValidateQty( dt, "email", MXValidateLevel.Mailbox);
+            
+            
+            			Console.ReadLine();
+            		}
+            
+            		static void Validate_OnLogEvent(object sender, MXLogEventArgs e )
+            		{
+            			//write out the log entry
+            			Console.Write( e.LogEntry );
+            		}
+            
+            		static void Validate_OnValidateRowCompletEvent( object sender, MXValidateEmailEventArgs e )
+            		{			
+            			if(e.Level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( e.EmailAddress + " is valid.");
+            				//here is where the database should be updated to reflect a valid email addres
+            			}
+            			else
+            			{
+            				Console.WriteLine( e.EmailAddress + " is not valid");
+            				//here is where the database should be updated to reflect an invalid email address
+            			}
+            		}
+            		
+            		static DataTable GetDataTable()
+            		{
+            			OleDbConnection oConn;
+            			OleDbDataAdapter oDa;
+            			string sqlText;
+            			DataSet oDataSet = new DataSet();
+                        
+            			//Build the connection string
+                        
+            			//Build the SQL string
+            			sqlText = "SELECT email from tblMembers";
+                        
+            			//Usually you would use error-handling here. It is left out to make the code as simple as possible.
+                        
+            			//Create the connection and command objects
+            			oConn = new OleDbConnection(sConn);
+            			oDa = new OleDbDataAdapter(sqlText, oConn);
+                        
+            			//Fill the dataset with the results of the query
+            			oDa.Fill(oDataSet, "tblMailMerge");
+            			DataTable dtMailMerge = oDataSet.Tables[0];
+            			return dtMailMerge;
+            
+            		}	
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Imports System.Data
+            Imports System.Data.OleDb
+            
+            Module Module1
+            
+                Private sConn As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=EmailAddresses.mdb;Persist Security Info=False"
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'wire up the event handlers
+                    AddHandler mx.LogEvent, AddressOf Validate_OnLogEvent
+                    AddHandler mx.ValidateRowCompleteEvent, AddressOf Validate_OnValidateRowCompletEvent
+            
+                    'get the datatable of email addresses
+                    Dim dt As DataTable = GetDataTable()
+            
+                    mx.ValidateQty(dt, "email", MXValidateLevel.Mailbox)
+            
+            
+                    Console.ReadLine()
+                End Sub
+            
+            
+                Sub Validate_OnLogEvent(ByVal sender As Object, ByVal e As MXLogEventArgs)
+                    'write out the log entry
+                    Console.Write(e.LogEntry)
+                End Sub 'Validate_OnLogEvent
+            
+            
+                Sub Validate_OnValidateRowCompletEvent(ByVal sender As Object, ByVal e As MXValidateEmailEventArgs)
+            
+                    If e.Level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine(e.EmailAddress + " is valid.")
+                    Else
+                        Console.WriteLine(e.EmailAddress + "  is not valid")
+                    End If
+                End Sub
+            
+            
+                Function GetDataTable() As DataTable
+                    Dim oConn As OleDbConnection
+                    Dim oDa As OleDbDataAdapter
+                    Dim sqlText As String
+                    Dim oDataSet As New DataSet()
+            
+                    'Build the connection string
+                    'Build the SQL string
+                    sqlText = "SELECT email from tblMembers"
+            
+                    'Usually you would use error-handling here. It is left out to make the code as simple as possible.
+                    'Create the connection and command objects
+                    oConn = New OleDbConnection(sConn)
+                    oDa = New OleDbDataAdapter(sqlText, oConn)
+            
+                    'Fill the dataset with the results of the query
+                    oDa.Fill(oDataSet, "tblMailMerge")
+                    Dim dtMailMerge As DataTable = oDataSet.Tables(0)
+                    Return dtMailMerge
+                End Function 'GetDataTable 
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.ValidateEmailFile(System.String,aspNetMX.MXValidateLevel)">
+            <summary>
+            Validates a list of email addresses found in a text file, to a specific MXValidationLevel level. 
+            Each email address must be found on a separate line by itself.
+            </summary>
+            <param name="FilePath">The file system path to the file.</param>
+            <param name="Level">The MXValidate Level to validate too.</param>
+            <remarks>
+            To determine if the validation was successful,  wire up the ValidateRowCompleteEvent event, 
+            and obtain the results from the MXValidateEmailEventArgs object.
+            
+            By default, aspNetMX will take advantage of the high performance MXCache to prevent unnecessary Dns queries.
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.VersionNumber">
+            <summary>
+            Returns the version number of aspNetMX.
+            </summary>
+            <returns>The version number as a string.</returns>
+        </member>
+        <member name="M:aspNetMX.MXValidate.WriteLogEntry(System.String)">
+            <summary>
+            Writes an entry to the log.
+            </summary>
+            <param name="LogEntry">String of characters to write to the log file.</param>
+            <remarks>
+            To write a line to the log file, include a trailing CrLf (System.Environment.NewLine).
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.BeginValidate(System.String,aspNetMX.MXValidateLevel,System.AsyncCallback,System.Object)">
+            <summary>
+            Used for asynchronous Validate completion.
+            </summary>
+            <param name="callback">The async callback.</param>
+            <param name="state">The State object</param>
+            <returns>An IAsyncResult instance that references the asynchronous request.</returns>
+            <example>
+            <code lang="C#">
+            public class AsyncSample
+            {
+            	public AsyncSample()
+            	{
+            	}
+            
+            	public void Execute()
+            	{
+            		string email = "test@hotmail.com";
+            		
+            		MXValidate mx = new MXValidate();
+            		mx.LogPath = "c:\\mx.log";
+            		mx.LogOverwrite = true;
+            
+            		StateObject so = new StateObject( mx, email );
+            		mx.BeginValidate( email, MXValidateLevel.Mailbox, new AsyncCallback( MyCallback ), so );
+            
+            	}
+            	public void MyCallback( IAsyncResult result )
+            	{
+            		try
+            		{
+            			StateObject  so = (StateObject)result.AsyncState;
+            			MXValidateLevel level = so.MX.EndValidate( result );
+            			Console.WriteLine( "EmailAddress {0}", so.EmailAddress );
+            			Console.WriteLine( "Valid Level {0}", level.ToString() );
+            			Console.WriteLine();
+            		}
+            		catch(Exception ex )
+            		{
+            			Console.WriteLine( ex );
+            			Console.WriteLine();
+            		}
+            	}
+            
+            }
+            
+            public class StateObject
+            {
+            	public MXValidate MX;
+            	public string EmailAddress;
+            
+            	public StateObject( MXValidate mx, string emailAddress )
+            	{
+            		this.MX = mx;
+            		this.EmailAddress = emailAddress;
+            	}
+            }
+            
+            </code>
+            <code lang="VB.NET">
+             Public Class AsyncSample
+                
+                Public Sub New()
+                End Sub 'New
+                
+                
+                Public Sub Execute()
+                   Dim email As String = "test@hotmail.com"
+                   
+                   Dim mx As New MXValidate()
+                   mx.LogPath = "c:\mx.log"
+                   mx.LogOverwrite = True
+                   
+                   Dim so As New StateObject(mx, email)
+                   mx.BeginValidate(email, MXValidateLevel.Mailbox, New AsyncCallback( AddressOf MyCallback), so)
+                End Sub 'Execute
+                 
+                Public Sub MyCallback(result As IAsyncResult)
+                   Try
+                      Dim so As StateObject = CType(result.AsyncState, StateObject)
+                      Dim level As MXValidateLevel = so.MX.EndValidate(result)
+                      Console.WriteLine("EmailAddress {0}", so.EmailAddress)
+                      Console.WriteLine("Valid Level {0}", level.ToString())
+                      Console.WriteLine()
+                   Catch ex As Exception
+                      Console.WriteLine(ex)
+                      Console.WriteLine()
+                   End Try
+                End Sub 'MyCallback
+             End Class 'AsyncSample
+             
+             Public Class StateObject
+                Public MX As MXValidate
+                Public EmailAddress As String
+                
+                
+                Public Sub New(mx As MXValidate, emailAddress As String)
+                   Me.MX = mx
+                   Me.EmailAddress = emailAddress
+                End Sub 'New
+             End Class 'StateObject
+            
+            </code>
+            </example>
+            <param name="emailAddress">The email address to be validated.</param>
+            <param name="level">The MXValidateLevel the email address will be validated.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.EndValidate(System.IAsyncResult)">
+            <summary>
+            Ends an asynchronous Validate.
+            </summary>
+            <param name="result">The pending Validate result object.</param>
+            <returns>The results</returns>
+            <example>
+            <code lang="C#">
+            public void Execute()
+            {
+            	string email = "test@hotmail.com";
+            	
+            	MXValidate mx = new MXValidate();
+            	mx.LogPath = "c:\\mx.log";
+            	mx.LogOverwrite = true;
+            
+            	StateObject so = new StateObject( mx, email );
+            	mx.BeginValidate( email, MXValidateLevel.Mailbox, new AsyncCallback( MyCallback ), so );
+            
+            }
+            public void MyCallback( IAsyncResult result )
+            {
+            	try
+            	{
+            		StateObject  so = (StateObject)result.AsyncState;
+            		MXValidateLevel level = so.MX.EndValidate( result );
+            		Console.WriteLine( "EmailAddress {0}", so.EmailAddress );
+            		Console.WriteLine( "Valid Level {0}", level.ToString() );
+            		Console.WriteLine();
+            	}
+            	catch(Exception ex )
+            	{
+            		Console.WriteLine( ex );
+            		Console.WriteLine();
+            	}
+            }
+            </code>
+            <code lang="VB.NET">
+            
+            Public Sub Execute()
+               Dim email As String = "test@hotmail.com"
+               
+               Dim mx As New MXValidate()
+               mx.LogPath = "c:\mx.log"
+               mx.LogOverwrite = True
+               
+               Dim so As New StateObject(mx, email)
+               mx.BeginValidate(email, MXValidateLevel.Mailbox, New AsyncCallback( AddressOf MyCallback), so)
+            End Sub 'Execute
+             
+            Public Sub MyCallback(result As IAsyncResult)
+               Try
+                  Dim so As StateObject = CType(result.AsyncState, StateObject)
+                  Dim level As MXValidateLevel = so.MX.EndValidate(result)
+                  Console.WriteLine("EmailAddress {0}", so.EmailAddress)
+                  Console.WriteLine("Valid Level {0}", level.ToString())
+                  Console.WriteLine()
+               Catch ex As Exception
+                  Console.WriteLine(ex)
+                  Console.WriteLine()
+               End Try
+            End Sub 'MyCallback
+            </code>
+            </example>
+        </member>
+        <member name="M:aspNetMX.MXValidate.LoadLicenseFile(System.String)">
+            <summary>Loads a license file, based upon a fileystem path.</summary>
+            <param name="path">Filesystem path to the license file.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.LoadLicenseString(System.String)">
+            <summary>Loads a license file, from a properly formatted Xml license string.</summary>
+            <remarks>
+            	<para>This method can be useful, if you want to store you license in a central
+                location, for example, a Sql Server.</para>
+            	<para>Or of you are bundling aspNetMX with your end product, you can embed the
+                license contents (as a string or even an embedded resource) in your application.
+                This prevents malicious use by protecting your license contents, and preventing
+                someone else from stealing your purchased licenseret.</para>
+            </remarks>
+            <param name="xmlString">A string containing the Xml license contents.</param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.LoadLicenseStream(System.IO.Stream)">
+            <summary>
+            Loads the license from a System.IO.Stream
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="M:aspNetMX.MXValidate.LoadLicenseResource">
+            <summary>
+            Loads a license that was embedded as a resource.
+            </summary>
+            <remarks>
+            This method scans the aseemblies for an embedded resource named "aspNetMX.xml.lic"
+            <br />Once it finds the resource it attempts load it, and verify itself.
+            If you want to embed the aspNetMX.xml.lic in your project or product, and are using VS.NET follow these steps
+            <list type="bullet">
+            <item>
+            	<description>In Solution Explorer, right-click your project and select "Add Existing Item". Browse to your aspNetMX.xml.lic file.</description>
+            </item>
+            <item>
+            	<description>When the license file has been added to your project, right-click it and select "Properties".</description>
+            </item>
+            <item>
+            	<description>In the Properties Window, change the Build Action property to Embedded Resource.</description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:aspNetMX.MXValidate.LoadLicenseResource(System.String)">
+            <summary>
+            Loads the license contents from a specific resource name.
+            </summary>
+            <param name="resourceName">The name of the embedded resource</param>
+            <remarks>This method will scan the loaded assemblies for the existing resource name. Once it is found, it attemps to load the resource as a license.</remarks>
+        </member>
+        <member name="P:aspNetMX.MXValidate.AdditionalDnsServers">
+            <summary>
+            An ArrayList of additional Dns (Domain Name System) servers that can be used as failover dns servers for MX Record checking.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            			
+            			//log the session
+            			mx.LogInMemory = true;
+                       
+            			//set primary dns server
+            			mx.DnsServer = "18.72.0.3";
+                       
+            			//set additional servers
+            			mx.AdditionalDnsServers = new ArrayList();
+            			mx.AdditionalDnsServers.Add( "209.132.1.28" );
+                       mx.AdditionalDnsServers.Add( "217.12.4.104" );
+            			mx.AdditionalDnsServers.Add( "63.250.206.138" );
+            			mx.AdditionalDnsServers.Add(  "64.58.77.85" ); 
+            			
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+                       }
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            			
+            			Console.ReadLine();
+            			
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            		
+                    'log the session
+                    mx.LogInMemory = True
+            		
+                    'set primary dns server
+                    mx.DnsServer = "18.72.0.3"
+            		
+                    'set additional servers
+                    mx.AdditionalDnsServers = New ArrayList()
+            		mx.AdditionalDnsServers.Add("209.132.1.28")
+                    mx.AdditionalDnsServers.Add("217.12.4.104")
+            		mx.AdditionalDnsServers.Add("63.250.206.138")
+                    mx.AdditionalDnsServers.Add("64.58.77.85")
+                    
+            		'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+                    
+            		'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+                    
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+            		Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+                    
+                    Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.BadDomains">
+            <summary>
+            An ArrayList of known bad domains.
+            </summary>
+            <remarks>
+            This ArrayList allows you to specify domains that will always return bad email addresses. For example, some of these domains may be: test.com, asdf.com, a.com, or b.com.
+            </remarks>
+        </member>
+        <member name="P:aspNetMX.MXValidate.BadEmailAddresses">
+            <summary>
+            An ArrayList of known bad email addresses.
+            </summary>
+            <remarks>
+            Users may sometimes enter a valid email address, but the likely hood of that email address being real is very low. For example,
+            asdf@asdf.com or a@a.com or billg@microosft.com. By adding those emails to the BadEmailAddresses list, they will
+            be considered invalid.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set bad addresses
+            			mx.BadEmailAddresses = new ArrayList();
+            			mx.BadEmailAddresses.Add( "test@test.com" );
+            			mx.BadEmailAddresses.Add( "a@a.com" );
+            			mx.BadEmailAddresses.Add( "test@hotmail.com" );
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            
+            
+            		
+            		}
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set bad addresses
+                    mx.BadEmailAddresses = New ArrayList()
+                    mx.BadEmailAddresses.Add("test@test.com")
+                    mx.BadEmailAddresses.Add("a@a.com")
+                    mx.BadEmailAddresses.Add("test@hotmail.com")
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.CacheMX">
+            <summary>
+            Uses the high performance internal cache, to cache MX Records, and prevent unnecessary 
+            Dns network calls.  Defaults to True.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//use the internal cache
+            			mx.CacheMX = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'use the internal cache
+                    mx.CacheMX = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.CheckLiteralDomain">
+            <summary>
+            If no MX records are found, the literal domain of the email address is checked to see if a mailserver exists at that literal domain's IP address (commonly known as the A Record).
+            </summary>
+            <remarks>
+            By default, aspNetMX will check for the A Record, if no MX Record is found.
+            </remarks>
+        </member>
+        <member name="P:aspNetMX.MXValidate.CacheMXTimeOut">
+            <summary>
+            Sets the internal MX Cache timeout. By default, the timeout is a timespan of 15 minutes.
+            </summary>
+            <remarks>
+            aspNetMX utilizes a high performance MX Cache for MX Lookups. Because a Dns query includes a network call, 
+            and network calls are expensive, aspNetMX utilizes a high performance internal lookup cache.
+            Once MX Records have been located for a specific domain, aspNetMX will cache them for the time specified by MXCacheTimeOut.
+            If another email address is encountered during a MXValidate session, that has the same domain name, aspNetMX will retrieve the
+            MX Records from it's internal cache, instead of an expensive network DNS call.
+            By default, this value is 15 minutes.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//increase the cache timeout to 30 min
+            			mx.CacheMXTimeOut = TimeSpan.FromMinutes( 30 );
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level>== MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'increase the cache timeout to 30 min
+                    mx.CacheMXTimeOut = TimeSpan.FromMinutes(30)
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.DnsServer">
+            <summary>
+            Allows you to specify the DNS Server to be used for MX Lookups.
+            </summary>
+            <remarks>
+            By default, aspNetMX will attempt to determine the current Dns server your system is configured to use. To increase performance,
+            it is recommended you set a Dns server, in IP number, dotted notation.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set primary dns server
+            			mx.DnsServer = "18.72.0.3";
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set primary dns server
+                    mx.DnsServer = "18.72.0.3"
+            
+                    mx.AdditionalDnsServers = AdditionalDnsServers
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.DnsTimeout">
+            <summary>
+            Allows you to specify the time out query (in milliseconds) to the Dns server, during MX Record lookups.
+            </summary>
+            <remarks>
+            By default the timeout is set to 30000 (30 seconds).  Depending upon your network connection, and if you
+            are validating a large volume of email addresses, you may want to increase or decrease this timeout.
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set primary dns server
+            			mx.DnsServer = "18.72.0.3";
+            	
+            			//set timeout to 5 seconds
+            			mx.DnsTimeout = 5000;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set primary dns server
+                    mx.DnsServer = "18.72.0.3"
+            
+                    'set timeout to 5 seconds
+                    mx.DnsTimeout = 5000
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.DnsRetries">
+            <summary>
+            The number of times to retry the Dns query.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.DnsRetryPause">
+            <summary>
+            The number of milliseconds to wait between Dns queries.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.KnownDomains">
+            <summary>
+            An array list of domains that are known to exist. By default this list is not populated.
+            </summary>
+            <remarks>
+            A list of domain names that are known to exist. For example
+            microsoft.com, hotmail.com, aol.com, earthlink.com, etc.  Pre-populate this list if 
+            a large list of email addresses is being vaidated, or if MXValidate is being used on a form in a website.
+            By populating this list, and validating to the MXValidateLevel.MXRecords, expensive Dns queries are not needed to 
+            prove a domain exists.
+            Here is a more complete list, compliments of James Shaw @ www.coveryourasp.com
+            hotmail.com
+            aol.com
+            yahoo.com
+            usa.net
+            bigfoot.com
+            earthlink.net
+            mindspring.com
+            ibm.net
+            msn.com
+            compuserve.com
+            juno.com
+            geocities.com
+            excite.com
+            altavista.com
+            ibm.com
+            microsoft.com
+            netzero.net
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//populate known domains
+            			//useful if validating numerious email addresses in a loop,
+            			//or if used in a form on a website
+            			mx.KnownDomains.Add( "aol.com" );
+            			mx.KnownDomains.Add( "hotmail.com");
+            			mx.KnownDomains.Add( "yahoo.com" );  
+            			mx.KnownDomains.Add( "usa.net" );  
+            			mx.KnownDomains.Add( "bigfoot.com" );  
+            			mx.KnownDomains.Add( "earthlink.net" );  
+            			mx.KnownDomains.Add( "mindspring.com" );  
+            			mx.KnownDomains.Add( "ibm.net" );  
+            			mx.KnownDomains.Add( "msn.com" );  
+            			mx.KnownDomains.Add( "compuserve.com" );  
+            			mx.KnownDomains.Add( "juno.com" );  
+            			mx.KnownDomains.Add( "geocities.com" );  
+            			mx.KnownDomains.Add( "excite.com" );  
+            			mx.KnownDomains.Add( "altavista.com" );  
+            			mx.KnownDomains.Add( "ibm.com" );  
+            			mx.KnownDomains.Add( "microsoft.com" ); 
+            			mx.KnownDomains.Add( "netzero.net" );
+            
+            			//validate to MXRecord Level
+            			MXValidateLevel level = mx.Validate( EmailAddress, MXValidateLevel.MXRecords );
+            
+            			if( level == MXValidateLevel.MXRecords)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'populate known domains
+                    'useful if validating numerious email addresses in a loop,
+                    'or if used in a form on a website
+                    mx.KnownDomains.Add("aol.com")
+                    mx.KnownDomains.Add("hotmail.com")
+                    mx.KnownDomains.Add("yahoo.com")
+                    mx.KnownDomains.Add("usa.net")
+                    mx.KnownDomains.Add("bigfoot.com")
+                    mx.KnownDomains.Add("earthlink.net")
+                    mx.KnownDomains.Add("mindspring.com")
+                    mx.KnownDomains.Add("ibm.net")
+                    mx.KnownDomains.Add("msn.com")
+                    mx.KnownDomains.Add("compuserve.com")
+                    mx.KnownDomains.Add("juno.com")
+                    mx.KnownDomains.Add("geocities.com")
+                    mx.KnownDomains.Add("excite.com")
+                    mx.KnownDomains.Add("altavista.com")
+                    mx.KnownDomains.Add("ibm.com")
+                    mx.KnownDomains.Add("microsoft.com")
+                    mx.KnownDomains.Add("netzero.net")
+            
+                    'validate to MXRecord Level
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.MXRecords)
+            
+                    If level = MXValidateLevel.MXRecords Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.LocalSMTPEndPointIP">
+            <summary>
+            The local IP address, used by aspNetMX to bind to the remote SMTP server.
+            </summary>
+            <remarks>
+            	<para>This property should only be set by advanced developers. By default, this
+                value is 127.0.0.1. It allows the developers to control what specific local IP
+                address will be used for communication with the remote SMTP server. See also
+                <a href="aspNetMX~aspNetMX.MXValidate~LocalSMTPEndPointPort">LocalSMTPEndPointPort</a>.</para>
+            	<para>If this IP address is specified, and you have multiple network cards, be sure
+                an IP address is specified that is on the same network as the remote mail
+                server.</para>
+            </remarks>
+        </member>
+        <member name="P:aspNetMX.MXValidate.LocalSMTPEndPointPort">
+            <summary>The local port, used by aspNetMX to bind to the remote SMTP server.</summary>
+            <summary>The local IP address, used by aspNetMX to bind to the remote SMTP server.</summary>
+            <remarks>
+            This property should only be set by advanced developers. By default, this value
+            is 0, which will use a random port between 1024 and 50,000. By setting this property,
+            it allows the developers to control what specific local port will be used for
+            communication with the remote SMTP server. See also
+            <a href="aspNetMX~aspNetMX.MXValidate~LocalSMTPEndPointIP">LocalSMTPEndPointIP</a>.
+            </remarks>
+            <summary>The local IP address, used by aspNetMX to bind to the remote SMTP server.</summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.LogInMemory">
+            <summary>
+            Keeps an in-memory log of email validation. By default, this value is false.
+            <seealso cref="M:aspNetMX.MXValidate.GetLog"/>
+            </summary>
+            <remarks>
+            Used in conjunction with InMemoryLog()
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level ==MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.LogOverwrite">
+            <summary>
+            Overwrites an existing log, as set by LogPath.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//also write to a file
+            			mx.LogPath = @"c:\aspNetMX.log";
+            			mx.LogOverwrite = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'also write to a file
+                    mx.LogPath = "c:\aspNetMX.log"
+                    mx.LogOverwrite = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level == MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.LogPath">
+            <summary>
+            The file system path to the log file.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//also write to a file
+            			mx.LogPath = @"c:\aspNetMX.log";
+            			mx.LogOverwrite = true;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level== MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'also write to a file
+                    mx.LogPath = "c:\aspNetMX.log"
+                    mx.LogOverwrite = True
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.Pattern">
+            <summary>
+            The Regular expression pattern used to validate an email address.
+            </summary>
+            <remarks>Special thanks to Andy Smith at www.regexlib.com for providing the default regular expression pattern.</remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//set an easier pattern
+            			mx.Pattern = "@";
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'set an easier pattern
+                    mx.Pattern = "@"
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.MailboxDomains">
+            <summary>
+            An ArrayList of domains that always claim a mailbox exists or produces an error. List list is empty by default.
+            </summary>
+            <remarks>Some mail servers will always claim a mailbox exists, when in fact it doesn't.  Microsoft's exchange server product is one of them. 
+            Therefore it is a waste of time to try and validate a mailbox against of of these domains. Add that domain to this ArrayList to prevent expensive
+            network operations that will eventually return a positive result.
+            The only way to determine a mailbox doesn't exist, at one of these domains, is to actually send an email and see if you get a bounce back.  
+            Here is a more complete list, compliments of James Shaw @ www.coveryourasp.com
+            aol.com
+            yahoo.com
+            bigfoot.com
+            msn.com
+            compuserve.com;
+            altavista.com
+            microsoft.com
+            netzero.net
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			mx.MailboxDomains = new ArrayList();
+            			mx.MailboxDomains.Add( "hotmail.com" );
+            			mx.MailboxDomains.Add( "microsoft.com" );
+            			mx.MailboxDomains.Add( "aol.com");
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    mx.MailboxDomains = New ArrayList()
+                    mx.MailboxDomains.Add("hotmail.com")
+                    mx.MailboxDomains.Add("microsoft.com")
+                    mx.MailboxDomains.Add("aol.com")
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.RecurseMailDomains">
+            <summary>
+            Recurse DNS records that start with the 'mail.' domain.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.SMTPFrom">
+            <summary>
+            A valid email address used in the validation process. By default SMTPFrom is null, and is set to the email address being verified.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using System.Collections;
+            using aspNetMX;
+            namespace csTest
+            {
+            	class Class1
+            	{
+            
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            
+            			//log the session
+            			mx.LogInMemory = true;
+            
+            			//change the SMTPFrom property
+            			mx.SMTPFrom = "me@mycompany.com";
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            
+            			if( level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            	
+            		
+            		}
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+            
+                Sub Main()
+                    Dim mx As New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'change the SMTPFrom property
+                    mx.SMTPFrom = "me@mycompany.com"
+            
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.SMTPHello">
+            <summary>
+            The 'hello from' text used in the SMTP session during the HELO command.
+            </summary>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+            			//change the smtp hello to my dns name
+            			mx.SmtpHello = "mycomputer.mycompany.com";
+            
+            			//change the SMTP timeout
+            			mx.SmtpTimeOut = 30000;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'change the SMTP hello to my dns name
+                    mx.SmtpHello = "mycomputer.mycompany.com"
+            
+                    'change the SMTP timeout
+                    mx.SmtpTimeOut = 30000
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.SMTPPort">
+            <summary>
+            The SMTP port at which an email address is verified. This property should only be changed under EXTREME circumstances.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.Tag">
+            <summary>
+            A custom object that can be used to differentiate MXValidate instances in a multi-threaded application.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.ThrowException">
+            <summary>
+            Throws any internal exception.
+            </summary>
+            <remarks>The default value is false, so all exceptions are thrown. If this property is set to true, 
+            no exceptions will be thrown. However, if an exception occurrs during the validation process, the
+            current level being validated will be returned, even through an exception did occurr.</remarks>
+        </member>
+        <member name="P:aspNetMX.MXValidate.SMTPTimeOut">
+            <summary>
+            The SMTP server timeout, in milliseconds.
+            </summary>
+            <remarks>
+            The amount of time, in milliseconds to send or wait from a response from a SMTP server. The default
+            setting is 60000 (60 seconds).
+            </remarks>
+            <example>
+            <code lang="C#">
+            using System;
+            using aspNetMX;
+            namespace test
+            {
+            	class Class1
+            	{
+            		
+            		static void Main(string[] args)
+            		{
+            			MXValidate mx = new MXValidate();
+            	
+            			//log the session
+            			mx.LogInMemory = true;
+            			
+                        //change the SMTP hello to my dns name
+            			mx.SmtpHello = "mycomputer.mycompany.com";
+            
+                       //change the smtp timeout
+            			mx.SmtpTimeOut = 30000;
+            
+            			//set the email address
+            			string EmailAddress = "test@hotmail.com";
+            			
+            			//validate
+            			MXValidateLevel level = mx.Validate( EmailAddress , MXValidateLevel.Mailbox );
+            			
+            			if(  level == MXValidateLevel.Mailbox)
+            			{
+            				Console.WriteLine( "Valid Email Address");
+            			}
+            			else
+            			{
+            				Console.WriteLine( "Not Valid Email Address");
+            			}
+            			Console.WriteLine( "Here is the session log");
+            			Console.WriteLine( mx.GetLog() );
+            
+            			Console.ReadLine();
+            		}
+            
+            	}
+            }
+            </code>
+            <code lang="Visual Basic">
+            Imports aspNetMX
+            Module Module1
+            
+                Sub Main()
+                    Dim mx As MXValidate = New MXValidate()
+            
+                    'log the session
+                    mx.LogInMemory = True
+            
+                    'change the smtp hello to my dns name
+                    mx.SmtpHello = "mycomputer.mycompany.com"
+            
+                    'change the smtp timeout
+                    mx.SmtpTimeOut = 30000
+            
+                    'set the email address
+                    Dim EmailAddress As String = "test@hotmail.com"
+            
+                    'validate
+                    Dim level As MXValidateLevel = mx.Validate(EmailAddress, MXValidateLevel.Mailbox)
+            
+                    If level = MXValidateLevel.Mailbox Then
+                        Console.WriteLine("Valid Email Address")
+                    Else
+                        Console.WriteLine("Not Valid Email Address")
+                    End If
+                    Console.WriteLine("Here is the session log")
+                    Console.WriteLine(mx.GetLog())
+            
+                    Console.ReadLine()
+            
+                End Sub
+            
+            End Module
+            
+            </code>
+            </example>
+        </member>
+        <member name="P:aspNetMX.MXValidate.SynchronizingObject">
+            <summary>
+            Gets or sets the object used to marshal event-handler calls that are issued.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.UseEhlo">
+            <summary>
+            Force using the Smtp EHLO command, during the Smtp session.
+            </summary>
+        </member>
+        <member name="E:aspNetMX.MXValidate.LogEvent">
+            <summary>
+            The event raised for logging or debugging purposes.
+            </summary>
+        </member>
+        <member name="E:aspNetMX.MXValidate.ValidateEmailCompleteEvent">
+            <summary>
+            The event raised when performing email validation from DataTables, DataReaders, DataSets or Text files.
+            </summary>
+        </member>
+        <member name="E:aspNetMX.MXValidate.Error">
+            <summary>
+             A Error event has occurred.
+            </summary>
+        </member>
+        <member name="E:aspNetMX.MXValidate.SmtpServerResponse">
+            <summary>
+            The event for handling a response from the server.
+            </summary>
+        </member>
+        <member name="P:aspNetMX.MXValidate.DefaultValidationPattern">
+            <summary>
+            The default Regular Expression validation pattern used for syntactically validating the email address.
+            </summary>
+        </member>
+    </members>
+</doc>

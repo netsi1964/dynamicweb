@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>xamarin</RootNamespace>
+    <AssemblyName>xamarin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="Dynamicweb">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Data.Providers">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Data">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Extensibility">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Extensibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Integration">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Modules">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Content.Social.Adapters">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.Social.Adapters.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Content.Workflow.Automation">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.Workflow.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Content.DatabaseContentProviders">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.DatabaseContentProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.AspNet">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Compile Include="basicItem.cs" />
+  </ItemGroup>
+</Project>
