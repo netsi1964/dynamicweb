@@ -30,26 +30,6 @@ namespace xamarin
 		[Field ("HTML Body", typeof(SimpleTextboxEditor))]
 		public string Body { get; set; }
 
-		/*
-		[Group ("Content")]
-		[Field ("Content", typeof(Dynamicweb.Content.Items.Editors.DateTimeEditor))]
-		[Name ("Born")]
-		public DateTime Born { 
-			get { return this.Born; }
-			set { 
-				DateTime oldest = DateTime.Now.AddYears (-120);
-				this.Born = (this.Born < oldest) ? this.Born : oldest;
-			}
-		}
-
-		// Here the set will only allow for 155 chars
-		[Group ("SEO")]
-		public string MetaDescription { 
-			get { return this.MetaDescription; } 
-			set { this.Heading = value.Substring (0, 155); } 
-		}
-		*/
-
 		[Group ("Content")]
 		[Field ("Content", typeof(Dynamicweb.Content.Items.Editors.DateTimeEditor))]
 		[Name ("Born")]
@@ -63,6 +43,12 @@ namespace xamarin
 		// http://developer.dynamicweb.com/documentation/for-developers/item-based-structure/working-with-metadata.aspx
 		// ItemType t = ItemManager.Metadata.GetItemType ("basicItem");
 
+
+		public override void Save()
+		{
+			this.Heading = this.MetaDescription.Substring(0, 155);
+			base.Save();
+		}
 
 
 		// Returns the current metadata
@@ -88,7 +74,7 @@ namespace xamarin
 					context.Value.ToString () : string.Empty;
 
 				// context.Output.WriteLine (string.Format ("<input type=\"text\" value=\"{0}\" />", System.Web.HttpUtility.HtmlAttributeEncode (v)));
-				context.Output.WriteLine (string.Format ("<textarea rows=\"10\" cols=\"70\">{0}</textarea>", System.Web.HttpUtility.HtmlAttributeEncode (v)));
+				context.Output.WriteLine (string.Format ("<textarea rows=\"10\" cols=\"70\" onclick=\"val=val.toUpperCase()\">{0}</textarea>", System.Web.HttpUtility.HtmlAttributeEncode (v)));
 			}
 		}
 
