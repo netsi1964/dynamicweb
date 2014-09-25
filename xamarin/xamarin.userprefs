@@ -3,14 +3,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="xamarin/basicItem.cs">
     <Files>
-      <File FileName="xamarin/basicItem.cs" Line="39" Column="39" />
+      <File FileName="xamarin/basicItem.cs" Line="48" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="xamarin" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="basicItem.cs" selected="True" />
+            <Node name="References" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>

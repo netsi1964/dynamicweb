@@ -33,44 +33,89 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="Dynamicweb">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.dll</HintPath>
-    </Reference>
-    <Reference Include="Dynamicweb.Data.Providers">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.Providers.dll</HintPath>
-    </Reference>
-    <Reference Include="Dynamicweb.Data">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.dll</HintPath>
+    <Reference Include="Dynamicweb.Compatibility">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Compatibility.dll</HintPath>
     </Reference>
     <Reference Include="Dynamicweb.Extensibility">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Dynamicweb.Integration">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Integration.dll</HintPath>
+    <Reference Include="Dynamicweb.Data.Providers">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.Providers.dll</HintPath>
     </Reference>
-    <Reference Include="Dynamicweb.Modules">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Modules.dll</HintPath>
+    <Reference Include="Dynamicweb.TextEditorAddIns">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.TextEditorAddIns.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Facebook.dll</HintPath>
+    <Reference Include="Dynamicweb.eCommerce.Economic">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Economic.dll</HintPath>
     </Reference>
-    <Reference Include="FredCK.FCKeditorV2">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\FredCK.FCKeditorV2.dll</HintPath>
+    <Reference Include="Dynamicweb.eCommerce.Specialized">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Searching.Specialized">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Searching.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.TaxProviders">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.TaxProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Modules.CrmIntegration">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Modules.CrmIntegration.dll</HintPath>
     </Reference>
     <Reference Include="Dynamicweb.Content.Social.Adapters">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.Social.Adapters.dll</HintPath>
     </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Orders.Gateways">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Orders.Gateways.dll</HintPath>
+    </Reference>
     <Reference Include="Dynamicweb.Content.Workflow.Automation">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.Workflow.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Cart.CheckoutHandlers">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Cart.CheckoutHandlers.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Orders.SalesDiscounts">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Orders.SalesDiscounts.dll</HintPath>
     </Reference>
     <Reference Include="Dynamicweb.Content.DatabaseContentProviders">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Content.DatabaseContentProviders.dll</HintPath>
     </Reference>
+    <Reference Include="Dynamicweb.Integration">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Searching">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Searching.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Controls">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Modules">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Modules.dll</HintPath>
+    </Reference>
     <Reference Include="Dynamicweb.AspNet">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="Dynamicweb.Shell">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Admin">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.Data">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Cart.ShippingProviders">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Cart.ShippingProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Orders.Gateways.BBSPayment">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Orders.Gateways.BBSPayment.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.CalculatedProductFieldTypeProviders">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.CalculatedProductFieldTypeProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamicweb.eCommerce.Orders.ReturnMerchandiseAuthorization.ReplacementOrderProviders">
+      <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Orders.ReturnMerchandiseAuthorization.ReplacementOrderProviders.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
