@@ -1,8 +1,9 @@
 ﻿@using System.Web;
 @using Dynamicweb;
-@using xamarin;
+@using netsi1964;
 @{
- string status = xamarin.zip.zipPathToPath("/files/Templates/Page", "/files/Templates/Page/BAK/page.zip");
+	netsi1964.zip myZip = new netsi1964.zip();
+ 	string status = myZip.doZip("/files/Templates/Page", "/files/Templates/Page/BAK/page.zip");
 }
 
  <textarea cols="100" rows="10">@status</textarea>

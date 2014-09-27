@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xamarin", "xamarin\xamarin.csproj", "{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netsi1964", "xamarin\netsi1964.csproj", "{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,7 +18,7 @@ Global
 		{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = xamarin\xamarin.csproj
+		StartupItem = xamarin\netsi1964.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None

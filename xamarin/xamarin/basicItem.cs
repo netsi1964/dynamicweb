@@ -5,6 +5,8 @@ using Dynamicweb;
 // Used for Item related attributes
 using Dynamicweb.Content.Items.Annotations;
 
+using Dynamicweb.Content.Items.Activation;
+
 // Used if you want custom editors
 using Dynamicweb.Content.Items.Editors;
 
@@ -13,9 +15,14 @@ using Dynamicweb.Content.Items.Metadata;
 
 
 
-namespace xamarin
+namespace netsi1964
 {
+	// Thanks to Morten Bengtsson for sharing his experiences and code
+	// http://developer.dynamicweb.com/Default.aspx?ID=2&CategoryID=27&ThreadID=37770
 	[Name ("Basic Item")]
+	[AreaRule] //  Allow items of this type to be created in any area / website
+	[StructureRule (Dynamicweb.Content.Items.Activation.StructureContextType.Pages)] //  Allow items of this type to be created as pages only.
+	[ParentRule (ParentRestrictionRule.ParentType.RootOfWebsite, ParentRestrictionRule.ParentType.RegularPage)] // Allow items of this type to be created in the root of the website and under a regular page.
 	public class basicItem : ItemEntry  // classname becomes "systemname" used among other in Database Table Name "ItemType_basicItem"
 	{
 
@@ -44,10 +51,10 @@ namespace xamarin
 		// ItemType t = ItemManager.Metadata.GetItemType ("basicItem");
 
 
-		public override void Save()
+		public override void Save (ItemContext context)
 		{
-			this.MetaDescription = "TEST"+this.MetaDescription.Substring(0, 155);
-			base.Save();
+			this.MetaDescription = "TEST" + this.MetaDescription.Substring (0, 155);
+			base.Save (context);
 		}
 
 
