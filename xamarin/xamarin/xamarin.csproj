@@ -117,6 +117,9 @@
     <Reference Include="Dynamicweb.eCommerce.Orders.ReturnMerchandiseAuthorization.ReplacementOrderProviders">
       <HintPath>..\..\..\..\DW\Application%288.4.1.8%29\bin\Dynamicweb.eCommerce.Orders.ReturnMerchandiseAuthorization.ReplacementOrderProviders.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\..\..\Downloads\DotNetZipLib-DevKit-v1.9\zip-v1.9\Debug\Ionic.Zip.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -128,5 +131,13 @@
   </ProjectExtensions>
   <ItemGroup>
     <Compile Include="basicItem.cs" />
+    <Compile Include="zip.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\" />
+    <Folder Include="Templates\Paragraph\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\Paragraph\tests.cshtml" />
   </ItemGroup>
 </Project>
