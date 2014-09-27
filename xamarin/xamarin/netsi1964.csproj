@@ -136,6 +136,7 @@
   <ItemGroup>
     <Folder Include="Templates\" />
     <Folder Include="Templates\Paragraph\" />
+    <Folder Include="Templates\Page\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\Paragraph\tests.cshtml" />
