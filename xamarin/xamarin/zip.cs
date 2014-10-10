@@ -6,6 +6,36 @@ using Ionic.Zip;
 
 namespace netsi1964
 {
+	class Log : IDisposable
+	{
+		FileStream file;
+		readonly object syncLock = new object ();
+
+		public Log (string path)
+		{
+			file = new FileStream (fileName, FileMode.Append, FileAccess.Write,
+				FileShare.ReadWrite, 8192);
+		}
+
+		public void Dispose ()
+		{
+			if (file != null) {
+				file.Dispose ();
+				file = null;
+			}
+		}
+
+		public void Append (byte[] buffer)
+		{
+			if (file == null)
+				throw new ObjectDisposedException (GetType ().Name);
+			lock (syncLock) { // only 1 thread can be appending at a time
+				file.Write (buffer, 0, buffer.Length);
+				file.Flush ();
+			}
+		}
+	}
+
 	public class zip
 	{
 		public string doZip (string sourcePath, string targetPath)
@@ -17,6 +47,7 @@ namespace netsi1964
 		{
 			string status = "";
 			bool okay = true;
+
 			string _sourcePath = System.Web.HttpContext.Current.Server.MapPath (sourcePath);
 			string _targetPath = System.Web.HttpContext.Current.Server.MapPath (targetPath);
 
@@ -45,7 +76,7 @@ namespace netsi1964
 								e.Comment = "Added by Cheeso's CreateZip utility."; 
 							}
 						} else {
-							zip.AddDirectory(_sourcePath, "backup");
+							zip.AddDirectory (_sourcePath, "backup");
 						}
 
 
