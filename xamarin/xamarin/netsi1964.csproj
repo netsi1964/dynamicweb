@@ -131,7 +131,7 @@
   </ProjectExtensions>
   <ItemGroup>
     <Compile Include="basicItem.cs" />
-    <Compile Include="zip.cs" />
+    <Compile Include="tagExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Templates\" />
@@ -140,5 +140,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\Paragraph\tests.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zip.cs" />
   </ItemGroup>
 </Project>
