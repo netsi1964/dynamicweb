@@ -24,4 +24,3 @@ Another thing with tagExtensions is that you can choose to *ignore* the value of
 ```
 	<!--@News:Date.TimeAgo("2014/06/01")-->
 ```
- 
