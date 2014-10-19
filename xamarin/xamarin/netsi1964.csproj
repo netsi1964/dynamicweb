@@ -19,6 +19,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="cp &quot;${TargetFile}&quot; &quot;/Users/stenhougaard/Dokumenter/1stweb/remote.1stweb.dk/sho.1stweb-dev.net/Application/bin/&quot;" workingdir="" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -120,6 +125,63 @@
     <Reference Include="Ionic.Zip">
       <HintPath>..\..\..\..\..\Downloads\DotNetZipLib-DevKit-v1.9\zip-v1.9\Debug\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="ABCpdf">
+      <HintPath>bin\ABCpdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Avalara.AvaTax.Adapter">
+      <HintPath>bin\Avalara.AvaTax.Adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Economic.Api">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Economic.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FredCK.FCKeditorV2">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpCompression">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\HttpCompression.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageGlue">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\ImageGlue.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageQuantization">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\ImageQuantization.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="NHunspell">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\NHunspell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="google-api-adwords-dotnet">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\google-api-adwords-dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="swfHeaderInfo">
+      <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\swfHeaderInfo.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -132,6 +194,7 @@
   <ItemGroup>
     <Compile Include="basicItem.cs" />
     <Compile Include="tagExtension.cs" />
+    <Compile Include="util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Templates\" />

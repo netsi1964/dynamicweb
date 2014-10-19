@@ -1,3 +1,6 @@
+xamarin/test/obj/Debug/*
+*.dll
+*.exe
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/Templates/Page/backup
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/Templates/Page/page.zip
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/Templates/Page/backup/BAK

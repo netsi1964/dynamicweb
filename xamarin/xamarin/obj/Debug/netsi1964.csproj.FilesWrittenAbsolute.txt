@@ -1,6 +1,8 @@
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/xamarin.dll
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/xamarin.dll.mdb
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/netsi1964.dll.mdb
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/netsi1964.dll
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/netsi1964.dll
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/netsi1964.dll.mdb
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Dynamicweb.Compatibility.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Dynamicweb.Extensibility.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Dynamicweb.Data.Providers.dll
@@ -86,7 +88,4 @@
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Microsoft.Owin.Security.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Microsoft.Owin.Security.OAuth.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Microsoft.Owin.Security.Cookies.dll
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/netsi1964.dll.mdb
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/netsi1964.dll
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/netsi1964.dll
-/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/netsi1964.dll.mdb
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/HttpCompression.dll

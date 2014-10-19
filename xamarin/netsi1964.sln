@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netsi1964", "xamarin\netsi1964.csproj", "{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,6 +12,12 @@ Global
 		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB2FC51-AFB0-4A08-9231-44033FCBCC42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -18,7 +26,7 @@ Global
 		{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = xamarin\netsi1964.csproj
+		StartupItem = test\test.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None
