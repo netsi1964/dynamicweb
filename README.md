@@ -1,6 +1,10 @@
 # Dynamicweb
 > A Xamarin solution containing various code for Dynamicweb CMS system.
 
+> How about you? Would you like also to contribute to this repository?
+> Lets build some usefull extensions for Dynamicweb! TagExtensions which makes life nicer for us coding CMS using Dynamicweb.
+> I ask you to contact me on twitter: @netsi1964
+
 ## Class: netsi1964.util
 This class contains the raw functions like `TimeAgo()` which can be used in your Dynamicweb Templates if they use `Razor` based templates.
 
