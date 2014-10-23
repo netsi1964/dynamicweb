@@ -10,16 +10,22 @@ namespace netsi1964
 	{
 
 
-		//AddInName is the name of the extension method - <!--@DwPageName.sho(12)-->
-		// will give an AddInName of 'sho'
-		// "page name".sho() => "page_name"
-		[AddInName ("sho")]
-		public class TagExtension_sho : TagExtensionMethod
+		// AddInName is the name of the extension method - <!--@tag.Request(Url, xpath)-->
+		// will give an TagExtension of 'request(string Url, string xpath)'
+		// "page name".Request("http://www.dr.dk", "") => HTML from <body> of dr.dk
+		[AddInName ("Request")]
+		public class TagExtension_Request : TagExtensionMethod
 		{
 			public override string ExecuteMethod (string value)
 			{
+				string url = "http://www.dr.dk";
+				string xpath = "";
 				object fullPassedArgument = this.Argument;
-				return netsi1964.util.sho (value);
+				if (this.Arguments.Count == 2) {
+					url = this.Arguments [0].ToString ();
+					xpath = this.Arguments [1].ToString ();
+				}
+				return netsi1964.Experimental.request (url, xpath);
 			}
 		}
 

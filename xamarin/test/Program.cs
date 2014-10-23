@@ -7,7 +7,11 @@ namespace test
 	{
 		public static void Main (string[] args)
 		{
+			Console.WriteLine ("request");
+			Console.WriteLine (netsi1964.Experimental.request ("http://www.dr.dk"));
 
+
+			Console.WriteLine ("TimeAgo");
 			Console.WriteLine (netsi1964.util.TimeAgo (DateTime.Now.AddSeconds (10).ToString()));
 
 			Console.WriteLine (netsi1964.util.TimeAgo ("2014/01/01"));

@@ -195,6 +195,7 @@
     <Compile Include="basicItem.cs" />
     <Compile Include="tagExtension.cs" />
     <Compile Include="util.cs" />
+    <Compile Include="Experimental.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Templates\" />

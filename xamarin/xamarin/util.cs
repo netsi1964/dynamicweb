@@ -2,6 +2,7 @@
 using Dynamicweb.Rendering;
 using Dynamicweb.Templatev2;
 
+
 namespace netsi1964
 {
 	public class util
@@ -10,6 +11,8 @@ namespace netsi1964
 		{
 			return value.Replace (" ", "_");
 		}
+
+		#region TimeAgo
 
 		public static String TimeAgo (string date)
 		{
@@ -25,10 +28,15 @@ namespace netsi1964
 			return prettyDate;
 		}
 
+
+		#endregion
+
 		private static string substitute (bool isTrue, string txt, Double number)
 		{
 			return (isTrue) ? txt.Replace ("%d", number.ToString ()) : "";
 		}
+
+		#region GetPrettyDate
 
 		private static string GetPrettyDate (DateTime d)
 		{
@@ -55,7 +63,7 @@ namespace netsi1964
 			// Difference between date and now
 			// Negative: Future
 			TimeSpan ts = oNow - date;
-		
+
 
 			bool bFuture = (ts.Milliseconds < 0);
 
@@ -116,24 +124,7 @@ namespace netsi1964
 			return sTimeAgo;
 		}
 
-
-		static Source transGlobal = new Dynamicweb.Templatev2.Translation.Source();
-
-		public static string TranslateLabel(string label)
-		{
-			string CultureName = System.Threading.Thread.CurrentThread.CurrentCulture.ToString();
-			string ret = String.Empty;
-			transGlobal.LoadKeys();
-			Dynamicweb.Templatev2.Translation.Key key = new Dynamicweb.Templatev2.Translation.Key();
-			transGlobal.Keys.TryGetValue(label, out key);
-
-			if (key != null &&
-				key.Translations.ContainsKey(CultureName) &&
-				key.Translations[CultureName].Value.Length > 0)
-				ret = key.Translations[CultureName].Value;
-			return ret;
-		}
-
+		#endregion
 
 
 	}
