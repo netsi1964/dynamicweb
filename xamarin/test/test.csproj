@@ -29,6 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -40,5 +41,8 @@
       <Project>{AE04C18C-5C9E-4810-B5F4-2078EB0338EE}</Project>
       <Name>netsi1964</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="msdn.png" />
   </ItemGroup>
 </Project>

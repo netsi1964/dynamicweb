@@ -182,6 +182,7 @@
     <Reference Include="swfHeaderInfo">
       <HintPath>..\..\..\..\1stweb\remote.1stweb.dk\sho.1stweb-dev.net\Application\bin\swfHeaderInfo.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

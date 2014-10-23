@@ -2,6 +2,8 @@
 using WebSupergoo;
 using System.Web;
 using HtmlAgilityPack;
+using System.Drawing;
+using System.IO;
 
 namespace netsi1964
 {
@@ -35,6 +37,26 @@ namespace netsi1964
 				response = ex.Message;
 			}
 			return response;
+		}
+
+		public static string base64encode(string Path) {
+			// http://stackoverflow.com/questions/21325661/convert-image-path-to-base64-string
+			string base64String = "";
+			try {
+				using (System.Drawing.Image image = System.Drawing.Image.FromFile (Path)) {   
+					base64String = "ok";
+					using (MemoryStream m = new MemoryStream ()) {
+						image.Save (m, image.RawFormat);
+						byte[] imageBytes = m.ToArray ();
+				
+						// Convert byte[] to Base64 String
+						base64String = Convert.ToBase64String (imageBytes);
+					}                  
+				}
+			} catch (Exception ex) {
+				base64String = "Error: "+ex.Message;
+			}
+			return base64String;
 		}
 
 	}

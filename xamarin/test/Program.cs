@@ -1,5 +1,7 @@
 ﻿using System;
 using netsi1964;
+using System.IO;
+using System.Drawing;
 
 namespace test
 {
@@ -7,9 +9,16 @@ namespace test
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("request");
-			Console.WriteLine (netsi1964.Experimental.request ("http://www.dr.dk"));
+			// Base64encode test
+			// Console.WriteLine ("Base64encode");
+			// Console.WriteLine(File.Exists("/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/test/msdn.png"));
+			// Console.WriteLine(System.Drawing.Image.FromFile ("/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/test/msdn.png"));
 
+			// Request Test 
+			Console.WriteLine ("request");
+			Console.WriteLine (netsi1964.Experimental.request ("http://www.dr.dk", "//head"));
+
+			// TimeAgo test
 
 			Console.WriteLine ("TimeAgo");
 			Console.WriteLine (netsi1964.util.TimeAgo (DateTime.Now.AddSeconds (10).ToString()));
