@@ -5,6 +5,18 @@
 > Lets build some usefull extensions for Dynamicweb! TagExtensions which makes life nicer for us coding CMS using Dynamicweb.
 > I ask you to contact me on twitter: @netsi1964
 
+## The idea
+We need to share code for Dynamicweb. As I have just begun coding backend code using Xamarin Studio (on Mac!) it has opened doors and I have only just begun! No man is an island, so I would love others to share their code and contribute here. I would love to have a DLL containing some usefull stuff, like TagExtensions.
+
+I write this version as a Solution which can also be opened in Visual Studio. I try to seperate the code in different classes and I try to make my classes as generic as possible. For instance I write:
+
+*  A console project, for testing offline functions
+*  A class containing functionality and serving as a "util" or "Base" class. For instance my Tag Extensions use it when doing their job, they only serve as proxies. Functionality is not put into the Tag Extensions, as I want the function of them to be useful for Razor templates also.
+*  Tag Extensions live in their own namespace
+*  Backend created items. A sandbox where I want to put basic example of how to create items using backend code.
+  
+So You are free to use it!
+
 ## Class: netsi1964.util
 This class contains the raw functions like `TimeAgo()` which can be used in your Dynamicweb Templates if they use `Razor` based templates.
 
