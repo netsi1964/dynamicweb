@@ -24,3 +24,6 @@ Another thing with tagExtensions is that you can choose to *ignore* the value of
 ```
 	<!--@News:Date.TimeAgo("2014/06/01")-->
 ```
+
+## Class: netsi1964.Experimental
+Here I put code which are on a "sandbox" state - for instance "`request (string Url, string xPathSearch)`" which will pull content from any given `Url`, run a `XPath` on the requested HTML using specified `xPathSearch` (if you have ever used XSLT, you will know XPath). and return the resulting HTML.
