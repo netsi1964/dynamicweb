@@ -49,7 +49,7 @@ For example:
 	<!--@News:Date.Request("http://www.dr.dk", "")-->
 ```
 
-Result will be HTML from <body> of dr.dk
+Result will be HTML from `<body>` of dr.dk
 
 ## Class: netsi1964.Experimental
 Here I put code which are on a "sandbox" state - for instance "`request (string Url, string xPathSearch)`" which will pull content from any given `Url`, run a `XPath` on the requested HTML using specified `xPathSearch` (if you have ever used XSLT, you will know XPath). and return the resulting HTML.
