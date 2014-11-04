@@ -43,3 +43,18 @@ Another thing with tagExtensions is that you can choose to *ignore* the value of
 
 ## Class: netsi1964.Experimental
 Here I put code which are on a "sandbox" state - for instance "`request (string Url, string xPathSearch)`" which will pull content from any given `Url`, run a `XPath` on the requested HTML using specified `xPathSearch` (if you have ever used XSLT, you will know XPath). and return the resulting HTML.
+
+### getDatalistAsXML(int datalistid)
+This is a way to insert XML output from a datalist publication. You will need to create a datalist and add a publication.
+You do not need to assign an XSLT but normally you would transform into the required format.
+
+```
+	<!--@News:Date.getDatalistAsXML(1)-->
+```
+
+### getDatalistAsJSON(int datalistid)
+This is a way to insert a JSON version of XML output from a datalist publication. You will need to create a datalist and add a publication. You do not need to assign an XSLT but normally you would transform into the required format.
+
+```
+	<!--@News:Date.getDatalistAsJSON(1)-->
+```
