@@ -202,11 +202,15 @@
     <Folder Include="Templates\" />
     <Folder Include="Templates\Paragraph\" />
     <Folder Include="Templates\Page\" />
+    <Folder Include="resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Templates\Paragraph\tests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zip.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\xml2json.xslt" />
   </ItemGroup>
 </Project>

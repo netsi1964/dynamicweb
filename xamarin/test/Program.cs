@@ -18,7 +18,11 @@ namespace test
 			Console.WriteLine ("request");
 			Console.WriteLine (netsi1964.Experimental.request ("http://www.dr.dk", "//head"));
 
+
 			// TimeAgo test
+
+
+
 
 			Console.WriteLine ("TimeAgo");
 			Console.WriteLine (netsi1964.util.TimeAgo (DateTime.Now.AddSeconds (10).ToString()));

@@ -9,6 +9,40 @@ namespace netsi1964
 	public class tagExtension
 	{
 
+		// AddInName is the name of the extension method - <!--@tag.getDatalistAsJSON(id)-->
+		// will give an TagExtension of 'getDatalistAsJSON(int id)'
+		// "page name".getDatalistAsJSON(1) => JSON from the datalist no 1
+		[AddInName ("getDatalistAsJSON")]
+		public class TagExtension_getDatalistAsJSON : TagExtensionMethod
+		{
+			public override string ExecuteMethod (string value)
+			{
+				int id = -1;
+				object fullPassedArgument = this.Argument;
+				if (this.Arguments.Count == 1) {
+					id = int.Parse(this.Arguments [0].ToString());
+				}
+				return netsi1964.Experimental.getDatalistAsJSON (id);
+			}
+		}
+
+
+		// AddInName is the name of the extension method - <!--@tag.getDatalistAsXML(id)-->
+		// will give an TagExtension of 'getDatalistAsXML(int id)'
+		// "page name".getDatalistAsXML(1) => XML from the datalist no 1
+		[AddInName ("getDatalistAsXML")]
+		public class TagExtension_getDatalistAsXML : TagExtensionMethod
+		{
+			public override string ExecuteMethod (string value)
+			{
+				int id = -1;
+				object fullPassedArgument = this.Argument;
+				if (this.Arguments.Count == 1) {
+					id = int.Parse(this.Arguments [0].ToString());
+				}
+				return netsi1964.Experimental.getDatalistAsXML (id);
+			}
+		}
 
 		// AddInName is the name of the extension method - <!--@tag.Request(Url, xpath)-->
 		// will give an TagExtension of 'request(string Url, string xpath)'

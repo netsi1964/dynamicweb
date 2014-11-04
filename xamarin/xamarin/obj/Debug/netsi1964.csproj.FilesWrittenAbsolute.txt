@@ -89,3 +89,4 @@
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Microsoft.Owin.Security.OAuth.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/Microsoft.Owin.Security.Cookies.dll
 /Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/bin/HttpCompression.dll
+/Users/stenhougaard/Dokumenter/Git/dynamicweb/xamarin/xamarin/obj/Debug/netsi1964.resources.xml2json.xslt
