@@ -41,6 +41,16 @@ Another thing with tagExtensions is that you can choose to *ignore* the value of
 	<!--@News:Date.TimeAgo("2014/06/01")-->
 ```
 
+### Request(string Url, string xpath)
+This tagextension lets you do a server side request and insert the elements found using the given xpath [default:"//body"].
+For example:
+
+```
+	<!--@News:Date.Request("http://www.dr.dk", "")-->
+```
+
+Result will be HTML from <body> of dr.dk
+
 ## Class: netsi1964.Experimental
 Here I put code which are on a "sandbox" state - for instance "`request (string Url, string xPathSearch)`" which will pull content from any given `Url`, run a `XPath` on the requested HTML using specified `xPathSearch` (if you have ever used XSLT, you will know XPath). and return the resulting HTML.
 
@@ -57,4 +67,12 @@ This is a way to insert a JSON version of XML output from a datalist publication
 
 ```
 	<!--@News:Date.getDatalistAsJSON(1)-->
+```
+
+### Method: String transform(string xmlInput, string xslInput)
+I found a need to be able to transform two strings: An XML and an XSLT, so that method is also in the Experimental class.
+It is not exposed as a tagExtension, however it can be used in Razor like this:
+
+```
+	@transform("<xml..>", "<xslt...>")
 ```
