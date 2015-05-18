@@ -1,4 +1,6 @@
 # Dynamicweb
+
+[![Join the chat at https://gitter.im/netsi1964/dynamicweb](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/netsi1964/dynamicweb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 > A Xamarin solution containing various code for Dynamicweb CMS system.
 
 > How about you? Would you like also to contribute to this repository?
